@@ -1,0 +1,33 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:20768",
+      "sslPort": 44382
+    }
+  },
+  "profiles": {
+    "GestionClienteHL": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:7098;http://localhost:5048",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASEHUMALAB": "Data Source=10.23.10.5;Initial Catalog=DbPortalHumalab;User ID=sa;Password=Humalab123; TrustServerCertificate=True"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASEHUMALAB": "Data Source=10.23.10.5;Initial Catalog=DbPortalHumalab;User ID=sa;Password=Humalab123; TrustServerCertificate=True"
+      }
+    }
+  }
+}

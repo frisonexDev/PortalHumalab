@@ -1,0 +1,156 @@
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\appsettings.Development.json
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\appsettings.json
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.exe
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.deps.json
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.runtimeconfig.json
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.pdb
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Azure.Core.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Azure.Identity.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.ClientModel.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.csproj.AssemblyReference.cache
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.AssemblyInfoInputs.cache
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.AssemblyInfo.cs
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.csproj.CoreCompileInputs.cache
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.MvcApplicationPartsAssemblyInfo.cs
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.MvcApplicationPartsAssemblyInfo.cache
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.EjemploHL.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.build.EjemploHL.props
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.EjemploHL.props
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.EjemploHL.props
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets.build.json
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets.development.json
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\scopedcss\bundle\EjemploHL.styles.css
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.csproj.CopyComplete
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\refint\EjemploHL.dll
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.pdb
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.genruntimeconfig.cache
+C:\Nueva carpeta (2)\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\ref\EjemploHL.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\appsettings.Development.json
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\appsettings.json
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.exe
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.deps.json
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.runtimeconfig.json
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\EjemploHL.pdb
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Azure.Core.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Azure.Identity.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.ClientModel.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Memory.Data.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.csproj.AssemblyReference.cache
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.GeneratedMSBuildEditorConfig.editorconfig
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.AssemblyInfoInputs.cache
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.AssemblyInfo.cs
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.csproj.CoreCompileInputs.cache
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.MvcApplicationPartsAssemblyInfo.cs
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.MvcApplicationPartsAssemblyInfo.cache
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.EjemploHL.Microsoft.AspNetCore.StaticWebAssets.props
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.build.EjemploHL.props
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.EjemploHL.props
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.EjemploHL.props
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets.pack.json
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets.build.json
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\staticwebassets.development.json
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\scopedcss\bundle\EjemploHL.styles.css
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.csproj.CopyComplete
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\refint\EjemploHL.dll
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.pdb
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\EjemploHL.genruntimeconfig.cache
+C:\MicrosHL_New\API Humalab\EjemploHL\EjemploHL\obj\Debug\net6.0\ref\EjemploHL.dll
