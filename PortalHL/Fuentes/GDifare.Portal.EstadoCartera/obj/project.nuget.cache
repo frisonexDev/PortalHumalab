@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MuOhbBoWsE8WOLZNFVJaxjz6eCbvn4A4x7G6YzO7waa8ltg0P+U9vvrFVReJSnRtfGOX+cnl9Vep8MpKFjEvfA==",
+  "dgSpecHash": "xqJTpKiABOekx3t+g1+bcQQV1CYV4LxsJW7koFHYn6ZL5gO5ZyAlWpAnYj2oiGrLeyzJ5ZTqDY4r8tSYglZNnw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.EstadoCartera\\GDifare.Portal.EstadoCartera.csproj",
+  "projectFilePath": "C:\\HumalabGit\\PortalHL\\Fuentes\\GDifare.Portal.EstadoCartera\\GDifare.Portal.EstadoCartera.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

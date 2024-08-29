@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj": {}
+    "C:\\HumalabGit\\PortalHL\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj": {
+    "C:\\HumalabGit\\PortalHL\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj",
+        "projectUniqueName": "C:\\HumalabGit\\PortalHL\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj",
         "projectName": "GDifare.Portal.Humalab.Seguridad",
-        "projectPath": "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj",
+        "projectPath": "C:\\HumalabGit\\PortalHL\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj",
         "packagesPath": "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\obj\\",
+        "outputPath": "C:\\HumalabGit\\PortalHL\\Fuentes\\GDifare.Portal.Humalab.Seguridad\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
