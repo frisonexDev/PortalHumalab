@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>Factura Cliente</title>
+
+    <style type="text/css">
+        body {
+            font-size: 10px;
+        }
+
+        .tableheader {
+            border: silver 1px solid;
+            padding: 5px;
+        }
+
+        .tablePruebas tr td {
+            border: silver 1px solid;
+            padding: 10px;
+        }
+
+        .cuadrado {
+            font-size: 24px;
+            border: solid 1px black;
+            width: 200px;
+            height: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #total {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+        }
+
+        p {
+            color: black;
+        }
+
+        #datosFactura {
+            width: 18%;
+            padding-top: 11px;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <div>
+        <img class="adapt-img" src="https://slynox.stripocdn.email/content/guids/CABINET_6c99b0fb926c16c619692950ec20f07b97ec51ad8db74166634208aa62d01eed/images/humalab.PNG" alt="" width="150" style="display:block;font-size:14px;border:0;outline:none;text-decoration:none" />
+    </div>
+
+
+    <table style="width:100%">
+        <tr>
+            <td style="width:40%">
+                <h2>HUMALAB S.A</h2>
+                <h3>HUMALAB S.A</h3>
+                <h4>Matriz: AV.6 DE DICIEMBRE N3-110 Y WHYMPER</h4>
+                <h5>Sucursal: URB. CIUDAD COLON, EDIFICIO METROPARK LOCAL 9</h5>
+                <h5>Contribuyente Especial Nro.</h5>
+                <h5>Obligado a llevar contabilidad: NO</h5>
+            </td>
+
+
+
+            <td style="width:50%">
+
+
+
+
+
+
+
+                <div id="estadoFac" class="cuadrado"></div>
+
+
+
+                <div>
+                    <h5>Fecha y Hora de Autorización : </h5><span id="fechaAut"></span>
+
+                </div>  <div>
+                    <h5>Ambiente: PRODUCCIÓN</h5>
+                </div><div>
+                    <h5>Tipo de Emisión: NORMAL</h5>
+                </div>
+
+
+
+
+
+            </td>
+        </tr>
+    </table>
+
+
+    <div class="es-wrapper-color" style="background-color:#FDFEFE">
+        <div style=" width:100%">
+            <table class="tableheader" style="width:100%">
+                <tr class="tableheader">
+                    <td style="font-weight: bold;">Razón Social/Nombres y Apellidos:</td>
+                    <td id="nombre"></td>
+                    <td style="font-weight: bold;">Fecha Emisión: </td>
+                    <td id="fecha"></td>
+                </tr>
+                <tr class="tableheader">
+                    <td style="font-weight: bold;">RUC/CI:</td>
+                    <td id="ruc"></td>
+                    <td style="font-weight: bold;">Guía Remisión:</td>
+                    <td id="guia"></td>
+
+                </tr>
+                <tr class="tableheader">
+                    <td></td>
+                    <td></td>
+                    <td style="font-weight: bold;">Moneda:</td>
+                    <td id="dolar">DOLAR</td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+
+            <br />
+            <br />
+            <table id="tablaFactura" class="tablePruebas" class="tablePruebas" style="width:100%;">
+
+                <thead>
+                    <tr class="tablePruebas" style=" text-align: center; font-weight: bold;">
+                        <td style="font-weight: bold;"> Código </td>
+                        <td style="font-weight: bold;"> Descripción </td>
+                        <td style="font-weight: bold;"> Cantidad </td>
+                        <td style="font-weight: bold;"> Precio Unitario </td>
+                        <td style="font-weight: bold;"> Total </td>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaFacturaDatos"></tbody>
+
+                <tfoot>
+                    <tr>
+                        <td style="text-align: right; font-weight: bold;" colspan="4">Total</td>
+                        <td id="total" style="text-align: right; font-weight: bold;"></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <br />
+
+            <h5>Total Ordenes : <span id="totalMuestra"></span></h5>
+            <h5>Total Factura :<span id="detalleMuestras"></span></h5>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
