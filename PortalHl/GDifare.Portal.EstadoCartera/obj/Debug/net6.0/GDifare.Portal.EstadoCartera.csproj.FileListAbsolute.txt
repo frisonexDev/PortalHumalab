@@ -16,3 +16,10 @@ C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fu
 C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fuentes\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\refint\GDifare.Portal.EstadoCartera.dll
 C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fuentes\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.pdb
 C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fuentes\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\ref\GDifare.Portal.EstadoCartera.dll
+C:\HumalabGit\PortalHl\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.csproj.AssemblyReference.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.Resources.Routes.resources
+C:\HumalabGit\PortalHl\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.csproj.GenerateResource.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.GeneratedMSBuildEditorConfig.editorconfig
+C:\HumalabGit\PortalHl\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.AssemblyInfoInputs.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.AssemblyInfo.cs
+C:\HumalabGit\PortalHl\GDifare.Portal.EstadoCartera\obj\Debug\net6.0\GDifare.Portal.EstadoCartera.csproj.CoreCompileInputs.cache

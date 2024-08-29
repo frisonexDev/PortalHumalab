@@ -1,7 +1,7 @@
 ﻿using GDifare.Portal.Humalab.Seguridad.Modelos;
 using GDifare.Portal.Humalab.Seguridad.Resources;
 using GDifare.Portal.Humalab.Seguridad.Utils;
-using GDifare.Portales.Comunicaciones;
+//using GDifare.Portales.Comunicaciones;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
@@ -11,7 +11,7 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
 {
     public class UsuarioOperation
     {
-        private readonly Communicator CommunicatorUsuario;
+        //private readonly Communicator CommunicatorUsuario;
 
         //Avalab
         public string ServerAvalab;
@@ -21,7 +21,7 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
 
         public UsuarioOperation(string server, int port, string Token, string user, string pass)
         {
-            CommunicatorUsuario = new Communicator(server, port, Routes.PathServicesSeguridadUsuario, Token);
+            //CommunicatorUsuario = new Communicator(server, port, Routes.PathServicesSeguridadUsuario, Token);
 
             //AVALAB
             ServerAvalab = server;
@@ -134,72 +134,72 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
             }
         }
 
-        public List<ObjUsuario> ConsultarUsuario(int UsuarioID = 0, int EmpresaID = 0, string usuario = null, string Nombre = null, string PrimerApellido = null, string SegundoApellido = null, int EstadoID = 0)
-        {
+        //public List<ObjUsuario> ConsultarUsuario(int UsuarioID = 0, int EmpresaID = 0, string usuario = null, string Nombre = null, string PrimerApellido = null, string SegundoApellido = null, int EstadoID = 0)
+        //{
 
-            // MLOPEZ: A este método se le modificó al momento de construir el string de parámetros.
-            // antes: listar?UsuarioID=3EmpresaID=2... etc
-            // ahora (se le agregó el & para dividir los parámetros): listar?UsuarioID=3&EmpresaID=2&... etc
+        //    // MLOPEZ: A este método se le modificó al momento de construir el string de parámetros.
+        //    // antes: listar?UsuarioID=3EmpresaID=2... etc
+        //    // ahora (se le agregó el & para dividir los parámetros): listar?UsuarioID=3&EmpresaID=2&... etc
 
-            var metodo = "listar";
+        //    var metodo = "listar";
 
-            if (UsuarioID > 0 || EmpresaID > 0 || !string.IsNullOrWhiteSpace(usuario) || !string.IsNullOrWhiteSpace(Nombre)
-                || !string.IsNullOrWhiteSpace(PrimerApellido) || !string.IsNullOrWhiteSpace(SegundoApellido) || EstadoID > 0)
-                metodo += "?";
+        //    if (UsuarioID > 0 || EmpresaID > 0 || !string.IsNullOrWhiteSpace(usuario) || !string.IsNullOrWhiteSpace(Nombre)
+        //        || !string.IsNullOrWhiteSpace(PrimerApellido) || !string.IsNullOrWhiteSpace(SegundoApellido) || EstadoID > 0)
+        //        metodo += "?";
 
-            if (UsuarioID > 0)
-                metodo += string.Format("&UsuarioID={0}", HttpUtility.UrlEncode(UsuarioID.ToString()));
+        //    if (UsuarioID > 0)
+        //        metodo += string.Format("&UsuarioID={0}", HttpUtility.UrlEncode(UsuarioID.ToString()));
 
-            if (EmpresaID > 0)
-                metodo += string.Format("&EmpresaID={0}", HttpUtility.UrlEncode(EmpresaID.ToString()));
+        //    if (EmpresaID > 0)
+        //        metodo += string.Format("&EmpresaID={0}", HttpUtility.UrlEncode(EmpresaID.ToString()));
 
-            if (!string.IsNullOrWhiteSpace(usuario))
-                metodo += string.Format("&usuario={0}", HttpUtility.UrlEncode(usuario));
+        //    if (!string.IsNullOrWhiteSpace(usuario))
+        //        metodo += string.Format("&usuario={0}", HttpUtility.UrlEncode(usuario));
 
-            if (!string.IsNullOrWhiteSpace(Nombre))
-                metodo += string.Format("&Nombre={0}", HttpUtility.UrlEncode(Nombre));
+        //    if (!string.IsNullOrWhiteSpace(Nombre))
+        //        metodo += string.Format("&Nombre={0}", HttpUtility.UrlEncode(Nombre));
 
-            if (!string.IsNullOrWhiteSpace(PrimerApellido))
-                metodo += string.Format("&PrimerApellido={0}", HttpUtility.UrlEncode(PrimerApellido));
+        //    if (!string.IsNullOrWhiteSpace(PrimerApellido))
+        //        metodo += string.Format("&PrimerApellido={0}", HttpUtility.UrlEncode(PrimerApellido));
 
-            if (!string.IsNullOrWhiteSpace(SegundoApellido))
-                metodo += string.Format("&SegundoApellido={0}", HttpUtility.UrlEncode(SegundoApellido));
+        //    if (!string.IsNullOrWhiteSpace(SegundoApellido))
+        //        metodo += string.Format("&SegundoApellido={0}", HttpUtility.UrlEncode(SegundoApellido));
 
-            if (EstadoID > 0)
-                metodo += string.Format("&Estado={0}", HttpUtility.UrlEncode(EstadoID.ToString()));
+        //    if (EstadoID > 0)
+        //        metodo += string.Format("&Estado={0}", HttpUtility.UrlEncode(EstadoID.ToString()));
 
-            metodo = metodo.Replace("?&","?");
-            var lista = CommunicatorUsuario.InvokeOperation<List<ObjUsuario>>(metodo, TipoOperacion.GET);
-            foreach(var item in lista)
-            { 
-                item.Clave = EncriptadorProvider.DesencriptarValor(item.Clave);
-            }
-            return lista;
-        }
-        public ResponseMenssage ModificarUsuario(ModificarUsuarioRequest usuario)
-        {
-            var metodo = "modificar";
-            usuario.Clave = EncriptadorProvider.EncriptarValor(usuario.Clave);
-            return CommunicatorUsuario.InvokeOperation<ResponseMenssage, ModificarUsuarioRequest>(metodo, TipoOperacion.PUT, usuario);
+        //    metodo = metodo.Replace("?&","?");
+        //    var lista = CommunicatorUsuario.InvokeOperation<List<ObjUsuario>>(metodo, TipoOperacion.GET);
+        //    foreach(var item in lista)
+        //    { 
+        //        item.Clave = EncriptadorProvider.DesencriptarValor(item.Clave);
+        //    }
+        //    return lista;
+        //}
+        //public ResponseMenssage ModificarUsuario(ModificarUsuarioRequest usuario)
+        //{
+        //    var metodo = "modificar";
+        //    usuario.Clave = EncriptadorProvider.EncriptarValor(usuario.Clave);
+        //    return CommunicatorUsuario.InvokeOperation<ResponseMenssage, ModificarUsuarioRequest>(metodo, TipoOperacion.PUT, usuario);
 
-        }
+        //}
 
-        public ResponseMenssage AgregarUsuario(CrearUsuarioRequest usuario)
-        {
-            var metodo = "crear";
-            usuario.Clave = EncriptadorProvider.EncriptarValor(usuario.Clave);
-            return CommunicatorUsuario.InvokeOperation<ResponseMenssage, CrearUsuarioRequest>(metodo, TipoOperacion.POST, usuario);
-        }
+        //public ResponseMenssage AgregarUsuario(CrearUsuarioRequest usuario)
+        //{
+        //    var metodo = "crear";
+        //    usuario.Clave = EncriptadorProvider.EncriptarValor(usuario.Clave);
+        //    return CommunicatorUsuario.InvokeOperation<ResponseMenssage, CrearUsuarioRequest>(metodo, TipoOperacion.POST, usuario);
+        //}
 
-        public ResponseMenssage EliminarUsuario(InactivarUsuarioRequest usuario)
-        {
-            var metodo = "desactivar";
-            return CommunicatorUsuario.InvokeOperation<ResponseMenssage, InactivarUsuarioRequest>(metodo, TipoOperacion.PUT, usuario);
-        }
-        public ResponseMenssage OlvideContrasena(RecuperarContrasenaRequest usuario)
-        {
-            var metodo = "recuperarcontrasena";
-            return CommunicatorUsuario.InvokeOperation<ResponseMenssage, RecuperarContrasenaRequest>(metodo, TipoOperacion.PUT, usuario);
-        }
+        //public ResponseMenssage EliminarUsuario(InactivarUsuarioRequest usuario)
+        //{
+        //    var metodo = "desactivar";
+        //    return CommunicatorUsuario.InvokeOperation<ResponseMenssage, InactivarUsuarioRequest>(metodo, TipoOperacion.PUT, usuario);
+        //}
+        //public ResponseMenssage OlvideContrasena(RecuperarContrasenaRequest usuario)
+        //{
+        //    var metodo = "recuperarcontrasena";
+        //    return CommunicatorUsuario.InvokeOperation<ResponseMenssage, RecuperarContrasenaRequest>(metodo, TipoOperacion.PUT, usuario);
+        //}
     }
 }

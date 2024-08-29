@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GXmJb93dNtrHxcxsJVf5xITruY/qZ1+Q17XOIr6fpNgaL38BHnm2seDRwwn6SNjiz5x+q/5KWguBJaxQ0nR8vQ==",
+  "dgSpecHash": "ur98vpaTYxwsrSLTapVz/YhGItd/nOaVWTiI23iH4wEoEfgNK/gjfEexSoXUvUG7GB/j8WhKKlCBQdwlDwUnjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.Humalab.Servicio\\GDifare.Portal.Humalab.Servicio.csproj",
+  "projectFilePath": "C:\\HumalabGit\\PortalHl\\GDifare.Portal.Humalab.Servicio\\GDifare.Portal.Humalab.Servicio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\htmlrenderercore.pdfsharp\\1.0.5\\htmlrenderercore.pdfsharp.1.0.5.nupkg.sha512",
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",

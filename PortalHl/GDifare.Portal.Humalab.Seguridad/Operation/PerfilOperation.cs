@@ -1,7 +1,7 @@
 ﻿using GDifare.Portal.Humalab.Seguridad.Modelos;
 using GDifare.Portal.Humalab.Seguridad.Modelos.Perfil;
 using GDifare.Portal.Humalab.Seguridad.Resources;
-using GDifare.Portales.Comunicaciones;
+//using GDifare.Portales.Comunicaciones;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
@@ -11,8 +11,8 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
 {
     public class PerfilOperation
     {
-        private readonly Communicator CommunicatorPerfil;
-        private readonly Communicator ComunicatorLab;
+        //private readonly Communicator CommunicatorPerfil;
+        //private readonly Communicator ComunicatorLab;
 
         //Avalab
         private string ServerAvalab;
@@ -23,8 +23,8 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
         public PerfilOperation(string Server, int PortSeguridad, string Token,
                                string user, string pass)
         {
-            CommunicatorPerfil = new Communicator(Server, PortSeguridad, Routes.PathServicesSeguridadPerfil, Token);
-            ComunicatorLab = new Communicator(Server, PortSeguridad, Routes.PathServicesLaboratorio, Token);
+            //CommunicatorPerfil = new Communicator(Server, PortSeguridad, Routes.PathServicesSeguridadPerfil, Token);
+            //ComunicatorLab = new Communicator(Server, PortSeguridad, Routes.PathServicesLaboratorio, Token);
             //ComunicatorLab = new Communicator("atlsconflabor.sup.apps.ocp4mqa.grupodifare.com", PortSeguridad, Routes.PathServicesLaboratorio, Token); //de prueba
 
             //Avalab
@@ -34,79 +34,79 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
             PassAvalab = pass;
         }
 
-        public List<Perfiles> ConsultarPerfil(int perfilid = 0, string perfil = null, int cargarTodo = 1)
-        {
-            var metodo = "consultar";
-            if (perfilid > 0 || !string.IsNullOrWhiteSpace(perfil))
-                metodo += "?";
+        //public List<Perfiles> ConsultarPerfil(int perfilid = 0, string perfil = null, int cargarTodo = 1)
+        //{
+        //    var metodo = "consultar";
+        //    if (perfilid > 0 || !string.IsNullOrWhiteSpace(perfil))
+        //        metodo += "?";
 
-            if (perfilid > 0)
-                metodo += string.Format("perfilID={0}", HttpUtility.UrlEncode(perfilid.ToString()));
+        //    if (perfilid > 0)
+        //        metodo += string.Format("perfilID={0}", HttpUtility.UrlEncode(perfilid.ToString()));
 
-            if (!string.IsNullOrWhiteSpace(perfil))
-            {
-                string pregijoSigno = metodo.Contains("?") ? "&" : "?";
-                metodo += pregijoSigno + string.Format("&perfil={0}", HttpUtility.UrlEncode(perfil));
-            }
+        //    if (!string.IsNullOrWhiteSpace(perfil))
+        //    {
+        //        string pregijoSigno = metodo.Contains("?") ? "&" : "?";
+        //        metodo += pregijoSigno + string.Format("&perfil={0}", HttpUtility.UrlEncode(perfil));
+        //    }
 
-            // Cambio para evitar que se cargue todo
-            if (cargarTodo == 0)
-            {
-                string pregijoSigno = metodo.Contains("?") ? "&" : "?";
-                metodo += pregijoSigno + string.Format("cargarTodo={0}", HttpUtility.UrlEncode(cargarTodo.ToString()));
-            }
+        //    // Cambio para evitar que se cargue todo
+        //    if (cargarTodo == 0)
+        //    {
+        //        string pregijoSigno = metodo.Contains("?") ? "&" : "?";
+        //        metodo += pregijoSigno + string.Format("cargarTodo={0}", HttpUtility.UrlEncode(cargarTodo.ToString()));
+        //    }
 
-            var lista = CommunicatorPerfil.InvokeOperation<List<Perfiles>>(metodo, TipoOperacion.GET);
-            return lista;
+        //    var lista = CommunicatorPerfil.InvokeOperation<List<Perfiles>>(metodo, TipoOperacion.GET);
+        //    return lista;
 
-        }
+        //}
 
 
-        public ResponseMenssage ModificarPefil(ModificarPerfilRequest request)
-        {
+        //public ResponseMenssage ModificarPefil(ModificarPerfilRequest request)
+        //{
 
-            var metodo = "modificar";
-            return CommunicatorPerfil.InvokeOperation<ResponseMenssage, ModificarPerfilRequest>(metodo, TipoOperacion.PUT, request);
+        //    var metodo = "modificar";
+        //    return CommunicatorPerfil.InvokeOperation<ResponseMenssage, ModificarPerfilRequest>(metodo, TipoOperacion.PUT, request);
 
-        }
+        //}
 
-        public ResponseMenssage AgregarPerfil(GrabarPerfilRequest request)
-        {
-            var metodo = "crear";
-            return CommunicatorPerfil.InvokeOperation<ResponseMenssage, GrabarPerfilRequest>(metodo, TipoOperacion.POST, request);
-        }
+        //public ResponseMenssage AgregarPerfil(GrabarPerfilRequest request)
+        //{
+        //    var metodo = "crear";
+        //    return CommunicatorPerfil.InvokeOperation<ResponseMenssage, GrabarPerfilRequest>(metodo, TipoOperacion.POST, request);
+        //}
 
-        public ResponseMenssage EliminarPerfil(InactivarPerfilRequest request)
-        {
-            var metodo = "anular";
-            return CommunicatorPerfil.InvokeOperation<ResponseMenssage, InactivarPerfilRequest>(metodo, TipoOperacion.PUT, request);
+        //public ResponseMenssage EliminarPerfil(InactivarPerfilRequest request)
+        //{
+        //    var metodo = "anular";
+        //    return CommunicatorPerfil.InvokeOperation<ResponseMenssage, InactivarPerfilRequest>(metodo, TipoOperacion.PUT, request);
 
-        }
+        //}
 
-        public ResponseMenssage AgregarPerfilOpcion(GrabarPerfilOpcionRequest request)
-        {
-            var metodo = "asignarOpcion";
-            return CommunicatorPerfil.InvokeOperation<ResponseMenssage, GrabarPerfilOpcionRequest>(metodo, TipoOperacion.POST, request);
-        }
+        //public ResponseMenssage AgregarPerfilOpcion(GrabarPerfilOpcionRequest request)
+        //{
+        //    var metodo = "asignarOpcion";
+        //    return CommunicatorPerfil.InvokeOperation<ResponseMenssage, GrabarPerfilOpcionRequest>(metodo, TipoOperacion.POST, request);
+        //}
 
-        public List<PerfilOpcion> ConsultarPerfilOpcion(int PerfilID, int OpcionID)
-        {
-            var metodo = "consultarOpcion?";
-            if (PerfilID > 0)
-                metodo += string.Format("PerfilID={0}", HttpUtility.UrlEncode(PerfilID.ToString()));
+        //public List<PerfilOpcion> ConsultarPerfilOpcion(int PerfilID, int OpcionID)
+        //{
+        //    var metodo = "consultarOpcion?";
+        //    if (PerfilID > 0)
+        //        metodo += string.Format("PerfilID={0}", HttpUtility.UrlEncode(PerfilID.ToString()));
 
-            if (OpcionID > 0)
-                metodo += string.Format("&OpcionID={0}", HttpUtility.UrlEncode(OpcionID.ToString()));
+        //    if (OpcionID > 0)
+        //        metodo += string.Format("&OpcionID={0}", HttpUtility.UrlEncode(OpcionID.ToString()));
 
-            var lista = CommunicatorPerfil.InvokeOperation<List<PerfilOpcion>>(metodo, TipoOperacion.GET);
-            return lista;
-        }
+        //    var lista = CommunicatorPerfil.InvokeOperation<List<PerfilOpcion>>(metodo, TipoOperacion.GET);
+        //    return lista;
+        //}
 
-        public ResponseMenssage InactivarPerfilOpcion(InactivarPerfilOpcionRequest request)
-        {
-            var metodo = "inactivarOpcion";
-            return CommunicatorPerfil.InvokeOperation<ResponseMenssage, InactivarPerfilOpcionRequest>(metodo, TipoOperacion.PUT, request);
-        }
+        //public ResponseMenssage InactivarPerfilOpcion(InactivarPerfilOpcionRequest request)
+        //{
+        //    var metodo = "inactivarOpcion";
+        //    return CommunicatorPerfil.InvokeOperation<ResponseMenssage, InactivarPerfilOpcionRequest>(metodo, TipoOperacion.PUT, request);
+        //}
 
         //public ResponseMenssage AgregarPerfilOpcionAccion(GrabarOpcionPerfilAccionRequest request)
         //{
@@ -134,17 +134,17 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
         //    return CommunicatorPerfil.InvokeOperation<ResponseMenssage, InactivarOpcionPerfilAccionRequest>(metodo, TipoOperacion.PUT, request);
         //}
 
-        public List<OpcionAccion> ConsultarOpcionAccion(int opcionID = 0)
-        {
-            var metodo = "consultarCategoriaOpcionAccion";
+        //public List<OpcionAccion> ConsultarOpcionAccion(int opcionID = 0)
+        //{
+        //    var metodo = "consultarCategoriaOpcionAccion";
 
-            if (opcionID > 0)
-                metodo += "?" + string.Format("OpcionID={0}", HttpUtility.UrlEncode(opcionID.ToString()));
+        //    if (opcionID > 0)
+        //        metodo += "?" + string.Format("OpcionID={0}", HttpUtility.UrlEncode(opcionID.ToString()));
 
-            var lista = CommunicatorPerfil.InvokeOperation<List<OpcionAccion>>(metodo, TipoOperacion.GET);
+        //    var lista = CommunicatorPerfil.InvokeOperation<List<OpcionAccion>>(metodo, TipoOperacion.GET);
 
-            return lista;
-        }
+        //    return lista;
+        //}
 
         public object ConsultarLaboratorio(int rolId)
         {            

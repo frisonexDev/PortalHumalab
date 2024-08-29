@@ -1,6 +1,6 @@
 ﻿using GDifare.Portal.Humalab.Seguridad.Modelos;
 using GDifare.Portal.Humalab.Seguridad.Resources;
-using GDifare.Portales.Comunicaciones;
+//using GDifare.Portales.Comunicaciones;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
@@ -10,7 +10,7 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
 {
     public class RolOperation
     {
-        private readonly Communicator CommunicatorRol;
+        //private readonly Communicator CommunicatorRol;
 
         //Avalab
         private string ServerAvalab;
@@ -21,7 +21,7 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
 
         public RolOperation(string Server, int PortSeguridad, string Token, string user, string pass)
         {
-            CommunicatorRol = new Communicator(Server, PortSeguridad, Routes.PathServicesSeguridadRol, Token);
+            //CommunicatorRol = new Communicator(Server, PortSeguridad, Routes.PathServicesSeguridadRol, Token);
 
             //Avalab
             ServerAvalab = Server;
@@ -72,38 +72,38 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
             }
         }
 
-        public ResponseMenssage ModificarRol(ModificarRolRequest rol)
-        {
+        //public ResponseMenssage ModificarRol(ModificarRolRequest rol)
+        //{
 
-            var metodo = "modificar";
-            return CommunicatorRol.InvokeOperation<ResponseMenssage, ModificarRolRequest>(metodo, TipoOperacion.PUT, rol);
+        //    var metodo = "modificar";
+        //    return CommunicatorRol.InvokeOperation<ResponseMenssage, ModificarRolRequest>(metodo, TipoOperacion.PUT, rol);
 
-        }
-        public ResponseMenssage AgregarRol(CrearRolRequest rol)
-        {
-            var metodo = "crear";
-            return CommunicatorRol.InvokeOperation<ResponseMenssage, CrearRolRequest>(metodo, TipoOperacion.POST, rol);
+        //}
+        //public ResponseMenssage AgregarRol(CrearRolRequest rol)
+        //{
+        //    var metodo = "crear";
+        //    return CommunicatorRol.InvokeOperation<ResponseMenssage, CrearRolRequest>(metodo, TipoOperacion.POST, rol);
 
-        }
-        public ResponseMenssage EliminarRol(InactivarRolRequest rol)
-        {
-            var metodo = "anular";
-            return CommunicatorRol.InvokeOperation<ResponseMenssage, InactivarRolRequest>(metodo, TipoOperacion.PUT, rol);
+        //}
+        //public ResponseMenssage EliminarRol(InactivarRolRequest rol)
+        //{
+        //    var metodo = "anular";
+        //    return CommunicatorRol.InvokeOperation<ResponseMenssage, InactivarRolRequest>(metodo, TipoOperacion.PUT, rol);
 
-        }
+        //}
 
-        public ResponseMenssage GrabarRolPerfil(RolPerfil rolPerfil)
-        {
-            var metodo = "asignarPerfil";
-            return CommunicatorRol.InvokeOperation<ResponseMenssage, RolPerfil>(metodo, TipoOperacion.POST, rolPerfil);
+        //public ResponseMenssage GrabarRolPerfil(RolPerfil rolPerfil)
+        //{
+        //    var metodo = "asignarPerfil";
+        //    return CommunicatorRol.InvokeOperation<ResponseMenssage, RolPerfil>(metodo, TipoOperacion.POST, rolPerfil);
 
-        }
+        //}
 
-        public ResponseMenssage EliminarRolPerfil(RolPerfil rolPerfil)
-        {
-            var metodo = "inactivarPerfil";
-            return CommunicatorRol.InvokeOperation<ResponseMenssage, RolPerfil>(metodo, TipoOperacion.PUT, rolPerfil);
+        //public ResponseMenssage EliminarRolPerfil(RolPerfil rolPerfil)
+        //{
+        //    var metodo = "inactivarPerfil";
+        //    return CommunicatorRol.InvokeOperation<ResponseMenssage, RolPerfil>(metodo, TipoOperacion.PUT, rolPerfil);
 
-        }
+        //}
     }
 }

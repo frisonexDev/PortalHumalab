@@ -2369,11 +2369,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MicrosHL_New\\API Humalab\\EjemploHL\\EjemploHL\\ClienteHL.csproj",
+      "projectUniqueName": "C:\\HumalabGit\\ApisHL\\ClientesHL\\EjemploHL\\ClienteHL.csproj",
       "projectName": "ClienteHL",
-      "projectPath": "C:\\MicrosHL_New\\API Humalab\\EjemploHL\\EjemploHL\\ClienteHL.csproj",
+      "projectPath": "C:\\HumalabGit\\ApisHL\\ClientesHL\\EjemploHL\\ClienteHL.csproj",
       "packagesPath": "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\",
-      "outputPath": "C:\\MicrosHL_New\\API Humalab\\EjemploHL\\EjemploHL\\obj\\",
+      "outputPath": "C:\\HumalabGit\\ApisHL\\ClientesHL\\EjemploHL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

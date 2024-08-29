@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cwFRzeYLCIJgZi3NbM/TLl1YNsf0Rbi78UlUMZ6uAXEZsUKL7T2Lw4ZcpGwt4IjiT01qA1dYiPQY7eY1v2JqDQ==",
+  "dgSpecHash": "eZ53cTjqzSNO2nLZLHY17nKYbYYHvoB2DvIj/vMl7cSMtPesKfuLdlWOJ6RWN7+/UWpDwdIu+vYA12AHXkYF9Q==",
   "success": true,
-  "projectFilePath": "C:\\MicrosHL_New\\API Humalab\\EjemploHL\\EjemploHL\\ClienteHL.csproj",
+  "projectFilePath": "C:\\HumalabGit\\ApisHL\\ClientesHL\\EjemploHL\\ClienteHL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

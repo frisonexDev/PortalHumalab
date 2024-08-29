@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GDifare.Portal.EstadoCartera\GDifare.Portal.EstadoCartera.csproj" />
     <ProjectReference Include="..\GDifare.Portal.Humalab.Seguridad\GDifare.Portal.Humalab.Seguridad.csproj" />
     <ProjectReference Include="..\GDifare.Portal.Humalab.Servicio\GDifare.Portal.Humalab.Servicio.csproj" />
   </ItemGroup>

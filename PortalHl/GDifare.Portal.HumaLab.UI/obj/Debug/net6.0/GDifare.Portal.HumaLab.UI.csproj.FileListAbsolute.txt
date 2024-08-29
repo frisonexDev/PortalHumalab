@@ -256,3 +256,16 @@ C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fu
 C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fuentes\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.pdb
 C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fuentes\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.genruntimeconfig.cache
 C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fuentes\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\ref\GDifare.Portal.HumaLab.UI.dll
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.csproj.AssemblyReference.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.Properties.Resources.resources
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.csproj.GenerateResource.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.GeneratedMSBuildEditorConfig.editorconfig
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.AssemblyInfoInputs.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.AssemblyInfo.cs
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.csproj.CoreCompileInputs.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.MvcApplicationPartsAssemblyInfo.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.RazorAssemblyInfo.cache
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.RazorAssemblyInfo.cs
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.dll
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\refint\GDifare.Portal.HumaLab.UI.dll
+C:\HumalabGit\PortalHl\GDifare.Portal.HumaLab.UI\obj\Debug\net6.0\GDifare.Portal.HumaLab.UI.pdb
