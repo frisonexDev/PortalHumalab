@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Wj4Nj+AgLAybrd2Qf28BNkhfLxVJTD+qSuUILG2M5OBWD9ws2zaU96G0nOiuaiXDGaCeCBrJUGi5qOuhBRvUmg==",
+  "dgSpecHash": "NP6zUSuRJudDuKuGT3bKxAt5X5LolAjvhG9bcZYJ/1nkbOKpfvuxFsLlNbk7OGfrE5MPa2Ywq8DMM9EsxnjheQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JoseGuarnizo\\PortalHumalabProducIssues\\ISSUES_1.0.005\\Portal Humalab\\Fuentes\\GDifare.Portal.HumaLab.UI\\GDifare.Portal.HumaLab.UI.csproj",
+  "projectFilePath": "C:\\HumalabGit\\PortalHL\\Fuentes\\GDifare.Portal.HumaLab.UI\\GDifare.Portal.HumaLab.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\barcodelib\\2.3.0\\barcodelib.2.3.0.nupkg.sha512",
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
