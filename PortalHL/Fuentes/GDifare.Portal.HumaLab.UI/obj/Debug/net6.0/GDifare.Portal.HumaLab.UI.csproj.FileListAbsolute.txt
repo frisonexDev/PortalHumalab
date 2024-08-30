@@ -259,7 +259,6 @@ C:\Users\JoseGuarnizo\PortalHumalabProducIssues\ISSUES_1.0.005\Portal Humalab\Fu
 C:\HumalabGit\PortalHL\Fuentes\GDifare.Portal.HumaLab.UI\bin\Debug\net6.0\appsettings.Development.json
 C:\HumalabGit\PortalHL\Fuentes\GDifare.Portal.HumaLab.UI\bin\Debug\net6.0\appsettings.json
 C:\HumalabGit\PortalHL\Fuentes\GDifare.Portal.HumaLab.UI\bin\Debug\net6.0\catalogoMuestras.json
-C:\HumalabGit\PortalHL\Fuentes\GDifare.Portal.HumaLab.UI\bin\Debug\net6.0\catalogoMuestrasFinal.json
 C:\HumalabGit\PortalHL\Fuentes\GDifare.Portal.HumaLab.UI\bin\Debug\net6.0\MenuHumaLab.json
 C:\HumalabGit\PortalHL\Fuentes\GDifare.Portal.HumaLab.UI\bin\Debug\net6.0\GDifare.Portal.HumaLab.UI.staticwebassets.runtime.json
 C:\HumalabGit\PortalHL\Fuentes\GDifare.Portal.HumaLab.UI\bin\Debug\net6.0\GDifare.Portal.HumaLab.UI.exe
