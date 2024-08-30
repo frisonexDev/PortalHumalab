@@ -314,7 +314,6 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             else
             {
                 catalogo = CatalogoPruebas();
-
 			}
 			//menuJson = System.IO.File.ReadAllTextAsync(path, Encoding.UTF8);
             //catalogo = menuJson;

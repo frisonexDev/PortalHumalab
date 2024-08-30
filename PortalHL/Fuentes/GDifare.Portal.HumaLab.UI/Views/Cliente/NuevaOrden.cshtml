@@ -255,11 +255,11 @@
         var html = '';
         var nombreMuestra = '';
         var idMuestra = 0;
-        
+        //console.log(lista);
         for (var key = 0, size = lista.length; key < size; key++) {            
 
             if (lista[key].Estado !== 'Inactivo') {
-                
+
                 datosPrueba = {
                     IdExamen: lista[key].IdExamen,
                     IdMuestra: lista[key].IdMuestra,
@@ -285,7 +285,7 @@
                     + '</div>'
 
                     + '</option>';
-            }            
+            }
         }
         $('#select-pruebas').append(html);
     }
