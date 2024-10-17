@@ -9,7 +9,8 @@
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
 *	FECHA AUTOR RAZON													*
-*						                                                *
+*	2024/10/16 Jose Guarnizo Se actualiza para que se guarde el id		*
+*							 del cliente.								*
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_pedidos')	
 	EXEC('Create Procedure dbo.pr_humalab_pedidos As')
@@ -26,7 +27,8 @@ ALTER PROCEDURE [dbo].[pr_humalab_pedidos](
 	@observacionCliente VARCHAR(MAX)=NULL,
 	@observacionOperador VARCHAR(MAX)=NULL,
 	@usuarioCreacion INT=NULL,
-	@fechaCreacion DATETIME=NULL
+	@fechaCreacion DATETIME=NULL,
+	@idCliente int = null
 )
 
 as
@@ -83,7 +85,7 @@ BEGIN
 			VALUES(@idOperadorNew, @usuarioOperadorNew, @numeroRemisionNew, 
 				   @fechaCreacionNew, @estadoPedidoNew, @observacionClienteNew, 
 				   @observacionOperadorNew, @usuarioCreacionNew, GETDATE(), 
-				   NULL, NULL, NULL, NULL, 0)
+				   NULL, NULL, NULL, NULL, 0, @idCliente)
 			SELECT SCOPE_IDENTITY() as idPedido						
 	END
 

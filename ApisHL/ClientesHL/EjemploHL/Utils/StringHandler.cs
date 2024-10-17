@@ -13,6 +13,7 @@ public class StringHandler
 	internal const string ProcedureMuestra = "pr_humalab_muestra";
 	internal const string ProcedurePruebaMuestra = "pr_humalab_pruebamuestra";
 	internal const string ProcedureEstaOrdPrue = "pr_humalab_estaOrdPrue";
+	internal const string ProcedureClienteIdPed = "pr_humalab_IdClientePe";
 	internal const string ProcedureExistePrueba = "pr_humalab_existeprueba";
 	internal const string ProcedureActualizacion = "pr_humalab_actualizacion";
 	internal const string ProcedureOrdCodLis = "pr_humalab_codLis";

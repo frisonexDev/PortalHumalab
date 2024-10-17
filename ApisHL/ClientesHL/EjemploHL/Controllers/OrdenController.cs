@@ -433,6 +433,33 @@ namespace ClienteHL.Controllers
 			}
 		}
 
+
+		[HttpGet("idClientePedido")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status204NoContent)]
+		[ProducesResponseType(StatusCodes.Status400BadRequest)]
+		[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+		public async Task<ActionResult<int>> idClientePedido(
+			[FromQuery] int idGalileo)
+		{
+			int id = 0;
+
+			try
+			{				
+				await Task.Factory.StartNew(() =>
+				{
+					id = mapeoDatosOrden.CLienteIdPedido(idGalileo);
+				});
+
+				return Ok(id);
+			}
+			catch (Exception ex)
+			{
+				return null!;
+			}
+		}
+
+
 		[HttpPost("actualizaPdfordenFinal")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]

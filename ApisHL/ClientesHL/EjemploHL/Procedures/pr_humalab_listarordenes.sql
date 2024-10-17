@@ -9,7 +9,8 @@
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
 *	FECHA AUTOR RAZON													*
-*						                                                *
+*	2024/09/24 Jose Guarnizo Se cambia para que traiga las ordenes por  *
+*							 usuario individual es decir sus ordenes.   *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_listarordenes')	
 	EXEC('Create Procedure dbo.pr_humalab_listarordenes As')
@@ -101,8 +102,9 @@ Begin
 			AND O.FechaCreacion < CONVERT(DATETIME, DATEADD(DAY, 1, CONVERT(DATE, GETDATE())))
 			AND CD.Nombre=@estadoGenerado 
 			AND O.Estado = CD.IdCatalogoDetalle
-			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.Identificacion = @idenCliente
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
 			and O.Eliminado !=1 --nuevo 24/01/2024
 			GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -126,7 +128,8 @@ Begin
 			where  O.CodigoBarra=@codigoBarra
 			AND CD.IdCatalogoDetalle = @i_EstadoId
 			--and US.Identificacion = @idenCliente
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
 			GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -151,7 +154,8 @@ Begin
 				--AND O.IdUsuarioGalileo = @idUsuarioGalileo
 				AND CD.IdCatalogoDetalle = @i_EstadoId
 				--and US.Identificacion = @idenCliente --nuevo
-				and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+				--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+				and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 				AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 				and Pr.Eliminado != 1 --nuevo 11/01/2024
 				GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -168,7 +172,8 @@ Begin
 				inner join Usuario US ON O.IdUsuarioGalileo = US.idGalileo --nuevo
 				WHERE CD.IdCatalogoDetalle = @i_EstadoId
 				--and US.Identificacion = @idenCliente --nuevo
-				and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+				--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+				and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 				AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 				and Pr.Eliminado != 1 --nuevo 11/01/2024
 				GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -195,7 +200,8 @@ Begin
 			--AND O.IdUsuarioGalileo = @idUsuarioGalileo
 			AND CD.IdCatalogoDetalle = @i_EstadoId
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
 			GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -217,7 +223,8 @@ Begin
 			WHERE P.Nombres+p.Apellidos like '%'+@datoBusqueda+'%' 
 			--AND O.IdUsuarioGalileo=@idUsuarioGalileo
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND  O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin 
 			AND O.Estado = CD.IdCatalogoDetalle
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
@@ -239,7 +246,8 @@ Begin
 			WHERE P.Identificacion=@datoBusqueda 
 			--AND O.IdUsuarioGalileo=@idUsuarioGalileo 
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin 
 			AND O.Estado = CD.IdCatalogoDetalle
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
@@ -264,7 +272,8 @@ Begin
 			WHERE CD.Valor=@datoBusqueda 
 			--AND O.IdUsuarioGalileo= @idUsuarioGalileo  
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.Estado = CD.IdCatalogoDetalle
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
@@ -289,7 +298,8 @@ Begin
 			WHERE CD.Valor=@datoBusqueda 
 			--AND O.IdUsuarioGalileo=@idUsuarioGalileo  
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.Estado = CD.IdCatalogoDetalle 
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
@@ -315,7 +325,8 @@ Begin
 		--WHERE IdUsuarioGalileo = @idUsuarioGalileo
 		where O.Estado not in (@i_idCance, @i_idGenen)
 		--and US.Identificacion = @idenCliente --nuevo
-		and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+		--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+		and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 		AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 		and Pr.Eliminado != 1 --nuevo 11/01/2024
 		GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -349,7 +360,8 @@ Begin
 			WHERE CD.Valor in ('RCTL', 'RCTP') 
 			--AND O.IdUsuarioGalileo = @idUsuarioGalileo
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and P.Identificacion = @datoBusqueda
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
@@ -376,7 +388,8 @@ Begin
 			WHERE CD.Valor in ('RCTL', 'RCTP') 
 			--AND O.IdUsuarioGalileo = @idUsuarioGalileo
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
 			GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -437,7 +450,8 @@ Begin
 			WHERE CD.Valor in ('ENV', 'ENVP') 
 			--AND O.IdUsuarioGalileo = @idUsuarioGalileo
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
 			GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -472,7 +486,8 @@ Begin
 			WHERE CD.Valor in ('RCBD', 'RCBP') 
 			--AND O.IdUsuarioGalileo=@idUsuarioGalileo
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and P.Identificacion = @datoBusqueda
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
@@ -499,7 +514,8 @@ Begin
 			WHERE CD.Valor in ('RCBD', 'RCBP') 
 			--AND O.IdUsuarioGalileo=@idUsuarioGalileo
 			--and US.Identificacion = @idenCliente --nuevo
-			and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+			and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 			AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 			and Pr.Eliminado != 1 --nuevo 11/01/2024
 			GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 
@@ -527,7 +543,8 @@ Begin
 		--WHERE IdUsuarioGalileo = @idUsuarioGalileo
 		where O.Estado not in (@i_idCance, @i_idGenen)
 		--and US.Identificacion = @idenCliente --nuevo
-		and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+		--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
+		and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
 		AND O.FechaCreacion BETWEEN @fechaInicio AND @fechaFin
 		and Pr.Eliminado != 1 --nuevo 11/01/2024
 		GROUP BY O.IdOrden, O.CodigoBarra,P.Nombres, P.Apellidos, O.FechaCreacion, Cd.Nombre, 

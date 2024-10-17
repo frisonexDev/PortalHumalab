@@ -29,6 +29,9 @@ public class GrabarPedidosRequest
 
 	[JsonProperty("FechaCreacion")]
 	public DateTime FechaCreacion { get; set; } = DateTime.Now;
+
+	[JsonProperty("IdClientePedido")]
+	public int IdClientePedido { get; set; }
 }
 
 public class OrdenP
