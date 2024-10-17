@@ -18,5 +18,6 @@
         public string FechaCreacion { get; set; } = string.Empty;
 		public string ClienteDireccion { get; set; } = string.Empty;
 		public string ClienteCiudad { get; set; } = string.Empty;
+		public string Laboratorio { get; set; } = string.Empty;
 	}
 }

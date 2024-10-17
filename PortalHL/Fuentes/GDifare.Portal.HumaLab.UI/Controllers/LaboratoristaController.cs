@@ -137,7 +137,8 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                                                                ObservacionMuestras = i.ObservacionMuestras != null ? i.ObservacionMuestras.Replace("¬", "\n").TrimStart() : null,
                                                                                Resultados = !string.IsNullOrEmpty(i.Resultados) ? i.Resultados : "-",
                                                                                IdentificacionPac = i.IdentificacionPac,
-                                                                               NombresPac = i.NombresPac
+                                                                               NombresPac = i.NombresPac,
+                                                                               ClienteNombre = i.ClienteNombre                                                                               
                                                                            }).ToList() : new List<ConsultaPedidosLaboratorista>();
 
                 return pedidosLab;
@@ -295,7 +296,8 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                     {
                         NombreMuestra = muestra.Muestra,
                         NombreExamen = muestra.PruebaPerfil,
-                        CodExamen = muestra.CodigoExamen
+                        CodExamen = muestra.CodigoExamen,
+                        OrdenEstado = muestra.EstadoOrden
                     };
 
                     datosResponse.muestras.Add(nuevaMuestra);                    
@@ -337,6 +339,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                         worksheet.Cells[rowStart, 5].Value = "Nombre Examen";
                         worksheet.Cells[rowStart, 6].Value = "Laboratorio";
                         worksheet.Cells[rowStart, 7].Value = "Ciudad";
+                        worksheet.Cells[rowStart, 8].Value = "Estado Orden";
 
                         int row = rowStart + 1;
 
@@ -357,6 +360,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                     worksheet.Cells[row, 5].Value = muestra.NombreExamen;
                                     worksheet.Cells[row, 6].Value = datos.NombreCliente;
                                     worksheet.Cells[row, 7].Value = datos.CiudadCliente;
+                                    worksheet.Cells[row, 8].Value = muestra.OrdenEstado;
 
                                     row++;
                                 }
@@ -370,6 +374,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                 worksheet.Cells[row, 5].Value = string.Empty;
                                 worksheet.Cells[row, 6].Value = string.Empty;
                                 worksheet.Cells[row, 7].Value = string.Empty;
+                                worksheet.Cells[row, 8].Value = string.Empty;
 
                                 row++;
                             }

@@ -21,7 +21,7 @@ namespace GDifare.Portal.Humalab.Servicio.Utils
         public const string DangerRecolecta = "No se ha recolectado ninguna muestra. No se puede recolectar el pedido";
 		public const string DangerImprimir = "Cree primero una orden para imprimir las etiquetas de las muestras";
         public const string DangerValidacionEnviaLis = "Existen muestras por receptar. No puede enviar a LIS.";
-        public const string DangerEnviaLis = "Se ha producido un error en el envío a Galileo. Póngase en contacto con Soporte Técnico";
+        public const string DangerEnviaLis = "Se ha producido un error en el envío a Avalab. Póngase en contacto con Soporte Técnico";
         public const string DangerRecibeOrden = "Error al actualizar la orden. Póngase en contacto con Soporte Técnico";
 		public const string DangerActualizaEstadoM = "Error al actualizar el estado de la muestra. Póngase en contacto con Soporte Técnico";
         public const string DangerActualizaEstadoP = "Error al actualizar el estado de la prueba. Póngase en contacto con Soporte Técnico";

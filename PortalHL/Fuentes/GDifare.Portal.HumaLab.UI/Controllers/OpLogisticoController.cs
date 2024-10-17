@@ -210,7 +210,8 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                                       TotalMuestras = i.TotalMuestras,
                                                       TotalOrdenes = i.TotalOrdenes,
                                                       TotalRetiradas = i.TotalRetiradas,
-                                                      Paciente = i.Paciente
+                                                      Paciente = i.Paciente,
+                                                      NomLab = i.NomLaboratorio
                                                   }).ToList();
 
             return pedidosOpLogistico;

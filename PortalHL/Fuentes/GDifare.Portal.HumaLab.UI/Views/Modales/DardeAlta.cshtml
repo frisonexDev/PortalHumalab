@@ -301,7 +301,7 @@
 				},
 				success: function (response) {					
 
-					console.log(response);
+					//console.log(response);
 
 					if (clienteHuma === false) {
 						CancelarClienteNuevo();
@@ -497,7 +497,7 @@
 		var cmbGalileo = document.getElementById("comboUsuarios");				
 		var nombreUsuario = cmbGalileo.selectedIndex;		
 		var txtGalileo = cmbGalileo.options[nombreUsuario].text;
-		var txtGalileoSplit = txtGalileo.split("|");
+		var txtGalileoSplit = txtGalileo.split(" |");
 		var txtGalileoFinal = txtGalileoSplit[0];
 
 		//Operador logistico
