@@ -13,6 +13,9 @@
 *							 ciudad del cliente, pruebas del paciente y *
 *							 se comenta en la codicion que no busque por*
 *							 sucursal.									*
+*   2024/09/24 José Guarnizo Cambios para agregar el nombre de lab      *
+*	2024/10/16 José Guarnizo Cambios para que valide en base al id del  *
+*							 cliente con el id del cliente tabla pedido *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_operador_pedidos')	
 	EXEC('Create Procedure dbo.pr_operador_pedidos As')
@@ -270,12 +273,12 @@ DECLARE @estado_recolectado INT
 		  from ClienteDireccion cd 
 		  inner join Cliente c on c.IdCliente = cd.IdCliente
 		  inner join Usuario u on c.IdUsuario = u.idUsuario
-		  where u.idGalileo = p.UsuarioCreacion) as ClienteDireccion --2024/08/27
+		  where u.idGalileo = p.UsuarioCreacion) as ClienteDireccion
 		,(select cd.Ciudad 
 		  from ClienteDireccion cd 
 		  inner join Cliente c on cd.IdCliente = c.IdCliente
 		  inner join Usuario u on c.IdUsuario = u.idUsuario
-		  where u.idGalileo = p.UsuarioCreacion) as ClienteCiudad --2024/08/27
+		  where u.idGalileo = p.UsuarioCreacion) as ClienteCiudad
 		,(SELECT count(*)
 				FROM (
 					SELECT m.IdMuestra
@@ -298,6 +301,7 @@ DECLARE @estado_recolectado INT
 					GROUP BY m.IdMuestra
 					) a
 				) AS MuestrasRecolectadas
+		,(SELECT c.aux1 FROM Cliente c INNER JOIN Usuario u ON c.IdUsuario = u.IdUsuario WHERE u.idGalileo = p.UsuarioCreacion ) as Laboratorio
 	FROM [DbPortalHumalab].[dbo].[Pedido] p
 	WHERE p.IdPedido = @i_pedido
 
@@ -340,7 +344,7 @@ FROM (
 		p.CodLaboratorio as CodLaboratorio,
 		pr.Nombre as NombrePrueba
     FROM dbo.Prueba pr
-    INNER JOIN dbo.Orden o ON o.IdOrden = pr.IdOrden    
+    INNER JOIN dbo.Orden o ON o.IdOrden = pr.IdOrden
 	inner join PruebaMuestra pb on pr.IdPrueba = pb.IdPrueba --27/08/2024
 	--inner join Muestra m on o.IdOrden = m.IdOrden --16/01/2024
 	inner join Muestra m on pb.IdMuestra = m.IdMuestra --27/08/2024
@@ -374,7 +378,8 @@ BEGIN
 
 			SELECT IdPedido
 				,p.UsuarioCreacion AS IdCliente
-				,c.NombreCliente AS Cliente								
+				,c.NombreCliente AS Cliente
+				,c.aux1 as NomLaboratorio
 				,p.NumeroRemision
 				,p.FechaCreacion
 				,(
@@ -414,10 +419,11 @@ BEGIN
 			,p.FechaRetiro
 			,(SELECT Nombre FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi and IdCatalogoDetalle = p.EstadoPedido) as EstadoPedido
 			FROM [DbPortalHumalab].[dbo].[Pedido] p with (nolock)						
-			--INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
-			inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
-			inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
-			WHERE p.FechaCreacion >= @i_fecha_desde 			
+			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
+			--inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
+			--inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
+			WHERE p.FechaCreacion >= @i_fecha_desde 
+			and c.IdCliente = p.IdCliente
 			--and c.CodClienteCta = @sucursal --nuevo 2024/01/25
 			AND p.FechaCreacion < dateadd(DAY, 1, @i_fecha_hasta)			
 			AND(p.EstadoPedido  in (@idRec, @idRecP))
@@ -442,7 +448,8 @@ BEGIN
 			
 			SELECT IdPedido
 				,p.UsuarioCreacion AS IdCliente
-				,c.NombreCliente AS Cliente								
+				,c.NombreCliente AS Cliente
+				,c.aux1 as NomLaboratorio
 				,p.NumeroRemision
 				,p.FechaCreacion
 				,(
@@ -482,10 +489,11 @@ BEGIN
 			,p.FechaRetiro
 			,(SELECT Nombre FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi and IdCatalogoDetalle = p.EstadoPedido) as EstadoPedido
 			FROM [DbPortalHumalab].[dbo].[Pedido] p with (nolock)						
-			--INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
-			inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
-			inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
-			WHERE p.FechaCreacion >= @i_fecha_desde 			
+			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
+			--inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
+			--inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
+			WHERE p.FechaCreacion >= @i_fecha_desde 
+			and c.IdCliente = p.IdCliente
 			--and c.CodClienteCta = @sucursal --nuevo 2024/01/25
 			AND p.FechaCreacion < dateadd(DAY, 1, @i_fecha_hasta)			
 			AND(p.EstadoPedido  in (@idEnv, @idEnvP))
@@ -510,7 +518,8 @@ BEGIN
 			
 			SELECT IdPedido
 				,p.UsuarioCreacion AS IdCliente
-				,c.NombreCliente AS Cliente								
+				,c.NombreCliente AS Cliente
+				,c.aux1 as NomLaboratorio
 				,p.NumeroRemision
 				,p.FechaCreacion
 				,(
@@ -550,10 +559,11 @@ BEGIN
 			,p.FechaRetiro
 			,(SELECT Nombre FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi and IdCatalogoDetalle = p.EstadoPedido) as EstadoPedido
 			FROM [DbPortalHumalab].[dbo].[Pedido] p with (nolock)						
-			--INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
-			inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
-			inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
-			WHERE p.FechaCreacion >= @i_fecha_desde			
+			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
+			--inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
+			--inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
+			WHERE p.FechaCreacion >= @i_fecha_desde	
+			and c.IdCliente = p.IdCliente
 			--and c.CodClienteCta = @sucursal --nuevo 2024/01/25
 			AND p.FechaCreacion < dateadd(DAY, 1, @i_fecha_hasta)			
 			AND (p.EstadoPedido = @idPorRec)
@@ -578,7 +588,8 @@ BEGIN
 			
 			SELECT IdPedido
 				,p.UsuarioCreacion AS IdCliente
-				,c.NombreCliente AS Cliente				
+				,c.NombreCliente AS Cliente
+				,c.aux1 as NomLaboratorio
 				,p.NumeroRemision
 				,p.FechaCreacion
 				,(
@@ -618,10 +629,11 @@ BEGIN
 			,p.FechaRetiro
 			,(SELECT Nombre FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi and IdCatalogoDetalle = p.EstadoPedido) as EstadoPedido
 			FROM [DbPortalHumalab].[dbo].[Pedido] p with (nolock)						
-			--INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
-			inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
-			inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
-			WHERE p.FechaCreacion >= @i_fecha_desde 			
+			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
+			--inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
+			--inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
+			WHERE p.FechaCreacion >= @i_fecha_desde
+			and c.IdCliente = p.IdCliente
 			--and c.CodClienteCta = @sucursal --nuevo 2024/01/25
 			AND p.FechaCreacion < dateadd(DAY, 1, @i_fecha_hasta)			
 			AND(p.EstadoPedido  = @idAnu)
@@ -646,7 +658,8 @@ BEGIN
 			
 			SELECT IdPedido
 				,p.UsuarioCreacion AS IdCliente
-				,c.NombreCliente AS Cliente				
+				,c.NombreCliente AS Cliente
+				,c.aux1 as NomLaboratorio
 				,p.NumeroRemision
 				,p.FechaCreacion
 				,(
@@ -686,10 +699,11 @@ BEGIN
 			,p.FechaRetiro
 			,(SELECT Nombre FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi and IdCatalogoDetalle = p.EstadoPedido) as EstadoPedido
 			FROM [DbPortalHumalab].[dbo].[Pedido] p with (nolock)
-			--INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
-			inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
-			inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
-			WHERE p.FechaCreacion >= @i_fecha_desde 			
+			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --2024/07/30
+			--inner join Usuario u on u.idGalileo = p.UsuarioCreacion --2024/07/30
+			--inner join Cliente c on u.idUsuario = c.IdUsuario --2024/07/30
+			WHERE p.FechaCreacion >= @i_fecha_desde 
+			and c.IdCliente = p.IdCliente
 			--and c.CodClienteCta = @sucursal --nuevo 2024/07/30
 			AND p.FechaCreacion < dateadd(DAY, 1, @i_fecha_hasta)			
 			AND(p.EstadoPedido in (@idRec, @idRecP, @idPorRec))
@@ -722,5 +736,6 @@ BEGIN
 			,1
 			)
 END
+
 
 GO

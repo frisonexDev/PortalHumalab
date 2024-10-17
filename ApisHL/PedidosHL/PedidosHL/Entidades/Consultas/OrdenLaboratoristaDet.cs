@@ -12,4 +12,5 @@ public class OrdenLaboratoristaDet
 	public string Resultados { get; set; } = string.Empty;
 	public string IdentificacionPac { get; set; } = string.Empty;
 	public string NombresPac { get; set; } = string.Empty;
+	public string ClienteNombre { get; set; } = string.Empty;	
 }

@@ -14,8 +14,11 @@ public class BuscarPedidoOperadorResponse: BaseResponse
 
 	[JsonProperty("Cliente")]
 	public string Cliente { get; set; } = string.Empty;
+    
+	[JsonProperty("NomLaboratorio")]
+    public string NomLaboratorio { get; set; } = string.Empty;
 
-	[JsonProperty("numeroRemision")]
+    [JsonProperty("numeroRemision")]
 	public string NumeroRemision { get; set; } = string.Empty;
 
 	[JsonProperty("fechaCreacion")]
