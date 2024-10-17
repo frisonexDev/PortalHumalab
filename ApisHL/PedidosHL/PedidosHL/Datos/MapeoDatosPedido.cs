@@ -174,13 +174,13 @@ public class MapeoDatosPedido: IMapeoDatosPedido
 					{
 						DataSet dataSet = new DataSet();
 						adapter.Fill(dataSet);
-						
+
 						if (dataSet.Tables[0].Rows.Count > 0)
 							data = ConvertToList<BuscarPedidoOperadorResponse>(dataSet.Tables[0]);
 						return data;
 					}
 				}
-			}
+            }
 		}
 		catch (Exception ex)
 		{
@@ -1110,12 +1110,12 @@ public class MapeoDatosPedido: IMapeoDatosPedido
 			Medico = new Medico
 			{
 				//Nombre = g.Key.Nombre,
-				Nombre = nomMedico,
+				Nombre = "",
 				//Apellido = g.Key.Apellido,
-				Apellido = apeMedico,
-				Matricula = g.Key.Matricula,
-				Telefono = g.Key.Telefono,
-				Email = "servicioalcliente@humalab.com.ec"
+				Apellido = "",
+				Matricula = "",
+				Telefono = "",
+				Email = ""
 			},
 			prioridadOrden = StringHandler.PrioridadOrden,
 			fechaIngreso = g.Key.FechaIngreso,

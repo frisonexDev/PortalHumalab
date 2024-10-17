@@ -11,6 +11,11 @@
 * FECHA AUTOR RAZON													    *
 * 2024/08/27 José Guarnizo Se agrega campos de nombre de cliente y      *
 *						   direccion del cliente para el excel masivo   *
+* 2024/09/24 José Guarnizo Se modifica para que tambien envie el estado *
+*						   de la orden y también para que no se duplique*
+*						   la información de las ordenes del lab.       *
+* 2024/10/17 José Guarnizo Se modifica para que valida tambien en base  *
+*						   al cliente y obtenga el nombre del lab.		*
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_ordeneslaboratorista')	
 	EXEC('Create Procedure dbo.pr_humalab_ordeneslaboratorista As')
@@ -114,7 +119,7 @@ BEGIN
 	DECLARE @ordenes TABLE(IdOrden INT, IdPedido INT, Resultados varchar(100), 
 						   CodigoBarra VARCHAR(50), FechaCreacion DATETIME, UsuarioOperador VARCHAR(50), 
 						   EstadoPedido VARCHAR(50), ObservacionMuestras VARCHAR(2000), 
-						   IdentificacionPac varchar(20), NombresPac varchar(50))
+						   IdentificacionPac varchar(20), NombresPac varchar(50), ClienteNombre varchar(100))
 	IF @i_cliente IS NOT NULL AND @i_es_ruc = 1
 		SET @ruc = @i_cliente
 	ELSE
@@ -150,10 +155,14 @@ BEGIN
 						 WHERE pr.IdOrden = o.IdOrden 
 					AND COALESCE(ob.Eliminado, 0)<>1) A ) AS ObservacionMuestras,
 				pa.Identificacion as IdentificacionPac,
-				pa.Nombres+' '+pa.Apellidos as NombresPac
+				pa.Nombres+' '+pa.Apellidos as NombresPac,
+				c.aux1 as ClienteNombre				
 			from Orden o
-			inner join Paciente pa on o.Identificacion = pa.Identificacion
+			inner join Pedido p on o.IdPedido = p.IdPedido
+			inner join Cliente c on p.IdOperador = c.IdOperadorLogistico
+			inner join Paciente pa on o.Identificacion = pa.Identificacion			
 			where o.Estado = @estado
+			and c.IdCliente = p.IdCliente
 			ORDER BY o.IdOrden, o.FechaCreacion desc
 			
 		end
@@ -180,14 +189,18 @@ BEGIN
 				INNER JOIN dbo.ObservacionM ob ON ob.IdMuestra = m.IdMuestra
 				WHERE pr.IdOrden = o.IdOrden AND COALESCE(ob.Eliminado, 0)<>1) A ) AS ObservacionMuestras,
 				pa.Identificacion as IdentificacionPac,
-				pa.Nombres+' '+pa.Apellidos as NombresPac
+				pa.Nombres+' '+pa.Apellidos as NombresPac,
+				c.aux1 as ClienteNombre				
 				--INTO #TEMP1
 			FROM dbo.Pedido p
 			INNER JOIN dbo.Orden o ON p.IdPedido = o.IdPedido						
 			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --nuevo 11/01/2024	
 			inner join dbo.Paciente pa on o.Identificacion = pa.Identificacion --04/04/2024
+			--inner join dbo.Usuario u on o.IdUsuarioGalileo = u.idGalileo --24/09/2024
+			--INNER JOIN dbo.Cliente c ON u.idUsuario = c.IdUsuario --24/09/2024
 			WHERE p.EstadoPedido IN (SELECT IdCatalogoDetalle FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPed AND Valor IN ('ENV','ENVP', 'PREC', 'RCTL','RCPC')) AND
 			p.FechaRetiro >= @i_fecha_desde AND p.FechaRetiro < dateadd(DAY, 1, @i_fecha_hasta)
+			and c.IdCliente = p.IdCliente
 			AND COALESCE(p.Eliminado, 0) = 0 AND COALESCE(o.Eliminado, 0) = 0
 			AND (
 				o.Estado = @estado)
@@ -208,7 +221,7 @@ BEGIN
 				,CodigoBarra, o.FechaCreacion
 				,p.UsuarioOperador, o.Estado, 
 				p.IdPedido, p.FechaCreacion, pa.Identificacion,
-				pa.Nombres, pa.Apellidos
+				pa.Nombres, pa.Apellidos, c.aux1
 			ORDER BY p.IdPedido, o.IdOrden, p.FechaCreacion desc
 
 		end
@@ -232,14 +245,18 @@ BEGIN
 				INNER JOIN dbo.ObservacionM ob ON ob.IdMuestra = m.IdMuestra
 				WHERE pr.IdOrden = o.IdOrden AND COALESCE(ob.Eliminado, 0)<>1) A ) AS ObservacionMuestras,
 				pa.Identificacion as IdentificacionPac,
-				pa.Nombres+' '+pa.Apellidos as NombresPac
+				pa.Nombres+' '+pa.Apellidos as NombresPac,
+				c.aux1 as ClienteNombre				
 				--INTO #TEMP1
 			FROM dbo.Pedido p
 			INNER JOIN dbo.Orden o ON p.IdPedido = o.IdPedido						
 			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --nuevo 11/01/2024	
 			inner join dbo.Paciente pa on o.Identificacion = pa.Identificacion --04/04/2024
+			--inner join dbo.Usuario u on o.IdUsuarioGalileo = u.idGalileo --24/09/2024
+			--INNER JOIN dbo.Cliente c ON u.idUsuario = c.IdUsuario --24/09/2024
 			WHERE p.EstadoPedido IN (SELECT IdCatalogoDetalle FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPed AND Valor IN ('ENV','ENVP', 'PREC', 'RCTL','RCPC')) AND
 			p.FechaRetiro >= @i_fecha_desde AND p.FechaRetiro < dateadd(DAY, 1, @i_fecha_hasta)
+			and c.IdCliente = p.IdCliente
 			AND COALESCE(p.Eliminado, 0) = 0 AND COALESCE(o.Eliminado, 0) = 0
 			AND (
 				o.Estado in (@i_idEstadoReco, @i_idEstadoRecPar))
@@ -260,7 +277,7 @@ BEGIN
 				,CodigoBarra, o.FechaCreacion
 				,p.UsuarioOperador, o.Estado, 
 				p.IdPedido, p.FechaCreacion, pa.Identificacion,
-				pa.Nombres, pa.Apellidos
+				pa.Nombres, pa.Apellidos, c.aux1
 			ORDER BY p.IdPedido, o.IdOrden, p.FechaCreacion desc
 
 		end
@@ -284,14 +301,18 @@ BEGIN
 				INNER JOIN dbo.ObservacionM ob ON ob.IdMuestra = m.IdMuestra
 				WHERE pr.IdOrden = o.IdOrden AND COALESCE(ob.Eliminado, 0)<>1) A ) AS ObservacionMuestras,
 				pa.Identificacion as IdentificacionPac,
-				pa.Nombres+' '+pa.Apellidos as NombresPac
+				pa.Nombres+' '+pa.Apellidos as NombresPac,
+				c.aux1 as ClienteNombre				
 				--INTO #TEMP1
 			FROM dbo.Pedido p
 			INNER JOIN dbo.Orden o ON p.IdPedido = o.IdPedido						
 			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --nuevo 11/01/2024		
 			inner join dbo.Paciente pa on o.Identificacion = pa.Identificacion --04/04/2024
+			--inner join dbo.Usuario u on o.IdUsuarioGalileo = u.idGalileo --24/09/2024
+			--INNER JOIN dbo.Cliente c ON u.idUsuario = c.IdUsuario --24/09/2024
 			WHERE p.EstadoPedido IN (SELECT IdCatalogoDetalle FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPed AND Valor IN ('ENV','ENVP', 'PREC', 'RCTL','RCPC')) AND
 			p.FechaRetiro >= @i_fecha_desde AND p.FechaRetiro < dateadd(DAY, 1, @i_fecha_hasta)
+			and c.IdCliente = p.IdCliente
 			AND COALESCE(p.Eliminado, 0) = 0 AND COALESCE(o.Eliminado, 0) = 0
 			AND (
 				o.Estado in (@i_idEstadoEnv, @i_idEstadoEnvp))
@@ -312,7 +333,7 @@ BEGIN
 				,CodigoBarra, o.FechaCreacion
 				,p.UsuarioOperador, o.Estado, 
 				p.IdPedido, p.FechaCreacion, pa.Identificacion,
-				pa.Nombres, pa.Apellidos
+				pa.Nombres, pa.Apellidos, c.aux1
 			ORDER BY p.IdPedido, o.IdOrden, p.FechaCreacion desc
 
 		end
@@ -336,14 +357,18 @@ BEGIN
 				INNER JOIN dbo.ObservacionM ob ON ob.IdMuestra = m.IdMuestra
 				WHERE pr.IdOrden = o.IdOrden AND COALESCE(ob.Eliminado, 0)<>1) A ) AS ObservacionMuestras,
 				pa.Identificacion as IdentificacionPac,
-				pa.Nombres+' '+pa.Apellidos as NombresPac
+				pa.Nombres+' '+pa.Apellidos as NombresPac,
+				c.aux1 as ClienteNombre				
 				--INTO #TEMP1
 			FROM dbo.Pedido p
 			INNER JOIN dbo.Orden o ON p.IdPedido = o.IdPedido						
 			INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --nuevo 11/01/2024	
 			inner join dbo.Paciente pa on o.Identificacion = pa.Identificacion --04/04/2024
+			--inner join dbo.Usuario u on o.IdUsuarioGalileo = u.idGalileo --24/09/2024
+			--INNER JOIN dbo.Cliente c ON u.idUsuario = c.IdUsuario --24/09/2024
 			WHERE p.EstadoPedido IN (SELECT IdCatalogoDetalle FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPed AND Valor IN ('ENV','ENVP', 'PREC', 'RCTL','RCPC')) AND
 			p.FechaRetiro >= @i_fecha_desde AND p.FechaRetiro < dateadd(DAY, 1, @i_fecha_hasta)
+			and c.IdCliente = p.IdCliente
 			AND COALESCE(p.Eliminado, 0) = 0 AND COALESCE(o.Eliminado, 0) = 0
 			AND (
 				o.Estado in (@i_idEstadoRec, @i_idEstadoRecp))
@@ -364,7 +389,7 @@ BEGIN
 				,CodigoBarra, o.FechaCreacion
 				,p.UsuarioOperador, o.Estado, 
 				p.IdPedido, p.FechaCreacion, pa.Identificacion,
-				pa.Nombres, pa.Apellidos
+				pa.Nombres, pa.Apellidos, c.aux1
 			ORDER BY p.IdPedido, o.IdOrden, p.FechaCreacion desc
 			
 		end
@@ -388,14 +413,18 @@ BEGIN
 		INNER JOIN dbo.ObservacionM ob ON ob.IdMuestra = m.IdMuestra
 		WHERE pr.IdOrden = o.IdOrden AND COALESCE(ob.Eliminado, 0)<>1) A ) AS ObservacionMuestras,
 		o.Identificacion as IdentificacionPac,
-		pa.Nombres+' '+pa.Apellidos as NombresPac
+		pa.Nombres+' '+pa.Apellidos as NombresPac,
+		c.aux1 as ClienteNombre		
 		--INTO #TEMP2
 		FROM dbo.Pedido p
 		INNER JOIN dbo.Orden o ON p.IdPedido = o.IdPedido				
 		INNER JOIN dbo.Cliente c ON c.IdOperadorLogistico = p.IdOperador --nuevo 11/01/2024		
 		inner join dbo.Paciente pa on pa.Identificacion = o.Identificacion --04/04/2024
+		--inner join dbo.Usuario u on o.IdUsuarioGalileo = u.idGalileo --24/09/2024
+		--INNER JOIN dbo.Cliente c ON u.idUsuario = c.IdUsuario --24/09/2024
 		WHERE p.EstadoPedido IN (SELECT IdCatalogoDetalle FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPed AND Valor IN ('ENV','ENVP', 'PREC', 'RCTL','RCPC')) AND
 		p.FechaRetiro >= @i_fecha_desde AND p.FechaRetiro < dateadd(DAY, 1, @i_fecha_hasta)
+		and c.IdCliente = p.IdCliente
 		AND COALESCE(p.Eliminado, 0) = 0 AND COALESCE(o.Eliminado, 0) = 0
 		AND (			
 			o.Estado IN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoOrd AND Valor IN ('RCTL','RCTP',
@@ -423,7 +452,7 @@ BEGIN
 			,CodigoBarra, o.FechaCreacion
 			,p.UsuarioOperador, o.Estado, 
 			p.IdPedido, p.FechaCreacion, o.Identificacion,
-			pa.Nombres, pa.Apellidos
+			pa.Nombres, pa.Apellidos, c.aux1
 		ORDER BY p.IdPedido, o.IdOrden, p.FechaCreacion desc
 	END
 
@@ -505,7 +534,7 @@ BEGIN
 	,p.Identificacion --nuevo
 	,(SELECT ob.Descripcion FROM Observacion ob INNER JOIN PedidoObservacion pob ON ob.IdObservacion = pob.IdObservacion AND pob.IdPedido = o.IdPedido) AS ObservacionCliente
 	,(SELECT ObservacionOpLogistico FROM Pedido pd WHERE pd.IdPedido = o.IdPedido) AS ObservacionOpLogistico
-	,(select FechaRetiro from Pedido pd where pd.IdPedido = o.IdPedido) as FechaEnvio --verficar prueba
+	,(select FechaRetiro from Pedido pd where pd.IdPedido = o.IdPedido) as FechaEnvio --verficar prueba	
 	,(select NombreCliente from Cliente cl
 	  inner join Usuario us on cl.IdUsuario = us.idUsuario
 	  inner join Orden o on us.idGalileo = o.IdUsuarioGalileo
@@ -515,7 +544,7 @@ BEGIN
 	  inner join Usuario us on cl.IdUsuario = us.idUsuario
       inner join Orden o on us.idGalileo = o.IdUsuarioGalileo
 	  where o.IdOrden = @i_orden) as CiudadCliente
-	FROM Paciente p INNER JOIN Orden o ON p.Identificacion = o.Identificacion
+	FROM Paciente p INNER JOIN Orden o ON p.Identificacion = o.Identificacion	
 	WHERE O.IdOrden = @i_orden
 	
 	--Consulta detalle pruebas/muestras por orden Laboratorista
@@ -524,6 +553,7 @@ BEGIN
 	,pr.IdPrueba
 	,IdPruebaGalileo AS Codigo
 	,pr.Nombre AS PruebaPerfil
+	,pr.CodigoExamen as CodigoExamen
 	,ISNULL(
         CASE 
             WHEN (SELECT Valor FROM CatalogoDetalle cd WHERE cd.IdCatalogoMaestro = @i_idEstadoPrue AND cd.IdCatalogoDetalle = pr.Estado) IN ('RCHZ')  THEN CAST(1 AS BIT)
@@ -547,7 +577,8 @@ BEGIN
             END, CAST(0 AS BIT)
         ) AS Rechazado
 	,(SELECT om.Descripcion FROM dbo.ObservacionM om WHERE om.IdMuestra = m.IdMuestra AND Operador = 0 AND COALESCE(om.Eliminado,0) = 0) AS ObservacionMuestra --ob.Descripcion
-	,(SELECT Nombre FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = 8 AND IdCatalogoDetalle = M.EstadoMuestra) AS EstadoMuestra
+	,(SELECT Nombre FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoMues AND IdCatalogoDetalle = M.EstadoMuestra) AS EstadoMuestra
+	,(select Nombre from dbo.CatalogoDetalle where IdCatalogoMaestro = @i_idEstadoOrd and IdCatalogoDetalle = o.Estado) as EstadoOrden
 	FROM Orden o INNER JOIN Prueba pr ON pr.IdOrden = o.IdOrden AND COALESCE(pr.Eliminado,0) = 0
 	LEFT JOIN PruebaMuestra pm ON pr.IdPrueba = pm.IdPrueba AND COALESCE(pm.Eliminado,0) = 0
 	LEFT JOIN Muestra m ON m.IdMuestra = pm.IdMuestra AND COALESCE(m.Eliminado,0) = 0

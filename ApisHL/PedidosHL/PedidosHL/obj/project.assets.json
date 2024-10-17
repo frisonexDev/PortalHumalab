@@ -2369,11 +2369,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MicrosHL_New\\PedidosHL\\PedidosHL\\PedidosHL.csproj",
+      "projectUniqueName": "C:\\HumalabGit\\ApisHL\\PedidosHL\\PedidosHL\\PedidosHL.csproj",
       "projectName": "PedidosHL",
-      "projectPath": "C:\\MicrosHL_New\\PedidosHL\\PedidosHL\\PedidosHL.csproj",
+      "projectPath": "C:\\HumalabGit\\ApisHL\\PedidosHL\\PedidosHL\\PedidosHL.csproj",
       "packagesPath": "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\",
-      "outputPath": "C:\\MicrosHL_New\\PedidosHL\\PedidosHL\\obj\\",
+      "outputPath": "C:\\HumalabGit\\ApisHL\\PedidosHL\\PedidosHL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

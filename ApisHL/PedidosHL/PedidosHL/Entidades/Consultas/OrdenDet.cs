@@ -16,4 +16,5 @@ public class OrdenDet
 	public bool Rechazado { get; set; }
 	public string ObservacionMuestra { get; set; } = string.Empty;
 	public string EstadoMuestra { get; set; } = string.Empty;
+	public string EstadoOrden { get; set; } = string.Empty;
 }

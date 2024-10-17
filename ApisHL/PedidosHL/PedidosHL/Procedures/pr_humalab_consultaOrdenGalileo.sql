@@ -9,7 +9,8 @@
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
 *	FECHA AUTOR RAZON													*
-*						                                                *
+*	23/09/2024 Jose Guarnizo Se cambia que en ves del ruc envia el id   *
+							 cliente.					                *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_consultaOrdenGalileo')	
 	EXEC('Create Procedure dbo.pr_humalab_consultaOrdenGalileo As')
@@ -62,7 +63,7 @@ BEGIN
 	,c.Identificacion AS Matricula
 	,c.Identificacion AS Telefono
 	--Cliente
-	,c.CodClienteCta as RucCliente
+	,u.Usuario as RucCliente
 	--Usuario
 	,u.Email
 	--informacionOrden
