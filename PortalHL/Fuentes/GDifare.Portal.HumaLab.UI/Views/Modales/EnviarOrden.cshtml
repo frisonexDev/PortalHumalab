@@ -78,10 +78,12 @@
 	var datosPedido = new Object();
 	var datosOperador = new Object();
 	var nPedido;
+	var idClientePedido;
 
 	window.addEventListener('load',function(){
 		ObtenerOperador();
 		ObtenerIdPedido();
+		ObtenerIdClientePed();
 
 	});
 
@@ -231,8 +233,22 @@
 			UsuarioOperador: datosOperador.NombreOperador,
 			DatosOrden: ListaOrdenPedido,			
 			Observacion: document.getElementById("txtObservacionCliente").value,
-			UsuarioCreacion: @infoUsuario.UsuarioID
+			UsuarioCreacion: @infoUsuario.UsuarioID,
+			IdClientePedido: idClientePedido
 		}
+	}
+
+	function ObtenerIdClientePed()
+	{
+		$.ajax({
+			url: '@Url.Action("ObtenerIdClientePed", "Cliente")',
+			type: 'GET',
+			async: false,
+			data: { idGalileo: @infoUsuario.UsuarioID },
+			success: function (response) {
+				idClientePedido = response;
+			}
+		});
 	}
 
 </script>

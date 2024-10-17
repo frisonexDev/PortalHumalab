@@ -40,29 +40,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {344B45AA-2400-422B-B52B-762AF7089A02}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dev.azure.com/grupodifare
-		SccProjectUniqueName0 = GDifare.Portal.HumaLab.UI.csproj
-		SccProjectName0 = .
-		SccAuxPath0 = https://dev.azure.com/grupodifare
-		SccLocalPath0 = .
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName1 = ..\\GDifare.Portal.Humalab.Seguridad\\GDifare.Portal.Humalab.Seguridad.csproj
-		SccProjectName1 = ../GDifare.Portal.Humalab.Seguridad
-		SccAuxPath1 = https://dev.azure.com/grupodifare
-		SccLocalPath1 = ..\\GDifare.Portal.Humalab.Seguridad
-		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName2 = ..\\GDifare.Portal.Humalab.Servicio\\GDifare.Portal.Humalab.Servicio.csproj
-		SccProjectName2 = ../GDifare.Portal.Humalab.Servicio
-		SccAuxPath2 = https://dev.azure.com/grupodifare
-		SccLocalPath2 = ..\\GDifare.Portal.Humalab.Servicio
-		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName3 = ..\\GDifare.Portal.EstadoCartera\\GDifare.Portal.EstadoCartera.csproj
-		SccProjectName3 = ../GDifare.Portal.EstadoCartera
-		SccAuxPath3 = https://dev.azure.com/grupodifare
-		SccLocalPath3 = ..\\GDifare.Portal.EstadoCartera
-		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-	EndGlobalSection
 EndGlobal

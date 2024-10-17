@@ -18,5 +18,6 @@ namespace GDifare.Portal.Humalab.Servicio.Modelos.PedidosLaboratorista
         public bool Rechazado { get; set; }
         public string ObservacionMuestra { get; set; }
         public string EstadoMuestra { get; set; }
+        public string EstadoOrden { get; set; } = string.Empty;
     }
 }

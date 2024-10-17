@@ -679,5 +679,42 @@ namespace GDifare.Portal.Humalab.Servicio.Cliente
             return id;
         }
 
-    }
+		public int ClienteIdPedido(int idGalileo)
+		{
+			string ruta = "/idClientePedido";
+			int id = 0;
+
+			try
+			{
+				if (idGalileo > 0)
+				{
+					ruta += string.Format("?idGalileo={0}", HttpUtility.UrlEncode(idGalileo.ToString()));
+				}
+
+				var url = ServerCliente + ":" + PortCliente + "/" + RouteCliente + ruta;
+				var request = (HttpWebRequest)WebRequest.Create(url)!;
+				request.Method = "GET";
+
+				using (var response = (HttpWebResponse)request.GetResponse())
+				{
+					using (var reader = new StreamReader(response.GetResponseStream()))
+					{
+						var responseText = reader.ReadToEnd();
+						id = JsonConvert.DeserializeObject<int>(responseText)!;
+					}
+				}
+
+				if (id > 0)
+				{
+					return id;
+				}
+			}
+			catch
+			{
+				return id;
+			}
+
+			return id;
+		}
+	}
 }

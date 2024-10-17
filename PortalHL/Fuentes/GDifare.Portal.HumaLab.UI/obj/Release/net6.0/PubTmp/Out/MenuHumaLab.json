@@ -76,7 +76,7 @@
         "Modulo": "Laboratorista",
         "Action": "Index",
         "Icon": "fa-sharp fa-solid fa-flask-vial fa-2xl",        
-        "IdRolGrupo": "4"
+        "IdRolGrupo": "4, 8"
       },
       {
         "OpcionID": 180,

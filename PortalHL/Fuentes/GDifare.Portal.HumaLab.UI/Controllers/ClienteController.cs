@@ -702,8 +702,15 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             return id;
         }
 
-        //Generar excel de pruebas que se estan utilizando
-        public string ExportExcelPruebas(string datosPrueba)
+        public int ObtenerIdClientePed(int idGalileo)
+        {
+			int id = gestionarOrdenes.ClienteIdPedido(idGalileo);
+
+			return id;
+		}
+
+		//Generar excel de pruebas que se estan utilizando
+		public string ExportExcelPruebas(string datosPrueba)
         {
             List<ListaPruebasHumalab> lstPruebas = new List<ListaPruebasHumalab>();
             lstPruebas = JsonConvert.DeserializeObject<List<ListaPruebasHumalab>>(datosPrueba)!;

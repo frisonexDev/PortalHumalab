@@ -17,4 +17,5 @@ public class ListaMuestras
     public string NombreMuestra { get; set; } = string.Empty;
     public string NombreExamen { get; set; } = string.Empty;
     public string CodExamen { get; set; } = string.Empty;
+    public string OrdenEstado { get; set; } = string.Empty;
 }

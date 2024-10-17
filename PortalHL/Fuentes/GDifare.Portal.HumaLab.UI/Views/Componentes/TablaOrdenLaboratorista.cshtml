@@ -13,15 +13,18 @@
             <tr>
                 <th class="fw-bold text-center" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 10.613px; color:#F4F4F2;" hidden>IDORDEN</th>
                 <th class="fw-bold text-center" tabindex="1" aria-controls="example" rowspan="1" colspan="1" style="width: 10.613px; color:#F4F4F2;" hidden>IDPEDIDO</th>
-                <th class="fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">N° ORDEN</th>
-                <th class="fw-bold text-center" tabindex="3" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">N° ORDEN LIS</th>
-                <th class="fw-bold text-center" tabindex="4" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">IDENTIFICACIÓN</th>
-                <th class="fw-bold text-center" tabindex="5" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">NOMBRES</th>
-                <th class="fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">FECHA INGRESO</th>
-                <th class="fw-bold text-center" tabindex="7" aria-controls="example" rowspan="1" colspan="1" style="width: 80.325px;color:#F4F4F2;">OPERADOR LOGÍSTICO</th>
-                <th class="fw-bold text-center" tabindex="8" aria-controls="example" rowspan="1" colspan="1" style="width: 80.2125px;color:#F4F4F2;">ESTADO</th>
-                <th class="fw-bold text-center" tabindex="9" aria-controls="example" rowspan="1" colspan="1" style="width: 150.325px;color:#F4F4F2;">OBSERVACIONES</th>
-                <th class="fw-bold text-center" tabindex="10" aria-controls="example" rowspan="1" colspan="1" style="width: 65.8375px;color:#F4F4F2;">ACCIÓN</th>
+                
+                <th class="fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 10.613px; color:#F4F4F2;">CLIENTE</th>                
+                
+                <th class="fw-bold text-center" tabindex="4" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">N° ORDEN</th>
+                <th class="fw-bold text-center" tabindex="5" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">N° ORDEN LIS</th>
+                <th class="fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">IDENTIFICACIÓN</th>
+                <th class="fw-bold text-center" tabindex="7" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">NOMBRES</th>
+                <th class="fw-bold text-center" tabindex="8" aria-controls="example" rowspan="1" colspan="1" style="width: 60px;color:#F4F4F2;">FECHA INGRESO</th>
+                <th class="fw-bold text-center" tabindex="9" aria-controls="example" rowspan="1" colspan="1" style="width: 80.325px;color:#F4F4F2;">OPERADOR LOGÍSTICO</th>
+                <th class="fw-bold text-center" tabindex="10" aria-controls="example" rowspan="1" colspan="1" style="width: 80.2125px;color:#F4F4F2;">ESTADO</th>
+                <th class="fw-bold text-center" tabindex="11" aria-controls="example" rowspan="1" colspan="1" style="width: 150.325px;color:#F4F4F2;">OBSERVACIONES</th>
+                <th class="fw-bold text-center" tabindex="12" aria-controls="example" rowspan="1" colspan="1" style="width: 65.8375px;color:#F4F4F2;">ACCIÓN</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +36,9 @@
                     </td>
                     <td hidden>
                         @Html.DisplayFor(modelItem => item.IdPedido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClienteNombre)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CodigoBarraOrden)

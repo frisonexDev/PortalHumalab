@@ -17,6 +17,7 @@ namespace GDifare.Portal.Humalab.Servicio.Modelos.PedidosCliente
 		public string Observacion { get; set; }
 		public int UsuarioCreacion { get; set; }
 		public DateTime FechaCreacion { get; set; } = DateTime.Now;
+		public int IdClientePedido { get; set; }
 
 	}
 

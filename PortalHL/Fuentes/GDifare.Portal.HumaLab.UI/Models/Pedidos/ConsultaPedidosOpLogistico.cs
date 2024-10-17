@@ -5,6 +5,7 @@
         public bool SeleccionPedido { get; set; }
         public string? Cliente { get; set; }
         public string? NumeroRemision { get; set; }
+        public string? NomLab { get; set; }
         public DateTime? FechaPedido { get; set; }
         public int TotalOrdenes { get; set; }
         public int TotalMuestras { get; set; }

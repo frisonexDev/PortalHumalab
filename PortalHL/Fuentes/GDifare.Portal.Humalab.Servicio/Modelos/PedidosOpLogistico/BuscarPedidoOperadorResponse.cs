@@ -17,6 +17,9 @@ namespace GDifare.Portal.Humalab.Servicio.Modelos.PedidosOpLogistico
 
         [JsonProperty("Cliente")]
         public string Cliente { get; set; }
+        
+        [JsonProperty("NomLaboratorio")]
+        public string NomLaboratorio { get; set; } = string.Empty;
 
         [JsonProperty("numeroRemision")]
         public string NumeroRemision { get; set; }

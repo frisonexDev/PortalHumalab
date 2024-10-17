@@ -8,7 +8,7 @@
         <div class="d-flex justify-content-between gap-5">
             <div class="col-3 d-flex gap-2">
                 <h5 @* class="fw-bold mt-2" *@ style="font-size:14px; font-weight:normal;">*Cédula:</h5>
-                <input id="txtIdentPac" style="height:2rem; margin-left:0.5rem" onblur="BuscarPaciente()" data-toggle="popover" title="@Notificaciones.CedulaInvalida" class="form-control LimpiarText" type="text" maxlength="10" />
+                <input id="txtIdentPac" style="height:2rem; margin-left:0.5rem" onblur="BuscarPaciente()" data-toggle="popover" title="@Notificaciones.CedulaInvalida" class="form-control LimpiarText" type="text" maxlength="100" pattern="[a-zA-Z0-9]+" />
             </div>
 
             <div class="col-4 d-flex gap-2">
