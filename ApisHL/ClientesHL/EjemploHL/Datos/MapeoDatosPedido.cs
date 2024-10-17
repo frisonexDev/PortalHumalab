@@ -96,7 +96,7 @@ public class MapeoDatosPedido : IMapeoDatosPedido
 				scope.Complete();
 				result = Transaccion.Correcta;
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				scope.Dispose();
 				result = Transaccion.Error;
@@ -379,6 +379,9 @@ public class MapeoDatosPedido : IMapeoDatosPedido
 
 				command.Parameters.Add("@fechaCreacion", SqlDbType.Date);
 				command.Parameters["@fechaCreacion"].Value = valor.FechaCreacion;
+
+				command.Parameters.Add("@idCliente", SqlDbType.Int);
+				command.Parameters["@idCliente"].Value = valor.IdClientePedido;
 
 				connection.Open();
 

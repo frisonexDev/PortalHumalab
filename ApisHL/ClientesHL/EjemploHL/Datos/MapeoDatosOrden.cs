@@ -7,6 +7,7 @@ using EjemploHL.Entidades.Consultas.CatalogoMaestro;
 using EjemploHL.Utils;
 using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Drawing;
@@ -36,6 +37,7 @@ public interface IMapeoDatosOrden
 	string nombreEstadoOrden(string idOrdenEstado);
 	string ActuOrdenPdfResult(ActualizaPdfOrden actualizaPdfOrden);
 	int CLienteIdOrden(int idGalileo, string accion);
+	int CLienteIdPedido(int id);
 	string ActualizaResultadoFinal(string codOrdenHuma, string codOrdenLis,
 						int idLab, string pdfBase64, int idOrden);
 	string ConsultarPdfFinal(string codBarra);
@@ -356,6 +358,11 @@ public class MapeoDatosOrden: IMapeoDatosOrden
 	int IMapeoDatosOrden.CLienteIdOrden(int idGalielo, string accion)
 	{
 		return ObtenerIdClienteOrden(idGalielo, accion);
+	}
+
+	int IMapeoDatosOrden.CLienteIdPedido(int id)
+	{
+		return ObtenerIdClientePedido(id);
 	}
 
 	string IMapeoDatosOrden.ActualizaResultadoFinal(string codOrdenHuma, string codOrdenLis,
@@ -1944,6 +1951,34 @@ public class MapeoDatosOrden: IMapeoDatosOrden
 					adapter.Fill(dataSet);
 
 					var valor = Convert.ToInt32(dataSet.Tables[0].Rows[0]["Column1"]);
+					return valor;
+				}
+			}
+		}
+	}
+
+	private int ObtenerIdClientePedido(int id)
+	{
+		using (SqlConnection connection = new SqlConnection(connectionString))
+		{
+			using (SqlCommand command = new SqlCommand(StringHandler.ProcedureClienteIdPed, connection))
+			{
+				command.CommandType = CommandType.StoredProcedure;
+				//Envio de parametros
+				command.Parameters.Add("@i_accion", SqlDbType.Char);
+				command.Parameters["@i_accion"].Value = "C";
+
+				command.Parameters.Add("@i_idCliente", SqlDbType.Int);
+				command.Parameters["@i_idCliente"].Value = id;
+
+				connection.Open();
+
+				using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+				{
+					DataSet dataSet = new DataSet();
+					adapter.Fill(dataSet);
+
+					var valor = Convert.ToInt32(dataSet.Tables[0].Rows[0]["IdCliente"]);
 					return valor;
 				}
 			}
