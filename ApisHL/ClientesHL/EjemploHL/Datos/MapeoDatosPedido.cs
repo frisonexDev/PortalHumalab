@@ -413,6 +413,7 @@ public class MapeoDatosPedido : IMapeoDatosPedido
 
 				command.Parameters.Add("@descripcion", SqlDbType.VarChar);
 				command.Parameters["@descripcion"].Value = Descripcion;
+				//command.Parameters["@descripcion"].Value = string.IsNullOrWhiteSpace(Descripcion) ? "Sin observación" : Descripcion;
 
 				command.Parameters.Add("@usuarioCreacion", SqlDbType.Int);
 				command.Parameters["@usuarioCreacion"].Value = UsuarioCreacion;

@@ -22,7 +22,7 @@ public class GrabarPedidosRequest
 	public int EstadoPedido { get; set; }
 
 	[JsonProperty("Observacion")]
-	public string Observacion { get; set; } = string.Empty;
+	public string? Observacion { get; set; }
 
 	[JsonProperty("UsuarioCreacion")]
 	public int UsuarioCreacion { get; set; }
