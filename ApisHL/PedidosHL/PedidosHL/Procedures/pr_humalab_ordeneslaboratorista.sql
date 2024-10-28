@@ -16,6 +16,9 @@
 *						   la información de las ordenes del lab.       *
 * 2024/10/17 José Guarnizo Se modifica para que valida tambien en base  *
 *						   al cliente y obtenga el nombre del lab.		*
+* 2024/10/18 José Guarnizo Se modifica para que salga ruc, nombre lab,  *
+*						   tipo cliente, cod lab, fecha creacion y      *
+*						   asesor.                                      *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_ordeneslaboratorista')	
 	EXEC('Create Procedure dbo.pr_humalab_ordeneslaboratorista As')
@@ -535,7 +538,7 @@ BEGIN
 	,(SELECT ob.Descripcion FROM Observacion ob INNER JOIN PedidoObservacion pob ON ob.IdObservacion = pob.IdObservacion AND pob.IdPedido = o.IdPedido) AS ObservacionCliente
 	,(SELECT ObservacionOpLogistico FROM Pedido pd WHERE pd.IdPedido = o.IdPedido) AS ObservacionOpLogistico
 	,(select FechaRetiro from Pedido pd where pd.IdPedido = o.IdPedido) as FechaEnvio --verficar prueba	
-	,(select NombreCliente from Cliente cl
+	,(select aux1 from Cliente cl
 	  inner join Usuario us on cl.IdUsuario = us.idUsuario
 	  inner join Orden o on us.idGalileo = o.IdUsuarioGalileo
 	  where o.IdOrden = @i_orden) as NombreCliente
@@ -544,6 +547,20 @@ BEGIN
 	  inner join Usuario us on cl.IdUsuario = us.idUsuario
       inner join Orden o on us.idGalileo = o.IdUsuarioGalileo
 	  where o.IdOrden = @i_orden) as CiudadCliente
+	,(select u.Identificacion from Usuario u
+	  inner join Orden o on u.idGalileo = o.IdUsuarioGalileo
+	  where o.IdOrden = @i_orden) as RucLab
+	,(select NombreOperadorLogistico from Cliente c
+	  inner join Usuario us on c.IdUsuario = us.idUsuario
+	  inner join Orden o on us.idGalileo = o.IdUsuarioGalileo
+	  where o.IdOrden = @i_orden) as Operador
+	,(select NombreCliente from Cliente cl
+	  inner join Usuario us on cl.IdUsuario = us.idUsuario
+	  inner join Orden o on us.idGalileo = o.IdUsuarioGalileo
+	  where o.IdOrden = @i_orden) as ClienteNombre
+	,p.CodLaboratorio
+	,(select Nombre from CatalogoDetalle 
+	  where IdCatalogoDetalle = p.TipoPaciente) as TipoPaciente
 	FROM Paciente p INNER JOIN Orden o ON p.Identificacion = o.Identificacion	
 	WHERE O.IdOrden = @i_orden
 	
@@ -579,6 +596,8 @@ BEGIN
 	,(SELECT om.Descripcion FROM dbo.ObservacionM om WHERE om.IdMuestra = m.IdMuestra AND Operador = 0 AND COALESCE(om.Eliminado,0) = 0) AS ObservacionMuestra --ob.Descripcion
 	,(SELECT Nombre FROM dbo.CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoMues AND IdCatalogoDetalle = M.EstadoMuestra) AS EstadoMuestra
 	,(select Nombre from dbo.CatalogoDetalle where IdCatalogoMaestro = @i_idEstadoOrd and IdCatalogoDetalle = o.Estado) as EstadoOrden
+	,o.FechaCreacion
+	,o.Resultados as CodLis
 	FROM Orden o INNER JOIN Prueba pr ON pr.IdOrden = o.IdOrden AND COALESCE(pr.Eliminado,0) = 0
 	LEFT JOIN PruebaMuestra pm ON pr.IdPrueba = pm.IdPrueba AND COALESCE(pm.Eliminado,0) = 0
 	LEFT JOIN Muestra m ON m.IdMuestra = pm.IdMuestra AND COALESCE(m.Eliminado,0) = 0
@@ -655,6 +674,5 @@ BEGIN
 			,1
 			)
 END
-
 
 GO
