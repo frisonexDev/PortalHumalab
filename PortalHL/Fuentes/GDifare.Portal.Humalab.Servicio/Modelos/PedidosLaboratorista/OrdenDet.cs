@@ -19,5 +19,7 @@ namespace GDifare.Portal.Humalab.Servicio.Modelos.PedidosLaboratorista
         public string ObservacionMuestra { get; set; }
         public string EstadoMuestra { get; set; }
         public string EstadoOrden { get; set; } = string.Empty;
-    }
+		public string FechaCreacion { get; set; } = string.Empty;
+		public string CodLis { get; set; } = string.Empty;
+	}
 }

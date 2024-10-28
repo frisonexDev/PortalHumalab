@@ -227,12 +227,15 @@
 
 	function DatosdelPedido()
 	{
+		var observacionElement = document.getElementById("txtObservacionCliente");
+		var observacion = observacionElement ? observacionElement.value : '';
+
 		datosPedido={
 			NumeroRemision:remision,
 			IdOperador: datosOperador.idOperador,
 			UsuarioOperador: datosOperador.NombreOperador,
 			DatosOrden: ListaOrdenPedido,			
-			Observacion: document.getElementById("txtObservacionCliente").value,
+			Observacion: observacion,
 			UsuarioCreacion: @infoUsuario.UsuarioID,
 			IdClientePedido: idClientePedido
 		}

@@ -10,6 +10,11 @@ public class ExportarDatosResponse
     public string IdentificacionPac { get; set; } = string.Empty;  
     public string NombreCliente {  get; set; } = string.Empty;
     public string CiudadCliente {  get; set; } = string.Empty;
+    public string RucLab {  get; set; } = string.Empty;
+    public string Operador { get; set; } = string.Empty;
+    public string ClienteNombre { get; set; } = string.Empty;
+    public string CodLaboratorio { get; set; } = string.Empty;
+    public string TipoPaciente { get; set; } = string.Empty;
 }
 
 public class ListaMuestras
@@ -18,4 +23,6 @@ public class ListaMuestras
     public string NombreExamen { get; set; } = string.Empty;
     public string CodExamen { get; set; } = string.Empty;
     public string OrdenEstado { get; set; } = string.Empty;
+    public string FechaCreacion { get; set; } = string.Empty;
+    public string codLis { get; set; } = string.Empty;
 }

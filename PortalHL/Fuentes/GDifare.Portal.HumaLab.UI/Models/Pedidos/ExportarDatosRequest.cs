@@ -12,4 +12,9 @@ public class ExportarDatosRequest
     public string ObservacionMuestras { get; set; } = string.Empty;
     public string Resultados { get; set; } = string.Empty;
     public string UsuarioOperador { get; set; } = string.Empty;
+    public string RucLab { get; set; } = string.Empty;
+    public string Operador { get; set; } = string.Empty;
+    public string ClienteNombre { get; set; } = string.Empty;
+    public string CodLaboratorio { get; set; } = string.Empty;
+    public string TipoPaciente {  get; set; } = string.Empty;
 }

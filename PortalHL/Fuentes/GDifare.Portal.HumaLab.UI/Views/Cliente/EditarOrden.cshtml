@@ -27,7 +27,7 @@
 
     <div class="d-flex gap-3 align-items-center">
 
-        <a onclick="GuardarOrden()" class="btn btn-success"><i class="fa-solid fa-floppy-disk" style="color:white"></i> ACTUALIZAR</a>
+        <a id="btnActualizar" onclick="GuardarOrden()" class="btn btn-success"><i class="fa-solid fa-floppy-disk" style="color:white"></i> ACTUALIZAR</a>
         <a href="#" onclick="GenerarPDF()" class="btn btn-secondary"><i class="fa-solid fa-print" style="color:white"></i> IMPRIMIR ETIQUETA</a>
         <div id="EncabezadoBarra" class="d-flex gap-1 mt-2">
             <h5 id="NombreBarra" class="fs-4"></h5>
@@ -85,6 +85,8 @@
     var MuestraFinal = [];
 
     var nombEstado = "";
+
+    var checkBlockPruebas = false;
     
     //validar caracteres especiales
     function validarCaracteres(texto){        
@@ -146,7 +148,7 @@
         CargarCatalogoPruebasNew();
 
         //Datos de la Prueba
-        ListarPruebasOrden();
+        //ListarPruebasOrden();
 
         //Tipo de paciente
         CargarTiposClientesEdit()
@@ -221,6 +223,14 @@
 
                     var botonEliminar = document.getElementById("mensajePopUp").innerHTML
 
+                    checkBlockPruebas = true;
+                    ListarPruebasOrden();
+                    $('#btnActualizar').css({
+                        "pointer-events": "none",  // Desactiva los eventos de puntero
+                        "opacity": "0.5",          // Cambia la opacidad para que parezca deshabilitado
+                        "color": "gray"            // Cambia el color del texto si deseas
+                    });
+
                 }else{
                     document.getElementById("txtIdentPac").disabled = false;
                     document.getElementById("txtNomPac").disabled = false;
@@ -236,6 +246,15 @@
                     document.getElementById("txtDiagnostico").disabled = false;
                     document.getElementById("selGenPac").disabled = false;
                     document.getElementById("dptFecIng").disabled = false;
+
+                    checkBlockPruebas = false;
+                    ListarPruebasOrden();
+                    $('#btnActualizar').css({
+                        "pointer-events": "auto",  // Activa eventos de puntero
+                        "opacity": "1",             // Restaura la opacidad
+                        "color": "white"            // Restaura el color del texto
+                    });
+
                 }
             }
 
@@ -314,7 +333,10 @@
     function LlenarTable(resp) {
         var html = '';
         var recipiente = '';
-        var muestraAlterna = '';        
+        var muestraAlterna = ''; 
+        
+        var isBlocked = checkBlockPruebas;  
+        var bloqueadoAttr = isBlocked ? 'data-disabled="true"' : '';
 
         for (var i = 0, size = resp.length; i < size; i++) {            
 
@@ -396,32 +418,35 @@
             // }
 
             contadorItem++;
-            html = '<tr class="odd"' + 'id="fila' + i + '"' + '>'
-                + '<td class="text-center" hidden>' + contadorItem + '</td>'
-                + '<td class="sorting_1 text-center">' + resp[i].codigoExamen + '</td>'
-                + ' <td>' + resp[i].nombre + '</td>'
-                + ' <td class="text-center">' + resp[i].abreviatura + '</td>'
-                // + ' <td class="text-center">' + resp[i].metodologia + '</td>'
-                + ' <td>' + resp[i].nombreMuestra + '</td>'
-                //+ ' <td class="text-center">' + recipiente + '</td>'
-                + ' <td class="text-center">' + resp[i].precio + '</td>'
-                + ' <td>' + muestraAlterna + '</td>'
-                + '<td class="justify-content-center align-items-center">'
-                + '<div class="d-flex">'
-                + '<a class="btn text-decoration-none" onclick="eliminarFila(' + i + ');"><i class="fa-solid fa-xmark" style="color: #d4024c;"></i></a>'
-                + '</div>'
-                + '</td>'
-                + '</tr>'
+            html = '<tr class="odd"' + ' id="fila' + i + '"' + bloqueadoAttr + '>' +
+                '<td class="text-center" hidden>' + contadorItem + '</td>' +
+                '<td class="sorting_1 text-center">' + resp[i].codigoExamen + '</td>' +
+                '<td>' + resp[i].nombre + '</td>' +
+                '<td class="text-center">' + resp[i].abreviatura + '</td>' +
+                '<td>' + resp[i].nombreMuestra + '</td>' +
+                '<td class="text-center">' + resp[i].precio + '</td>' +
+                '<td>' + muestraAlterna + '</td>' +
+                '<td class="justify-content-center align-items-center">' +
+                '<div class="d-flex">';
+
+            if (!isBlocked) { // Solo agregar el enlace si no está bloqueado
+                html += '<a class="btn text-decoration-none" onclick="eliminarFila(' + i + ');"><i class="fa-solid fa-xmark" style="color: #d4024c;"></i></a>';
+            }
+
+            html += '</div>' +
+                '</td>' +
+                '</tr>';
+
             $('#TbItemsExamen').append(html);
             // html = '<tr class="odd"' + 'id="fila' + i + '"' + '>'
             //     + '<td class="text-center" hidden>' + contadorItem + '</td>'
-            //     + '<td class="sorting_1 text-center">' + resp[i].CodigoExamen + '</td>'
-            //     + ' <td>' + resp[i].Nombre + '</td>'
-            //     + ' <td class="text-center">' + resp[i].Abreviatura + '</td>'
-            //     + ' <td class="text-center">' + resp[i].Metodologia + '</td>'
-            //     + ' <td>' + resp[i].NombreMuestra + '</td>'
+            //     + '<td class="sorting_1 text-center">' + resp[i].codigoExamen + '</td>'
+            //     + ' <td>' + resp[i].nombre + '</td>'
+            //     + ' <td class="text-center">' + resp[i].abreviatura + '</td>'
+            //     // + ' <td class="text-center">' + resp[i].metodologia + '</td>'
+            //     + ' <td>' + resp[i].nombreMuestra + '</td>'
             //     //+ ' <td class="text-center">' + recipiente + '</td>'
-            //     + ' <td class="text-center">' + resp[i].Precio + '</td>'
+            //     + ' <td class="text-center">' + resp[i].precio + '</td>'
             //     + ' <td>' + muestraAlterna + '</td>'
             //     + '<td class="justify-content-center align-items-center">'
             //     + '<div class="d-flex">'
@@ -429,7 +454,7 @@
             //     + '</div>'
             //     + '</td>'
             //     + '</tr>'
-            // $('#TbItemsExamen').append(html);
+            // $('#TbItemsExamen').append(html);                       
         }
 
         TotalOrden();

@@ -67,7 +67,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
         public IActionResult PedidosLab(int id, string datos, string estado)
         {
             BuscarPedidosLaboratorista input = new BuscarPedidosLaboratorista { IdOrden = id };
-            BuscarPedidosLaboratorista d = JsonConvert.DeserializeObject<BuscarPedidosLaboratorista>(datos);
+            BuscarPedidosLaboratorista d = JsonConvert.DeserializeObject<BuscarPedidosLaboratorista>(datos)!;
             ViewBag.DatosConsulta = d;
             ViewBag.Estado = estado;
             return View(VerOrdenLaboratorista(input));
@@ -82,7 +82,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
         public IActionResult regresarBusqueda(string modelJson)
         {
             PedidosLaboratorista m = new PedidosLaboratorista();
-            BuscarPedidosLaboratorista model = JsonConvert.DeserializeObject<BuscarPedidosLaboratorista>(modelJson);
+            BuscarPedidosLaboratorista model = JsonConvert.DeserializeObject<BuscarPedidosLaboratorista>(modelJson)!;
             m.ConsultaPedidosLab = new List<ConsultaPedidosLaboratorista>();
             m.BuscarPedidosLab = new BuscarPedidosLaboratorista();
             m.BuscarPedidosLab.FechaDesde = model.FechaDesde;
@@ -276,8 +276,13 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                 {
                     CodigoBarraOrden = datosLab.CodigoBarraOrden,
                     NombresPac = datosLab.NombresPac,
-                    IdentificacionPac = datosLab.IdentificacionPac,                    
-                    muestras = new List<ListaMuestras>() // Inicializa la lista de muestras para esta respuesta
+                    IdentificacionPac = datosLab.IdentificacionPac,   
+                    RucLab = datosLab.RucLab,
+                    Operador = datosLab.Operador,
+                    ClienteNombre = datosLab.ClienteNombre,
+                    CodLaboratorio = datosLab.CodLaboratorio,
+                    TipoPaciente = datosLab.TipoPaciente,
+					muestras = new List<ListaMuestras>() // Inicializa la lista de muestras para esta respuesta
                 };
 
                 //consulta de ordenes y muestras
@@ -289,6 +294,22 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                 string ciudadCliente = ordenesConsulta.Orden.CiudadCliente;
                 datosResponse.CiudadCliente = ciudadCliente;
 
+                string rucLab = ordenesConsulta.Orden.RucLab;
+                datosResponse.RucLab = rucLab;
+
+				string operador = ordenesConsulta.Orden.Operador;
+				datosResponse.Operador = operador;
+
+				string nombreC = ordenesConsulta.Orden.ClienteNombre;
+                datosResponse.ClienteNombre = nombreC;
+
+                string codLaboratorio = ordenesConsulta.Orden.CodLaboratorio;
+                datosResponse.CodLaboratorio = codLaboratorio;
+
+                string tipPaciente = ordenesConsulta.Orden.TipoPaciente;
+                datosResponse.TipoPaciente = tipPaciente;
+
+
                 //recorre el nombre de las muestras de la orden
                 foreach (var muestra in ordenesConsulta.PruebasMuestras)
                 {
@@ -297,7 +318,9 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                         NombreMuestra = muestra.Muestra,
                         NombreExamen = muestra.PruebaPerfil,
                         CodExamen = muestra.CodigoExamen,
-                        OrdenEstado = muestra.EstadoOrden
+                        OrdenEstado = muestra.EstadoOrden,
+                        FechaCreacion = muestra.FechaCreacion,
+                        codLis = muestra.CodLis
                     };
 
                     datosResponse.muestras.Add(nuevaMuestra);                    
@@ -341,7 +364,15 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                         worksheet.Cells[rowStart, 7].Value = "Ciudad";
                         worksheet.Cells[rowStart, 8].Value = "Estado Orden";
 
-                        int row = rowStart + 1;
+                        worksheet.Cells[rowStart, 9].Value = "Ruc Laboratorio";
+						worksheet.Cells[rowStart, 10].Value = "Asesor";
+						worksheet.Cells[rowStart, 11].Value = "Cliente";
+						worksheet.Cells[rowStart, 12].Value = "Codigo Laboratorio";
+						worksheet.Cells[rowStart, 13].Value = "Tipo Paciente";
+						worksheet.Cells[rowStart, 14].Value = "Fecha Creación";
+						worksheet.Cells[rowStart, 15].Value = "Orden Lis";						
+
+						int row = rowStart + 1;
 
                         foreach(var datos in lstDatosLab)
                         {
@@ -362,6 +393,14 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                     worksheet.Cells[row, 7].Value = datos.CiudadCliente;
                                     worksheet.Cells[row, 8].Value = muestra.OrdenEstado;
 
+                                    worksheet.Cells[row, 9].Value = datos.RucLab;
+                                    worksheet.Cells[row, 10].Value = datos.Operador;
+									worksheet.Cells[row, 11].Value = datos.ClienteNombre;
+									worksheet.Cells[row, 12].Value = datos.CodLaboratorio;
+                                    worksheet.Cells[row, 13].Value = datos.TipoPaciente;
+                                    worksheet.Cells[row, 14].Value = muestra.FechaCreacion;
+                                    worksheet.Cells[row, 15].Value = muestra.codLis;
+
                                     row++;
                                 }
                             }
@@ -375,8 +414,15 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                 worksheet.Cells[row, 6].Value = string.Empty;
                                 worksheet.Cells[row, 7].Value = string.Empty;
                                 worksheet.Cells[row, 8].Value = string.Empty;
+								worksheet.Cells[row, 9].Value = string.Empty;
+								worksheet.Cells[row, 10].Value = string.Empty;
+								worksheet.Cells[row, 11].Value = string.Empty;
+								worksheet.Cells[row, 12].Value = string.Empty;
+								worksheet.Cells[row, 13].Value = string.Empty;
+								worksheet.Cells[row, 14].Value = string.Empty;
+								worksheet.Cells[row, 15].Value = string.Empty;
 
-                                row++;
+								row++;
                             }
                         }
 

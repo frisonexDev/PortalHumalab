@@ -100,6 +100,8 @@ namespace GDifare.Portal.Humalab.Servicio.CatalogoPrueba
                 var metodo = "";
 
                 var url = serverGalileo + ":" + portGalileo + "/" + catalogoPrueba + metodo;
+                
+                using var httpClient = new HttpClient();
                 var request = (HttpWebRequest)WebRequest.Create(url);
                 request.Method = "GET";
 
