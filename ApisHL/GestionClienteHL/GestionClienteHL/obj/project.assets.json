@@ -2369,11 +2369,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MicrosHL_New\\GestionClienteHL\\GestionClienteHL\\GestionClienteHL.csproj",
+      "projectUniqueName": "C:\\HumalabGit\\ApisHL\\GestionClienteHL\\GestionClienteHL\\GestionClienteHL.csproj",
       "projectName": "GestionClienteHL",
-      "projectPath": "C:\\MicrosHL_New\\GestionClienteHL\\GestionClienteHL\\GestionClienteHL.csproj",
+      "projectPath": "C:\\HumalabGit\\ApisHL\\GestionClienteHL\\GestionClienteHL\\GestionClienteHL.csproj",
       "packagesPath": "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\",
-      "outputPath": "C:\\MicrosHL_New\\GestionClienteHL\\GestionClienteHL\\obj\\",
+      "outputPath": "C:\\HumalabGit\\ApisHL\\GestionClienteHL\\GestionClienteHL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

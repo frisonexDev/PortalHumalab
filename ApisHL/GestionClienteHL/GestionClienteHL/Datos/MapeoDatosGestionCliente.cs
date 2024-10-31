@@ -426,6 +426,9 @@ public class MapeoDatosGestionCliente: IMapeoDatosGestionCliente
 				command.Parameters.Add("@i_telefono", SqlDbType.VarChar);
 				command.Parameters["@i_telefono"].Value = request.Telefono;
 
+				command.Parameters.Add("@i_labComercial", SqlDbType.VarChar);
+				command.Parameters["@i_labComercial"].Value = request.LabComercial;
+
 				connection.Open();
 
 				using (SqlDataAdapter adapter = new SqlDataAdapter(command))

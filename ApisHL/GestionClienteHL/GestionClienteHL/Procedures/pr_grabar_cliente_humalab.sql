@@ -13,6 +13,8 @@
 *	FECHA AUTOR RAZON													*
 *	2024/08/27 Jose Guarnizo Se agrega campo para nombre comercial		*
 *							 laboratorio.								*
+*   2024/10/31 Jose Guarnizo Se modifica para que tambien se actualice  *
+*							 el nombre comercial del laboratorio.       *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_grabar_cliente_humalab')	
 	EXEC('Create Procedure dbo.pr_grabar_cliente_humalab As')
@@ -175,7 +177,9 @@ begin
 			set NombreCliente = @i_usuario, IdOperadorLogistico = @i_usuario_asesor,
 				NombreOperadorLogistico = @i_nombre_asesor, 
 				UsuarioModificacion = @i_usuario_creacion,
-				FechaModificacion = GETDATE(), Telefono = @i_telefono
+				FechaModificacion = GETDATE(), 
+				Telefono = @i_telefono,
+				aux1 = @i_labComercial
 			where IdUsuario = @idUsuario			
 
 			select @idCliente = IdCliente

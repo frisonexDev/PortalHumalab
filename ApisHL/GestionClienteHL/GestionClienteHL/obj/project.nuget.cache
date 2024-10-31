@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dsdEfHMX1fQI1JZC+OmIbVfWyGBSeZByukDV3zdPxhZIFMMBSLkeE7Vq9o1Tp4S4GgwFrqc0CiHbsOd5zuMjJg==",
+  "dgSpecHash": "x6MvAMIVxr9Dn1kUeGIIOoDWW9Qo7ZTrJXyn9LIXLqhtmVeqYtkt4fgK2fLaJSYSJgHXtOuy1C+t2KPE4LC4eg==",
   "success": true,
-  "projectFilePath": "C:\\MicrosHL_New\\GestionClienteHL\\GestionClienteHL\\GestionClienteHL.csproj",
+  "projectFilePath": "C:\\HumalabGit\\ApisHL\\GestionClienteHL\\GestionClienteHL\\GestionClienteHL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

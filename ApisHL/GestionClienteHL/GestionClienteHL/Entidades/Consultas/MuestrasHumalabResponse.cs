@@ -2,8 +2,8 @@
 
 public class MuestrasHumalabResponse
 {
-	public List<MuestrasMesActual> mesActual = new List<MuestrasMesActual>();
-	public List<MuestrasMesAnterior> mesAnterior = new List<MuestrasMesAnterior>();
+    public List<MuestrasMesActual> mesActual { get; set; } = new List<MuestrasMesActual>();
+    public List<MuestrasMesAnterior> mesAnterior { get; set; } = new List<MuestrasMesAnterior>();
 }
 
 public class MuestrasMesActual
