@@ -23,7 +23,7 @@
                     const resp = JSON.parse(response);
                     
                     if (resp.examen && resp.examen.length > 0 && resp.examen[0].details) {                        
-                        lista = resp.examen[0].details;
+                        lista = resp.examen[0].details;                        
                         TablaPruebas(lista);
                     }
                     else{                        

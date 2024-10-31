@@ -2,7 +2,7 @@
 <style>
     td.details-control {
         /* Image in the first column to
-                        indicate expand*/
+                            indicate expand*/
         background: url('/Resources/images/icons/more.png') no-repeat center;
         cursor: pointer;
     }
@@ -14,7 +14,7 @@
     .etiquetaLabel1 {
         font-weight: bold;
         color: orange;
-        font-size :18px;
+        font-size: 18px;
     }
 
 
@@ -37,7 +37,7 @@
         font-size: 26px;
         font-weight: bold;
         color: #000;
-        margin-left:2px;
+        margin-left: 2px;
     }
 
 
@@ -57,8 +57,6 @@
         position: relative;
         display: flex;
         flex-direction: column;
-       
-      
         background-color: #ffffff;
         background-clip: border-box;
         border: 1px solid #e6e4e9;
@@ -70,43 +68,40 @@
         }
 
         .card .card-header {
-            background: #659EC8;           
+            background: #659EC8;
             padding: 0 0.9375rem;
             font-weight: 500;
             display: flex;
             align-items: center;
             min-height: 50px;
-           
         }
-        .card .card-title{
+
+        .card .card-title {
             color: #fff !important;
             font-size: 18px;
         }
+
     .card-header:first-child {
         border-radius: calc(8px - 1px) calc(8px - 1px) 0 0;
     }
 
-    .container{
+    .container {
         max-width: 100% !important;
-       
-    
     }
-   
 </style>
-<div class="container-fluid bg-white  rounded-3 p-3 mt-3 mb-3">       
+<div class="container-fluid bg-white  rounded-3 p-3 mt-3 mb-3">
     <table id="example" class="table table-responsive dataTable mt-2" style="width:100%;" aria-describedby="example_info">
         <thead class="bg-primary">
             <tr>
                 <th class="fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 136.613px; color:#F4F4F2;"></th>
                 <th class="fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 136.613px; color:#F4F4F2;">ID</th>
-                <th class="sorting fw-bold text-center" tabindex="1" aria-controls="example" rowspan="1" colspan="1" style="width: 86.2125px;color:#F4F4F2;">PRUEBA</th>                
-                <th class="sorting fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">PRECIO</th>                
+                <th class="sorting fw-bold text-center" tabindex="1" aria-controls="example" rowspan="1" colspan="1" style="width: 86.2125px;color:#F4F4F2;">PRUEBA</th>
+                <th class="sorting fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">PRECIO</th>
             </tr>
         </thead>
         <tbody>
-            
         </tbody>
-       
+
     </table>
 
     <div class="col-md-1 d-flex justify-content-right">
@@ -126,7 +121,7 @@
 
     var datosPruebas = [];
 
-  $(document).ready(function () {
+    $(document).ready(function () {
 
         var table;
         $.ajax({
@@ -135,9 +130,9 @@
             beforeSend: function () {
                 loadingShow();
             },
-            success: function (response) {                  
-                
-                if(response !== "01"){                       
+            success: function (response) {
+
+                if (response !== "01") {
                     // response = response.replace(/:\.(\d+)/g, ':0.$1'); //reemplaza un numero mal formado
                     // response = response.replace(/:O\b/g, ':"O"'); // Si `O` debería ser una cadena.
                     // response = response.replace(/:O\b/g, ':0');    // Si `O` debería ser un número.
@@ -149,24 +144,68 @@
                         return removeNullsJson(x);
                     })
 
-                    fillTable(filterNulls);
+                    $.ajax({
+                        url: '@Url.Action("CatalogoPruebasExcel","Cliente")',
+                        type: 'GET',
+                        beforeSend: function () {
+                            loadingShow();
+                        },
+                        success: function (response) {
+                            var dataExcel = JSON.parse(response)
+                            //console.log(dataExcel);
+                            fillTable(filterNulls, dataExcel);
+
+                            loadingHide();
+                        }
+                    });
 
                     loadingHide();
                 }
-                else{
+                else {
                     MensajeAlerta1("danger", "Problemas para obtener el catalogo de pruebas.");
-
                     loadingHide();
                 }
             }
         });
 
-  });
+    });
 
-    function fillTable(dataEjemplo) {
+    function fillTable(dataEjemplo, dataExcel) {
 
+        var pruebasFinal = [];                
+
+        dataExcel.forEach(examen => {            
+            for (var i = 0; i < dataEjemplo.length; i++) {
+                
+                if (examen["CÓDIGO"] === dataEjemplo[i].CodigoExamen) {                    
+                    var pruebas = {
+                        AbreviaturaExamen: dataEjemplo[i].CodigoExamen,
+                        Activo: dataEjemplo[i].Activo,
+                        AplicaFormula: dataEjemplo[i].AplicaFormula,
+                        AplicaSLA: dataEjemplo[i].AplicaSLA,
+                        Autovalidacion: dataEjemplo[i].Autovalidacion,
+                        CodigoExamen: dataEjemplo[i].CodigoExamen,
+                        ComentarioFijo: dataEjemplo[i].ComentarioFijo,
+                        ComentarioImpresion: dataEjemplo[i].ComentarioImpresion,
+                        NombreMetodo: examen["METODOLOGÍA"],
+                        NombreMuestra: examen["MUESTRA PRINCIPAL"],
+                        CostoPrueba: dataEjemplo[i].CostoPrueba,
+                        EntregaResultado: examen["TIEMPO DE ENTREGA (Horas depués de recibir la muestra en el laboratorio central)"],
+                        DescripcionAnalito: examen["FICHA Y UTILIDAD CLÍNICA"],
+                        DiasProceso: examen["DÍAS DE PROCESAMIENTO"],
+                        NombreExamen: dataEjemplo[i].NombreExamen,
+                        MuestraAdicional: examen["MUESTRA ALTERNA"],
+                        Estabilidad: examen["ESTABILIDAD DE LA MUESTRA"]
+                    };
+
+                    pruebasFinal.push(pruebas);
+                }
+            }
+        });
+
+        //console.log(pruebasFinal);
         table = $('#example').DataTable({
-            "data": dataEjemplo,
+            "data": pruebasFinal,
             language: {
                 url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
             },
@@ -180,17 +219,17 @@
             { "data": "NombreExamen" },
             {
                 "data": "CostoPrueba",
-                render: function (data, type) {                    
+                render: function (data, type) {
                     let color = 'bg-primary';
                     let number = parseFloat(data).toFixed(2);
-                    if (number < 0) color = 'bg-danger';                    
+                    if (number < 0) color = 'bg-danger';
                     return '<span style="font-size:1rem;" class="badge rounded-pill ' + color + '">' + number + '</span>';
                 }
             }
             ],
             "order": [[1, 'asc']]
         });
-        }
+    }
     // Click events for expanding and
     // closing using up/down arrows
     $('#example tbody').on('click',
@@ -217,7 +256,7 @@
                 tr.addClass('shown');
             }
         });
-            
+
 
 
     function removeNullsJson(jsonNulls) {
@@ -240,67 +279,67 @@
     /* Function for child row details*/
     function getChildRow(data) {
 
-       
+
         return '<div class ="container"  style=" display: flex;justify-content: space-between;width:100%;">' +
             '<div style="min-width: 100%;">   <span class="titulo"> ' + data.CodigoExamen + ' | ' + data.AbreviaturaExamen + ' </span>' +
             '     <div class="card-group">' +
             '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
-                        '  <div class="card-header"><h1 class="card-title">Muestra Principal</h1></div>' +
-                        '  <div class="card-body">    ' +
+            '  <div class="card-header"><h1 class="card-title">Muestra Principal</h1></div>' +
+            '  <div class="card-body">    ' +
             '    <p class="card-text etiquetaLabel1">' + data.NombreMuestra + '</p>' +
-                        '  </div>' +
-                        '</div>' +
-                            '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
-                            '  <div class="card-header"><h5 class="card-title">Muestra Alterna</h5></div>' +
-                            '  <div class="card-body">    ' +
+            '  </div>' +
+            '</div>' +
+            '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
+            '  <div class="card-header"><h5 class="card-title">Muestra Alterna</h5></div>' +
+            '  <div class="card-body">    ' +
             '    <p class="card-text etiquetaLabel">' + data.MuestraAdicional + '</p>' +
-                            '  </div>' +
-                            '</div>' +
-                        '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
-                        '  <div class="card-header"><h5 class="card-title">Código</h5></div>' +
-                        '  <div class="card-body">    ' +
+            '  </div>' +
+            '</div>' +
+            '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
+            '  <div class="card-header"><h5 class="card-title">Código</h5></div>' +
+            '  <div class="card-body">    ' +
             '    <p class="card-text etiquetaLabel">' + data.CodigoExamen + '</p>' +
-                        '  </div>' +
-                        '</div>' +
-                        '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
-                        '  <div class="card-header"><h5 class="card-title">Metodología</h5></div>' +
-                        '  <div class="card-body">    ' +
-            '    <p class="card-text etiquetaLabel">' + data.NombreMetodo + ' Gram</p>' +
-                        ' </div>' +
-                        '</div>' +
-                        '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
-                        '  <div class="card-header"><h5 class="card-title">Precio</h5></div>' +
-                        '  <div class="card-body">   ' +
+            '  </div>' +
+            '</div>' +
+            '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
+            '  <div class="card-header"><h5 class="card-title">Metodología</h5></div>' +
+            '  <div class="card-body">    ' +
+            '    <p class="card-text etiquetaLabel">' + data.NombreMetodo + '</p>' +
+            ' </div>' +
+            '</div>' +
+            '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
+            '  <div class="card-header"><h5 class="card-title">Precio</h5></div>' +
+            '  <div class="card-body">   ' +
             '    <p class="card-text etiquetaLabel"><span class="badge ' + (data.CostoPrueba < 0 ? 'bg-danger' : 'bg-primary') + '" style="font-size:2rem;"> $ ' + data.CostoPrueba + '</span></p>' +
-                        '  </div>' +
-                        '</div>' +
-                        '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
-                        '  <div class="card-header"><h5 class="card-title">Tiempo Entrega</h5></div>' +
-                        '  <div class="card-body">    ' +
+            '  </div>' +
+            '</div>' +
+            '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
+            '  <div class="card-header"><h5 class="card-title">Tiempo Entrega</h5></div>' +
+            '  <div class="card-body">    ' +
             '    <p class="card-text etiquetaLabel"><span class="badge text-bg-primary" style="font-size:1.5rem;">' + data.EntregaResultado + '</span>  Horas  despúes de recibida la muestra</p>' +
-                        '  </div>' +
-                        '</div>' +
-                        '<div class="card text-dark bg-light mb-3" style = "max-width: 18rem;" > ' +
-                        '  <div class="card-header"><h5 class="card-title">Estabilida de la muestra</h5></div>' +
-                        '  <div class="card-body">    ' +
-            '    <p class="card-text etiquetaLabel"><span class="badge text-bg-primary" style="font-size:0.875rem;"></span></p>' +
-                        '  </div>' +
-                        '</div>' +
-                        '<div class="card text-dark bg-light mb-3" style = "max-width: 18rem;" > ' +
-                        '  <div class="card-header"><h5 class="card-title">Días de procesamiento</h5></div>' +
-                        '  <div class="card-body">    ' +
+            '  </div>' +
+            '</div>' +
+            '<div class="card text-dark bg-light mb-3" style = "max-width: 18rem;" > ' +
+            '  <div class="card-header"><h5 class="card-title">Estabilida de la muestra</h5></div>' +
+            '  <div class="card-body">    ' +
+            '    <p class="card-text etiquetaLabel">' + data.Estabilidad + '</p > ' +
+            '  </div>' +
+            '</div>' +
+            '<div class="card text-dark bg-light mb-3" style = "max-width: 18rem;" > ' +
+            '  <div class="card-header"><h5 class="card-title">Días de procesamiento</h5></div>' +
+            '  <div class="card-body">    ' +
             '    <p class="card-text etiquetaLabel"><span class="badge text-bg-primary" style="font-size:1.5rem;">' + data.DiasProceso + '</span></p>' +
-                        '  </div>' +
-                        '</div>' +
+            '  </div>' +
+            '</div>' +
 
-                        '</div>' +
-                        '	<div class="tab-content p-3 border bg-light" id="nav-tabContent">' +
-                        '			<div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">' +
-                        '	 <br/>' +
+            '</div>' +
+            '	<div class="tab-content p-3 border bg-light" id="nav-tabContent">' +
+            '			<div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">' +
+            '	 <br/>' +
             '				<div class="box-shadow etiquetaLabel"><h1>UTILIDAD Y FICHA TÉCNICA</h1>' +
             '			<div style="min-height: 250px; overflow-y: scroll;">' + data.DescripcionAnalito + '</div>' +
-                        '		</div></div>' +
-                        '	</div>' +
+            '		</div></div>' +
+            '	</div>' +
             '</div></div>'
     }
 
@@ -315,7 +354,7 @@
                 nombreMuestra = datosPruebas[i].ExamenPerfil[0].NombreMuestra;
                 idMuestra = datosPruebas[i].ExamenPerfil[0].IdMuestra;
             }
-            else{
+            else {
                 nombreMuestra = datosPruebas[i].NombreMuestra;
                 idMuestra = datosPruebas[i].IdMuestra;
             }
@@ -336,7 +375,7 @@
             }
 
             lstPruebasNew.push(objPruebas);
-        }        
+        }
 
         $.ajax({
             url: '@Url.Action("ExportExcelPruebas","Cliente")',
@@ -346,8 +385,8 @@
             },
             data: { datosPrueba: JSON.stringify(lstPruebasNew) },
             success: function (response) {
-                
-                if(response !== "01"){
+
+                if (response !== "01") {
                     var byteCharacters = atob(response);
                     var byteNumbers = new Array(byteCharacters.length);
 
@@ -369,11 +408,11 @@
 
                     loadingHide();
                 }
-                else{
+                else {
                     MensajeAlerta1("danger", "Problemas para exportar el excel de pruebas.");
                     loadingHide();
                 }
-                
+
             }
         });
     }

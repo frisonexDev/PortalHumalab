@@ -20,6 +20,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OfficeOpenXml;
 using System;
 using System.Text;
 using System.Web.Helpers;
@@ -332,7 +333,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             }
 
             return catalogo!;
-        }
+        }        
 
         //guarda un nuevo archivo con las pruebas
         //a utilizar

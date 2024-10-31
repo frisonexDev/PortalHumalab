@@ -482,7 +482,8 @@ public class GestionClienteOperacion
 			LatitudCliente = darAltaCliente.LatitudCliente ?? string.Empty,
 			LongitudCliente = darAltaCliente.LongitudCliente ?? string.Empty,
 			IdAsesorLis = darAltaCliente.IdAsesorLis ?? string.Empty,
-			Telefono = darAltaCliente.Telefono ?? string.Empty
+			Telefono = darAltaCliente.Telefono ?? string.Empty,
+			LabComercial = darAltaCliente.LabComercial ?? string.Empty
 		};
 
 		var url = microInterno.ServerGestionCliente + ":" + microInterno.PortGestionCliente + "/" + microInterno.RouteGestionCliente + metodo;
@@ -743,7 +744,8 @@ public class GestionClienteOperacion
 			using (var reader = new StreamReader(response.GetResponseStream()))
 			{
 				var responseText = reader.ReadToEnd();
-				observacion = JsonConvert.DeserializeObject<string>(responseText)!;
+				//observacion = JsonConvert.DeserializeObject<string>(responseText)!;
+				observacion = responseText;
 			}
 		}
 

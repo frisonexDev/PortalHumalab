@@ -217,7 +217,7 @@
                         
                         vlrEstado = this.getElementsByTagName('td')[6].textContent;
                         clienteEstado = this.getElementsByTagName('td')[7].textContent;
-                        fechaTemporal = this.getElementsByTagName('td')[8].textContent;                       
+                        fechaTemporal = this.getElementsByTagName('td')[8].textContent;                                                
 
                         for (var i = 0; i < comboEstadosSus.options.length; i++) {
                             var opcionesC = comboEstadosSus.options[i];
@@ -262,9 +262,9 @@
                             fechaValor.style.display = "block";
                             fechaVigenciaTabla.style.display = "block";                          
 
-                            var fechaFinal = fechaTemporal.split(" ");                            
+                            var fechaFinal = fechaTemporal.split(" ");                              
                             var fechaFormateada = fechaFinal[0];                            
-                            var fechaNormal = moment(fechaFormateada, "DD/MM/YYYY");
+                            var fechaNormal = moment(fechaFormateada, ["DD/MM/YYYY", "MM/DD/YYYY"]);
                             
                             if (fechaNormal.isValid()) {
                                 var dateFinal = fechaNormal.format("YYYY-MM-DD");

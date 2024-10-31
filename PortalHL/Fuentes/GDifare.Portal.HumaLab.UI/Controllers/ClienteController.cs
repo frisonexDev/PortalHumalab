@@ -300,6 +300,43 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             return catalogo;
         }
 
+        public string CatalogoPruebasExcel()
+        {
+            string filePath = @"InfoPruebaPortal.xlsx";
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;            
+            var excelData = new List<Dictionary<string, object>>();
+            string jsonResult = "";
+
+            using (var package = new ExcelPackage(new FileInfo(filePath)))
+            {
+                var worksheet = package.Workbook.Worksheets[0];
+                
+                // Lee los encabezados
+                var headerRow = new List<string>();
+                for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
+                {
+                    headerRow.Add(worksheet.Cells[1, col].Text);
+                }
+
+                // Lee las filas y columnas, omitiendo la primera fila (encabezados)                
+                for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
+                {
+                    var rowData = new Dictionary<string, object>();
+                    for (int col = 1; col <= worksheet.Dimension.End.Column; col++)
+                    {
+                        var cellValue = worksheet.Cells[row, col].Text;
+                        rowData[headerRow[col - 1]] = cellValue; // Asigna el valor de la celda al encabezado correspondiente
+                    }
+                    excelData.Add(rowData); // Agrega la fila al listado
+                }
+
+                jsonResult = JsonConvert.SerializeObject(excelData, Formatting.Indented);
+            }
+
+            return jsonResult;
+        }
+
         public Task<string> CatalogoPruebasNew()
         {
             string path = "catalogoMuestrasFinal.json";

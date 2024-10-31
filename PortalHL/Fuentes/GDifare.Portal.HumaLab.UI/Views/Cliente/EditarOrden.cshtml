@@ -68,7 +68,7 @@
     var ConsultarPaciente = new Object();
     var examenPrecio = new Object();
     var MuestrasSelect = new Object();
-    
+
 
     var PacienteOrden;
     var Orden;
@@ -87,24 +87,24 @@
     var nombEstado = "";
 
     var checkBlockPruebas = false;
-    
+
     //validar caracteres especiales
-    function validarCaracteres(texto){        
+    function validarCaracteres(texto) {
         const tempElement = document.createElement('textarea');
         tempElement.innerHTML = texto;
 
-        var nuevoValor = tempElement.value;        
+        var nuevoValor = tempElement.value;
         return nuevoValor;
     }
 
 
-    window.addEventListener('load', function () {        
+    window.addEventListener('load', function () {
 
-        contadorItem=@Numeros.Cero
-        nombreFuncion = "@Funcion.EliminarPrueba"        
+        contadorItem = @Numeros.Cero
+            nombreFuncion = "@Funcion.EliminarPrueba"
         ListaSelect = []
-        PrecioOrden = []           
-               
+        PrecioOrden = []
+
         //DesactivarControlesOrden();
 
         //Demográficos del Paciente
@@ -114,7 +114,7 @@
         document.getElementById("txtEdadPac").value = "@Model.Paciente.Edad"
         document.getElementById("txtTelPac").value = "@Model.Paciente.Telefono!.Substring(4)"
         document.getElementById("txtCorrPac").value = "@Model.Paciente.Email"
-        document.getElementById("dtpNaciPac").value = '@Model.Paciente.FechaNacimiento.ToString("yyyy-MM-dd")'        
+        document.getElementById("dtpNaciPac").value = '@Model.Paciente.FechaNacimiento.ToString("yyyy-MM-dd")'
         document.getElementById("txtCodLab").value = '@Model.Paciente.CodLaboratorio';
 
         if ("@Model.Paciente.Genero" === "@Estados.Falso") {
@@ -123,7 +123,7 @@
         else {
             document.getElementById("selGenPac").value = "@Numeros.Uno"
         }
-        
+
         //Demográficos de la Orden
         document.getElementById("dptFecIng").value = moment().format("DD/MM/YYYY hh:mm")
         document.getElementById("txtMedicamento").value = "@Model.Medicamento"
@@ -135,9 +135,9 @@
 
         idOrden = "@Model.IdOrden";
         codigoBarra = "@Model.CodigoBarra";
-        
+
         //Desactivar Datos de la Orden
-        DesacOrdeneDemograficos();                          
+        DesacOrdeneDemograficos();
 
         NumeroOrden(codigoBarra);
 
@@ -152,11 +152,11 @@
 
         //Tipo de paciente
         CargarTiposClientesEdit()
-        
+
     });
 
     function CargarTiposClientesEdit() {
-        
+
         var tipoPaciente = "@Model.Paciente.TipoPaciente";
         var cmbTiposClientes = document.getElementById("selTipCliente");
 
@@ -199,9 +199,9 @@
             success: function (response) {
                 nombEstado = response;
 
-                if (nombEstado === "En Analisis" || nombEstado === "Enviado" || 
-                    nombEstado === "Enviado Parcial" || nombEstado === "Rechazada" || 
-                    nombEstado === "Recibida Parcial" || nombEstado === "Recibida" || 
+                if (nombEstado === "En Analisis" || nombEstado === "Enviado" ||
+                    nombEstado === "Enviado Parcial" || nombEstado === "Rechazada" ||
+                    nombEstado === "Recibida Parcial" || nombEstado === "Recibida" ||
                     nombEstado === "Recolectado Parcial" || nombEstado === "Recolectado Total" ||
                     nombEstado === "Validacion pendiente" || nombEstado === "Resultado pendiente" ||
                     nombEstado === "Validado") {
@@ -213,7 +213,7 @@
                     document.getElementById("txtTelPac").disabled = true;
                     document.getElementById("txtCorrPac").disabled = true;
                     document.getElementById("dtpNaciPac").disabled = true;
-                    
+
                     document.getElementById("dptFecIng").disabled = true;
                     document.getElementById("txtMedicamento").disabled = true;
                     document.getElementById("txtObsOrd").disabled = true;
@@ -231,7 +231,7 @@
                         "color": "gray"            // Cambia el color del texto si deseas
                     });
 
-                }else{
+                } else {
                     document.getElementById("txtIdentPac").disabled = false;
                     document.getElementById("txtNomPac").disabled = false;
                     document.getElementById("txtApellPac").disabled = false;
@@ -261,11 +261,10 @@
         });
     }
 
-    function DesactivarControlesOrden()
-    {
+    function DesactivarControlesOrden() {
         document.getElementById("txtIdentPac").disabled = true;
         document.getElementById("txtNomPac").disabled = true;
-        document.getElementById("txtApellPac").disabled = true; 
+        document.getElementById("txtApellPac").disabled = true;
         document.getElementById("txtEdadPac").disabled = true;
         document.getElementById("txtTelPac").disabled = true;
         document.getElementById("txtCorrPac").disabled = true;
@@ -279,8 +278,7 @@
     }
 
 
-    function NumeroOrden(Barra)
-    {
+    function NumeroOrden(Barra) {
         // console.log("Numero de Orden");
         // console.log(Barra.substring(10,11));
         // console.log(Barra.substring(9, 11));
@@ -288,12 +286,11 @@
         // console.log(Barra.substring(7, 11));
         // console.log(Barra.substring(6, 11));
         document.getElementById("txtNOrden").value = Barra.substring(11, 12);
-        if(Barra.substring(10,11) !="@Numeros.Cero")
-        {
+        if (Barra.substring(10, 11) != "@Numeros.Cero") {
             // console.log("Entra If");
-            document.getElementById("txtNOrden").value = Barra.substring(10,12);
+            document.getElementById("txtNOrden").value = Barra.substring(10, 12);
         }
-        
+
         if (Barra.substring(8, 10) != "@Numeros.Cero@Numeros.Cero") {
             // console.log("Entra If");
             document.getElementById("txtNOrden").value = Barra.substring(9, 12);
@@ -314,16 +311,15 @@
             document.getElementById("txtNOrden").value = Barra.substring(5, 12);
         }
     }
-    
 
-    function ListarPruebasOrden()
-    {
+
+    function ListarPruebasOrden() {
         $.ajax({
             url: '@Url.Action("ListarPruebas","Cliente")',
             type: 'GET',
-            data: { IdOrden: @Model.IdOrden, IdUsuario: @infousuario.UsuarioID },
+            data: { IdOrden: @Model.IdOrden, IdUsuario: @infousuario!.UsuarioID },
             success: function (response) {
-                const resp = JSON.parse(response)                
+                const resp = JSON.parse(response)
                 LlenarTable(resp)
             }
         });
@@ -333,12 +329,12 @@
     function LlenarTable(resp) {
         var html = '';
         var recipiente = '';
-        var muestraAlterna = ''; 
-        
-        var isBlocked = checkBlockPruebas;  
+        var muestraAlterna = '';
+
+        var isBlocked = checkBlockPruebas;
         var bloqueadoAttr = isBlocked ? 'data-disabled="true"' : '';
 
-        for (var i = 0, size = resp.length; i < size; i++) {            
+        for (var i = 0, size = resp.length; i < size; i++) {
 
             MuestrasSelect = {
                 id: i,
@@ -357,7 +353,7 @@
                 Precio: resp[i].precio,
                 CodigoBarra: codigoBarra,
                 UsuarioCreacion: @infousuario.UsuarioID
-                                }
+                                    }
             examenPrecio = {
                 id: i,
                 Precio: resp[i].precio
@@ -454,7 +450,7 @@
             //     + '</div>'
             //     + '</td>'
             //     + '</tr>'
-            // $('#TbItemsExamen').append(html);                       
+            // $('#TbItemsExamen').append(html);
         }
 
         TotalOrden();
@@ -533,7 +529,7 @@
     //             Precio: lista[key].CostoPrueba
     //         }
     //         ListaPruebas.push(datosPrueba);
-            
+
     //         html += '<option value="' + key + '"' + '>'
     //             + '<div class="d-flex">'
     //             + '<h5>' + lista[key].CodigoExamen + " " + '</h5>'
@@ -553,10 +549,12 @@
         var nombreMuestra = '';
         var idMuestra = 0;
 
+        ListaPruebas = [];
+
         for (var key = 0, size = lista.length; key < size; key++) {
 
             if (lista[key].Estado !== 'Inactivo') {
-                
+
                 datosPrueba = {
                     IdExamen: lista[key].IdExamen,
                     IdMuestra: lista[key].IdMuestra,
@@ -573,17 +571,24 @@
                 }
 
                 ListaPruebas.push(datosPrueba);
+                // html += '<option value="' + key + '"' + '>'
+                //     + '<div class="d-flex">'
+                //     + '<h5>' + lista[key].CodigoExamen + " " + '</h5>'
+                //     + '<h5>' + lista[key].Nombre + " " + '</h5>'
+                //     + '<h5>' + '$' + lista[key].Precio + '</h5>'
+                //     + '</div>'
 
-                html += '<option value="' + key + '"' + '>'
-                    + '<div class="d-flex">'
-                    + '<h5>' + lista[key].CodigoExamen + " " + '</h5>'
-                    + '<h5>' + lista[key].Nombre + " " + '</h5>'
-                    + '<h5>' + '$' + lista[key].Precio + '</h5>'
-                    + '</div>'
-
-                    + '</option>';
-            }            
+                //     + '</option>';
+            }
         }
+
+        ListaPruebas.forEach((prueba, key) => {
+            html += '<option value="' + key + '">'
+                + prueba.CodigoExamen + " "
+                + prueba.Nombre + " "
+                + '$' + prueba.Precio
+                + '</option>';
+        });
 
         $('#select-pruebas').append(html);
     }
@@ -618,7 +623,7 @@
                     CodigoBarra: codigoBarra,
                     Observaciones: ListaPruebas[i].Observaciones,
                     UsuarioCreacion: @infousuario.UsuarioID
-                }
+                    }
 
                 examenPrecio = {
                     id: i,
@@ -628,7 +633,7 @@
                 //obtener el precio y agregar en la tabla columna precio
                 if (ListaPruebas[i].Precio === null) {
                     precioPrueba = 0;
-                }else{
+                } else {
                     precioPrueba = ListaPruebas[i].Precio
                 }
 
@@ -752,12 +757,11 @@
         }
     }
 
-    function EliminarOrden()
-    {
+    function EliminarOrden() {
         var filaEliminada = {
             IdOrden: idOrden,
             UsuarioCreacion: @infousuario.UsuarioID
-        }
+            }
 
         $.ajax({
             url: '@Url.Action("EliminarOrden","Cliente")',
@@ -784,19 +788,17 @@
 
     function eliminarFila(index) {
         indicePop = index;
-        if(ListaSelect.length<=1)
-        {
+        if (ListaSelect.length <= 1) {
             document.getElementById("mensajePopUp").innerHTML = "@Notificaciones.WarningEliminarPrueba";
-            $('#ModalPopUp').modal('show');           
+            $('#ModalPopUp').modal('show');
         }
-        else{
+        else {
 
             EliminarPrueba(index);
-        }       
+        }
     }
 
-    function EliminarPrueba(index)
-    {
+    function EliminarPrueba(index) {
         $.ajax({
             url: '@Url.Action("EliminarPruebas","Cliente")',
             type: 'POST',
@@ -808,7 +810,7 @@
 
                 if (response == @Transaccion.Correcta) {
                     $("#fila" + index).remove();
-                    
+
                     for (var i = 0, size = ListaSelect.length; i <= size; i++) {
                         if (ListaSelect[i].id == index) {
                             ListaSelect.splice(i, 1);
@@ -836,17 +838,17 @@
         });
     }
 
-    
-    function TotalOrden() {        
+
+    function TotalOrden() {
         var Sumar = 0;
-        
+
         if (PrecioOrden.length > 0) {
             for (var i = 0; i < PrecioOrden.length; i++) {
                 Sumar += parseFloat(PrecioOrden[i].Precio);
             }
             document.getElementById("lblTotalOrden").value = "@Caracteres.Dolar" + Sumar.toFixed(2);
         }
-        else {            
+        else {
             document.getElementById("lblTotalOrden").value = "@Caracteres.Dolar" + "@NumDecimales.CeroString";
         }
     }
@@ -891,7 +893,7 @@
             Estado: @Model.Estado, //verificar
             Pruebas: ListaSelect,
             Paciente: PacienteOrden,
-            CodigoBarra:codigoBarra,
+            CodigoBarra: codigoBarra,
             UsuarioCreacion: @infousuario.UsuarioID,
             FechaCreacion: document.getElementById("dptFecIng").value,
 
@@ -909,8 +911,8 @@
         var telPac = document.getElementById("txtTelPac").value;
         var corrPac = document.getElementById("txtCorrPac").value;
         var telefono = codPais + telPac;
-        var resGenero = false;    
-        
+        var resGenero = false;
+
         //Tipo paciente
         var tipCliente = document.getElementById("selTipCliente");
         var txtTipCliente = tipCliente.selectedIndex;
@@ -921,10 +923,10 @@
         //codigo de laboratorio
         var codLab = document.getElementById("txtCodLab").value;
 
-        if(genero === "@Numeros.Uno"){
+        if (genero === "@Numeros.Uno") {
             resGenero = true;
         }
-        else if(genero === "@Numeros.Cero"){
+        else if (genero === "@Numeros.Cero") {
             resGenero = false;
         }
 

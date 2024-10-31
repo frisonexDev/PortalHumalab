@@ -351,7 +351,7 @@
 
 	//usuarios galileo
 	function UsuariosGalileo() {
-		var idEmpresa = '@usuario.EmpresaID'; //idUsuario administrador
+		var idEmpresa = '@usuario!.EmpresaID'; //idUsuario administrador
 		var rucFlex = document.getElementById("clienteFlexline").value; //ruc avalab
 
 		$.ajax({
@@ -596,7 +596,8 @@
 
 								},
 								error: function (error) {
-									console.error(error);									
+									console.error(error);
+									MensajeAlerta1("danger", "No se envió el correo electrónico al cliente.")
 								}
 							});							
 

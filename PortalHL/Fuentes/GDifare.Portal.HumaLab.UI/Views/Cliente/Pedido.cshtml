@@ -201,7 +201,9 @@
                 idenCliente: idenClientes
             },
             sucess: function (response) {
-                
+                if (response === "" || response === null) {
+                    MensajeAlerta1("@Notificaciones.TituloDanger", "No se envió el correo electrónico al asesor.");
+                }
             }
         });
 
