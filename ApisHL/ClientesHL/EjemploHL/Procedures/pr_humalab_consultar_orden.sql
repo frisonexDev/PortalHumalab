@@ -9,7 +9,8 @@
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
 *	FECHA AUTOR RAZON													*
-*						                                                *
+*	2024/10/30 Jose Guarnizo Se modifica para que no valide las muestras*
+*						     que se eliminaron.							*
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_consultar_orden')	
 	EXEC('Create Procedure dbo.pr_humalab_consultar_orden As')
@@ -58,7 +59,7 @@ BEGIN
 	INNER JOIN Muestra M ON M.IdMuestra = PM.IdMuestra
 	Where p.IdOrden=@idOrden 
 	AND P.Eliminado <> @elimanodLogico
-	and m.Eliminado !=1
+	--and m.Eliminado !=1
 	order by P.FechaCreacion desc
 
 	--16/01/2024

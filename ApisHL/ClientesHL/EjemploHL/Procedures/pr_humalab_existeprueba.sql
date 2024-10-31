@@ -9,7 +9,8 @@
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
 *	FECHA AUTOR RAZON													*
-*						                                                *
+*	2024/10/30 Jose Guarnizo Se cambia que valida por el eliminado      *
+*							 logico en la consulta C y C1.              *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_existeprueba')	
 	EXEC('Create Procedure dbo.pr_humalab_existeprueba As')
@@ -30,12 +31,20 @@ DECLARE @elimanodLogico AS INT=1
 
 IF(@i_accion = 'C')
 Begin
-	SELECT COUNT(IdPrueba)AS 'Existe' FROM PRUEBA WHERE IdOrden=@idOrden AND IdPruebaGalileo=@idPruebaGalileo AND Estado<>@elimanodLogico
+	SELECT COUNT(IdPrueba)AS 'Existe' 
+	FROM PRUEBA 
+	WHERE IdOrden=@idOrden 
+	AND IdPruebaGalileo=@idPruebaGalileo 
+	AND Eliminado<>@elimanodLogico
 END
 
 IF(@i_accion = 'C1')
 Begin
-	select IdPrueba from Prueba where IdPruebaGalileo=@idPruebaGalileo AND IdOrden=@idOrden
+	select IdPrueba 
+	from Prueba 
+	where IdPruebaGalileo=@idPruebaGalileo 
+	AND IdOrden=@idOrden
+	AND Eliminado<>@elimanodLogico
 END
 
 IF(@i_accion = 'C2')
