@@ -150,9 +150,12 @@ Begin
 				INNER JOIN Prueba Pr ON O.IdOrden = Pr.IdOrden
 				inner join CatalogoDetalle CD ON O.Estado = CD.IdCatalogoDetalle
 				inner join Usuario US ON O.IdUsuarioGalileo = US.idGalileo --nuevo
-				WHERE P.Nombres + p.Apellidos like '%' + @datoBusqueda + '%' 
+				WHERE (
+					(P.Nombres + p.Apellidos like '%' + @datoBusqueda + '%')
+					OR P.Identificacion = @datoBusqueda --2024/11/21
+				) 
 				--AND O.IdUsuarioGalileo = @idUsuarioGalileo
-				AND CD.IdCatalogoDetalle = @i_EstadoId
+				--AND CD.IdCatalogoDetalle = @i_EstadoId --2024/11/21
 				--and US.Identificacion = @idenCliente --nuevo
 				--and US.CodClienteCta = @sucursal --nuevo 24/01/2024
 				and US.idGalileo = @idUsuarioGalileo --nuevo 24/09/2024
