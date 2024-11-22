@@ -19,6 +19,8 @@
 * 2024/10/18 José Guarnizo Se modifica para que salga ruc, nombre lab,  *
 *						   tipo cliente, cod lab, fecha creacion y      *
 *						   asesor.                                      *
+* 2024/11/08 José Guarnizo Se modifica para que salga el estado de la   *
+*						   prueba.										*
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_ordeneslaboratorista')	
 	EXEC('Create Procedure dbo.pr_humalab_ordeneslaboratorista As')
@@ -598,6 +600,7 @@ BEGIN
 	,(select Nombre from dbo.CatalogoDetalle where IdCatalogoMaestro = @i_idEstadoOrd and IdCatalogoDetalle = o.Estado) as EstadoOrden
 	,o.FechaCreacion
 	,o.Resultados as CodLis
+	,(select Nombre from dbo.CatalogoDetalle where IdCatalogoMaestro = @i_idEstadoPrue and IdCatalogoDetalle = pr.Estado) as EstadoPrueba --08/11/2024
 	FROM Orden o INNER JOIN Prueba pr ON pr.IdOrden = o.IdOrden AND COALESCE(pr.Eliminado,0) = 0
 	LEFT JOIN PruebaMuestra pm ON pr.IdPrueba = pm.IdPrueba AND COALESCE(pm.Eliminado,0) = 0
 	LEFT JOIN Muestra m ON m.IdMuestra = pm.IdMuestra AND COALESCE(m.Eliminado,0) = 0
