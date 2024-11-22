@@ -25,99 +25,116 @@
         text-decoration: none;
     }
 
+    @@media (max-width: 768px) {
+        .table th,
+        .table td {
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+            /* Oculta ciertas columnas en pantallas pequeñas */
+            .table th:nth-child(3),
+            .table td:nth-child(3),
+            .table th:nth-child(4),
+            .table td:nth-child(4) {
+                display: none;
+            }
+    }
+
 </style>
 <div id="datos" data-datosconsulta="@datos"></div>
 <div class="container-fluid bg-white rounded-3 p-3 mt-3 mb-3">
 
-    <table id="example" class="table table-responsive dataTable mt-2" style="width:100%;" aria-describedby="example_info">
-        <thead class="bg-primary">
-            <tr>
-                <th class="fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 10.613px; color:#F4F4F2;" ></th>
-                @* <th class="sorting fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 50.613px; color:#F4F4F2;"><input id="CheckAll" class="form-check-input" type="checkbox" onclick="SeleccionarTodoPedidos()" /></th> *@
-                <th class="sorting fw-bold text-center" tabindex="1" aria-controls="example" rowspan="1" colspan="1" style="width: 100.2125px;color:#F4F4F2;">CLIENTE</th>
-                <th class="sorting fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 100.2125px;color:#F4F4F2;">LABORATORIO</th>
-                <th class="sorting fw-bold text-center" tabindex="3" aria-controls="example" rowspan="1" colspan="1" style="width: 50.688px;color:#F4F4F2;">N° REMISIÓN</th>
-                @*<th class="sorting fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 50.688px;color:#F4F4F2;">PACIENTE</th>*@
-                <th class="sorting fw-bold text-center" tabindex="4" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">FECHA</th>
-                <th class="sorting fw-bold text-center" tabindex="5" aria-controls="example" rowspan="1" colspan="1" style="width: 40.2125px;color:#F4F4F2;">TOTAL ORDENES</th>
-                <th class="sorting fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 40.8375px;color:#F4F4F2;">TOTAL MUESTRAS</th>
-                <th class="sorting fw-bold text-center" tabindex="7" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">TOTAL RETIRADAS</th>
-                <th class="sorting fw-bold text-center" tabindex="8" aria-controls="example" rowspan="1" colspan="1" style="width: 50.325px;color:#F4F4F2;">FECHA RETIRO</th>
-                <th class="sorting fw-bold text-center" tabindex="9" aria-controls="example" rowspan="1" colspan="1" style="width: 60.325px;color:#F4F4F2;">ESTADO</th>
-                <th class="sorting fw-bold text-center" tabindex="10" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">ACCIÓN</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="table-responsive">
+        <table id="example" class="table dataTable mt-2" style="width:100%;" aria-describedby="example_info">
+            <thead class="bg-primary">
                 <tr>
-                    <td>
-                        @* <input id="check'+@item.IdPedido+'" class="form-check-input" type="checkbox" onclick="CheckOrdenP('+@item.IdPedido+')"/> *@
-                        <input id="check@item.IdPedido" class="form-check-input" type="checkbox" onclick="CheckOrdenP('@item.IdPedido', '@item.NumeroRemision', '@item.Cliente', this.checked)" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cliente)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NomLab)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumeroRemision)
-                    </td>
-@*                    <td>
-                        @Html.DisplayFor(modelItem => item.Paciente)
-                    </td>*@
-                    <td>
-                        <text>@item.FechaPedido.Value.ToString("dd/MM/yyyy")</text>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TotalOrdenes)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TotalMuestras)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TotalRetiradas)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaRetiro)
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.EstadoPedido)*@
-                        @{
-                            string clase = string.Empty;
-                            string estado = item.EstadoPedido;
-
-                            if (estado == Estados.PedidoAnulado)
-                                clase = "bg-danger";
-                            else if (estado == Estados.PedidoRecolectado || estado == Estados.PedidoRecolectadoParcial)
-                                clase = "bg-success";
-                            else if (estado == Estados.PedidoPorRecolectar)
-                                clase = "bg-secondary";
-                            else
-                                clase = "bg-primary";
-                        }
-                        <spa    n class="badge @clase" style="font-size:0.75rem;">@estado</spa>
-                    </td>
-                    <td>
-                        @if(item.TotalMuestras == 0)
-                        {
-                            <a href="#" class="disabled">Recolectar</a> 
-                            <a href="#" class="disabled">PDF</a>
-                        }
-                        else
-                        {
-                            <a asp-action="Recolectar" asp-route-id="@item.IdPedido" asp-route-datos="@datos">Recolectar</a>
-                            // <a asp-action="RecolectarPDF" asp-route-id="@item.IdPedido" target="_blank">PDF</a>
-                            <a target="_blank" onclick="GenerarPDF('@item.IdPedido')">PDF</a>
-                        }
-                    </td>
+                    <th class="fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 10.613px; color:#F4F4F2;"></th>
+                    @* <th class="sorting fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 50.613px; color:#F4F4F2;"><input id="CheckAll" class="form-check-input" type="checkbox" onclick="SeleccionarTodoPedidos()" /></th> *@
+                    <th class="sorting fw-bold text-center" tabindex="1" aria-controls="example" rowspan="1" colspan="1" style="width: 100.2125px;color:#F4F4F2;">CLIENTE</th>
+                    <th class="sorting fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 100.2125px;color:#F4F4F2;">LABORATORIO</th>
+                    <th class="sorting fw-bold text-center" tabindex="3" aria-controls="example" rowspan="1" colspan="1" style="width: 50.688px;color:#F4F4F2;">N° REMISIÓN</th>
+                    @*<th class="sorting fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 50.688px;color:#F4F4F2;">PACIENTE</th>*@
+                    <th class="sorting fw-bold text-center" tabindex="4" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">FECHA</th>
+                    <th class="sorting fw-bold text-center" tabindex="5" aria-controls="example" rowspan="1" colspan="1" style="width: 40.2125px;color:#F4F4F2;">TOTAL ORDENES</th>
+                    <th class="sorting fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 40.8375px;color:#F4F4F2;">TOTAL MUESTRAS</th>
+                    <th class="sorting fw-bold text-center" tabindex="7" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">TOTAL RETIRADAS</th>
+                    <th class="sorting fw-bold text-center" tabindex="8" aria-controls="example" rowspan="1" colspan="1" style="width: 50.325px;color:#F4F4F2;">FECHA RETIRO</th>
+                    <th class="sorting fw-bold text-center" tabindex="9" aria-controls="example" rowspan="1" colspan="1" style="width: 60.325px;color:#F4F4F2;">ESTADO</th>
+                    <th class="sorting fw-bold text-center" tabindex="10" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">ACCIÓN</th>
                 </tr>
-            }
-        </tbody>
+            </thead>
 
-    </table>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @* <input id="check'+@item.IdPedido+'" class="form-check-input" type="checkbox" onclick="CheckOrdenP('+@item.IdPedido+')"/> *@
+                            <input id="check@item.IdPedido" class="form-check-input" type="checkbox" onclick="CheckOrdenP('@item.IdPedido', '@item.NumeroRemision', '@item.Cliente', this.checked)" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cliente)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NomLab)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumeroRemision)
+                        </td>
+                        @*                    <td>
+                    @Html.DisplayFor(modelItem => item.Paciente)
+                    </td>*@
+                        <td>
+                            <text>@item.FechaPedido.Value.ToString("dd/MM/yyyy")</text>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalOrdenes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalMuestras)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalRetiradas)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaRetiro)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.EstadoPedido)*@
+                            @{
+                                string clase = string.Empty;
+                                string estado = item.EstadoPedido;
+
+                                if (estado == Estados.PedidoAnulado)
+                                    clase = "bg-danger";
+                                else if (estado == Estados.PedidoRecolectado || estado == Estados.PedidoRecolectadoParcial)
+                                    clase = "bg-success";
+                                else if (estado == Estados.PedidoPorRecolectar)
+                                    clase = "bg-secondary";
+                                else
+                                    clase = "bg-primary";
+                            }
+                            <spa n class="badge @clase" style="font-size:0.75rem;">@estado</spa>
+                        </td>
+                        <td>
+                            @if (item.TotalMuestras == 0)
+                            {
+                                <a href="#" class="disabled">Recolectar</a>
+                                <a href="#" class="disabled">PDF</a>
+                            }
+                            else
+                            {
+                                <a asp-action="Recolectar" asp-route-id="@item.IdPedido" asp-route-datos="@datos">Recolectar</a>
+                    // <a asp-action="RecolectarPDF" asp-route-id="@item.IdPedido" target="_blank">PDF</a>
+                                <a target="_blank" onclick="GenerarPDF('@item.IdPedido')">PDF</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
 
     <div class="mt-4">
 

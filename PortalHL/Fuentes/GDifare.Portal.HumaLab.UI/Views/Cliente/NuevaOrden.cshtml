@@ -83,12 +83,13 @@
         Guardado = false
         contadorItem = @Numeros.Cero
             PrecioOrden =[]
+        
         //Fecha Actual del sistema
         document.getElementById("dtpNaciPac").value = moment().format("YYYY-MM-DD")
         document.getElementById("dptFecIng").value = moment().format("DD/MM/YYYY hh:mm")
         document.getElementById("txtTelPac").addEventListener("keypress", soloNumeros, false)
         document.getElementById("txtEdadPac").addEventListener("keypress", soloNumeros, false)
-        document.getElementById("txtIdentPac").addEventListener("keypress", soloNumeros, false)
+        //document.getElementById("txtIdentPac").addEventListener("keypress", soloNumeros, false)
 
         //LimpiarMiga
         // CargarMiga("@BreadCrumbs.NuevaOrden")

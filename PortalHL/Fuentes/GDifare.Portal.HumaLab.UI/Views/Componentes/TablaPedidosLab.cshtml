@@ -6,7 +6,7 @@
     // bool habilitado = (((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido != null ?
     //     (((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido == "RCTL" ||
     //     ((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido == "RCTP") ? true : false : true);
-        
+
     // bool habilitado = (((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido != null ?
     //     (((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido == "RCTL_RCPC" ||
     //     ((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido == "ENV_ENVP") ? true : false : true);
@@ -14,7 +14,7 @@
     bool habilitado = (((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido != null ?
        (((BuscarPedidosLaboratorista)(ViewBag.DatosConsulta)).EstadoPedido == "ENV_ENVP") ? true : false : true);
 
-    int idOrden = Model.FirstOrDefault().IdOrden;    
+    int idOrden = Model.FirstOrDefault().IdOrden;
     string estadoOrden = ViewBag.Estado as string;
 }
 
@@ -42,7 +42,7 @@
 
 <input type="hidden" id="habilitado" value="@habilitado" />
 <input type="hidden" id="idOrden" value="@idOrden" />
-<input id="codigoBarrasInput" class="form-control" type="text" hidden/>
+<input id="codigoBarrasInput" class="form-control" type="text" hidden />
 
 <div class="container-fluid mt-3 p-3 rounded-3 bg-white">
 
@@ -63,29 +63,41 @@
                     </thead>
                     <tbody>
                         @foreach (var item in listaMuestras)
-                            {
+                        {
 
                             <tr class="fila" onclick="cargarDetalles('@item.FirstOrDefault().IdMuestra','false')">
-                               
-                                    <td hidden>
-                                        @item.FirstOrDefault().IdMuestra
-                                    </td>
-                                    <td>
-                                        @item.FirstOrDefault().CodigoBarra
-                                    </td>
+
+                                <td hidden>
+                                    @item.FirstOrDefault().IdMuestra
+                                </td>
+                                <td>
+                                    @item.FirstOrDefault().CodigoBarra
+                                </td>
                                 <td>
                                     @item.FirstOrDefault().Muestra
                                 </td>
-                                    <td>
-                                    <input type="checkbox" id="@String.Concat("ret",item.FirstOrDefault().IdMuestra)" data-id="@item.FirstOrDefault().IdMuestra" value="recb" @(item.FirstOrDefault().Recibido ? "checked" : "") />
-                                    </td>
-                                    <td>
-                                    <input type="checkbox" id="@String.Concat("rech",item.FirstOrDefault().IdMuestra)" data-id="@item.FirstOrDefault().IdMuestra" value="rech" @(item.FirstOrDefault().Rechazado ? "checked" : "") />
-                                    </td>
-                                    <td>
+                                <td>
+                                    @{
+                                        string estaRet = item.FirstOrDefault()!.EstadoMuestra;
+                                        if (estaRet != Estados.MuestraCancelada)
+                                        {
+                                            <input type="checkbox" id="@String.Concat("ret",item.FirstOrDefault().IdMuestra)" data-id="@item.FirstOrDefault().IdMuestra" value="recb" @(item.FirstOrDefault().Recibido ? "checked" : "") />
+                                        }
+                                    }                                    
+                                </td>
+                                <td>
+                                    @{
+                                        string estaRech = item.FirstOrDefault()!.EstadoMuestra;
+                                        if (estaRech != Estados.MuestraCancelada)
+                                        {
+                                            <input type="checkbox" id="@String.Concat("rech",item.FirstOrDefault().IdMuestra)" data-id="@item.FirstOrDefault().IdMuestra" value="rech" @(item.FirstOrDefault().Rechazado ? "checked" : "") />
+                                        }
+                                    }                                    
+                                </td>
+                                <td>
                                     <label id="@String.Concat("obs",item.FirstOrDefault().IdMuestra)">@item.FirstOrDefault().ObservacionMuestra</label>
-                                    </td>
-                                    <td>
+                                </td>
+                                <td>
                                     @*<label id="@String.Concat("est",item.FirstOrDefault().IdMuestra)">@item.FirstOrDefault().EstadoMuestra</label>*@
                                     @{
                                         string clase = string.Empty;
@@ -103,9 +115,9 @@
                                             clase = "bg-primary";
                                     }
                                     <span class="badge @clase" style="font-size:0.75rem;" id="@String.Concat("est",item.FirstOrDefault().IdMuestra)">@estado</span>
-                                    </td>
-                                </tr>
-                            }
+                                </td>
+                            </tr>
+                        }
 
                     </tbody>
                 </table>
@@ -116,7 +128,7 @@
                 <table id="pruebas" class="table table-responsive dataTable mt-2">
                     <thead class="bg-primary">
                         <tr>
-                            <th class="fw-bold text-md-start" tabindex="0" aria-controls="pruebas" rowspan="1" colspan="1" style="width: 10px;color:#F4F4F2;" hidden >IDPRUEBA</th>
+                            <th class="fw-bold text-md-start" tabindex="0" aria-controls="pruebas" rowspan="1" colspan="1" style="width: 10px;color:#F4F4F2;" hidden>IDPRUEBA</th>
                             <th class="fw-bold text-md-start" tabindex="1" aria-controls="pruebas" rowspan="1" colspan="1" style="width: 70.688px;color:#F4F4F2;">PRUEBA/PERFIL</th>
                             <th class="sorting fw-bold text-md-start" tabindex="2" aria-controls="pruebas" rowspan="1" colspan="1" style="width: 15.8375px;color:#F4F4F2;">RECHAZADA</th>
                             <th class="sorting fw-bold text-md-start" tabindex="3" aria-controls="pruebas" rowspan="1" colspan="1" style="width: 15.8375px;color:#F4F4F2;">OBSERVACION PRUEBA</th>
@@ -166,17 +178,17 @@
     var hab = document.getElementById("habilitado").value;
     var detallesOrden = @Html.Raw(Json.Serialize(Model));
     var muestSelec;
-    var estadoOrdenFinal = '@estadoOrden';    
+    var estadoOrdenFinal = '@estadoOrden';
 
     $(document).ready(function () {
 
-        var buttonEnvioLis = document.getElementById('btnValidarEnvio');        
+        var buttonEnvioLis = document.getElementById('btnValidarEnvio');
 
-        if (estadoOrdenFinal === 'Enviado Parcial' || estadoOrdenFinal === 'Enviado') {            
+        if (estadoOrdenFinal === 'Enviado Parcial' || estadoOrdenFinal === 'Enviado') {
             $('#btnValidarEnvio').prop("disabled", false);
 
-            @* Desactivo el boton de envio a lis dependiendo del estado de la muestra *@
-            for (var i = 0; i < detallesOrden.length; i++) {
+    @* Desactivo el boton de envio a lis dependiendo del estado de la muestra *@
+                for (var i = 0; i < detallesOrden.length; i++) {
                 if (detallesOrden[i].EstadoMuestra === 'Por Recolectar') {
                     buttonEnvioLis.disabled = true;
                 }
@@ -185,134 +197,129 @@
                 }
             }
         }
-        else{                        
+        else {
             $('#btnValidarEnvio').prop("disabled", true);
         }
 
-        @* Desactivo el boton de envio a lis dependiendo del estado de la muestra *@        
-        @* for (var i = 0; i < detallesOrden.length; i++) {
+    @* Desactivo el boton de envio a lis dependiendo del estado de la muestra *@
+    @* for (var i = 0; i < detallesOrden.length; i++) {
             if (detallesOrden[i].EstadoMuestra === 'Por Recolectar') {
-                buttonEnvioLis.disabled = true;
+            buttonEnvioLis.disabled = true;
             }
             else {
-                buttonEnvioLis.disabled = false;
+            buttonEnvioLis.disabled = false;
             }
-        }    *@     
+            }    *@
 
-        $('#muestras tbody tr').on('click', function () {
-            $('#muestras tbody tr').removeClass('selected-row');
-            $('#muestras tbody tr').css('background-color', '');
-            var f = $(this);
-            f.addClass('selected-row');
-            $(this).css('background-color', 'lightgray');
+            $('#muestras tbody tr').on('click', function () {
+                $('#muestras tbody tr').removeClass('selected-row');
+                $('#muestras tbody tr').css('background-color', '');
+                var f = $(this);
+                f.addClass('selected-row');
+                $(this).css('background-color', 'lightgray');
 
-        });
+            });
 
         $(".fila").each(function () {
             var estadoMuestra = $(this).find("span[id^='est']").text();
-            if (hab)
-            {
+            if (hab) {
                 if (estadoMuestra === "@Estados.MuestraRechazadaOp") {
                     $(this).find(":checkbox").prop("disabled", true);
                 }
             }
-            else
-            {
+            else {
                 $(this).find(":checkbox").prop("disabled", true);
             }
         });
 
-        @* if (hab) {
+    @* if (hab) {
             $('#btnValidarEnvio').prop("disabled", false);
-        }
-        else {
-            $('#btnValidarEnvio').prop("disabled", true);            
-        } *@
-
-        $('input[type="checkbox"]').on('change', function () {
-
-            var recibido = undefined;
-            var rechazado = undefined;
-
-            var idPruebaMuestra = $(this).data('id');
-            
-            var controlActual = $(this).val();
-            var chkRecibido = undefined;
-            recibido = $('#ret' + idPruebaMuestra).prop('checked');
-            rechazado = $('#rech' + idPruebaMuestra).prop('checked');
-
-            chkRecibido = recibido;                                         
-
-            if (controlActual === 'recb' && recibido) {
-                $('#rech' + idPruebaMuestra).prop('checked', false);
-                rechazado = false;
-            }
-            else if (controlActual === 'recb' && !recibido) {
-                recibido = false;
-            }
-            else if (controlActual === 'rech' && rechazado) {
-                $('#ret' + idPruebaMuestra).prop('checked', false);
-                recibido = false;
-            }
-            else if (controlActual === 'rech' && !rechazado) {
-                rechazado = false;
-            }
-
-            @* console.log("recibido es:");
-            console.log(recibido);
-
-            console.log("rechazo es:");
-            console.log(rechazado); *@
-
-            if (recibido === false && rechazado === true) {
-
-                if (ValidaMuestrasRechazadas(false))
-                {
-                    bootbox.confirm({
-                        title: '@Notificaciones.TituloRechazaMuestra',
-                        message: '@Notificaciones.WarningRechazaMuestras',
-                        buttons: {
-                            cancel: {
-                                label: '<i class="fa fa-times"></i> No',
-                                className: 'btn-danger'
-                            },
-                            confirm: {
-                                label: '<i class="fa fa-check"></i> Si',
-                                className: 'btn-success'
-                            }
-                        },
-                        callback: function (result) {
-                            // console.log(result)
-                            if (result) {
-                                // Mostrar el modal para ingresar el comentario
-                                AbrirModal(idPruebaMuestra, chkRecibido);
-
-                            }
-                            else
-                            {
-                                var chRech = $("#muestras tbody tr").find("#rech" + idPruebaMuestra);
-                                var chRecb = $("#muestras tbody tr").find("#ret" + idPruebaMuestra);
-                                chRech.prop("checked", false);
-
-                                if (recibido === true)
-                                    chRecb.prop("checked", true);
-                                else
-                                    chRecb.prop("checked", false);
-                            }
-                        }
-                    });
-                }
-                else
-                {
-                    AbrirModal(idPruebaMuestra, chkRecibido);
-                }
             }
             else {
-                enviarActualizacionEstado(idPruebaMuestra, recibido, rechazado, false, "");
+            $('#btnValidarEnvio').prop("disabled", true);
+            } *@
 
-            }
-   
-        });
+            $('input[type="checkbox"]').on('change', function () {
+
+                var recibido = undefined;
+                var rechazado = undefined;
+
+                var idPruebaMuestra = $(this).data('id');
+
+                var controlActual = $(this).val();
+                var chkRecibido = undefined;
+                recibido = $('#ret' + idPruebaMuestra).prop('checked');
+                rechazado = $('#rech' + idPruebaMuestra).prop('checked');
+
+                chkRecibido = recibido;
+
+                if (controlActual === 'recb' && recibido) {
+                    $('#rech' + idPruebaMuestra).prop('checked', false);
+                    rechazado = false;
+                }
+                else if (controlActual === 'recb' && !recibido) {
+                    recibido = false;
+                }
+                else if (controlActual === 'rech' && rechazado) {
+                    $('#ret' + idPruebaMuestra).prop('checked', false);
+                    recibido = false;
+                }
+                else if (controlActual === 'rech' && !rechazado) {
+                    rechazado = false;
+                }
+
+    @* console.log("recibido es:");
+                    console.log(recibido);
+
+                    console.log("rechazo es:");
+                    console.log(rechazado); *@
+
+                if (recibido === false && rechazado === true) {
+
+                    if (ValidaMuestrasRechazadas(false)) {
+                        bootbox.confirm({
+                            title: '@Notificaciones.TituloRechazaMuestra',
+                            message: '@Notificaciones.WarningRechazaMuestras',
+                            buttons: {
+                                cancel: {
+                                    label: '<i class="fa fa-times"></i> No',
+                                    className: 'btn-danger'
+                                },
+                                confirm: {
+                                    label: '<i class="fa fa-check"></i> Si',
+                                    className: 'btn-success'
+                                }
+                            },
+                            callback: function (result) {
+                                // console.log(result)
+                                if (result) {
+                                    // Mostrar el modal para ingresar el comentario
+                                    AbrirModal(idPruebaMuestra, chkRecibido);
+
+                                }
+                                else {
+                                    var chRech = $("#muestras tbody tr").find("#rech" + idPruebaMuestra);
+                                    var chRecb = $("#muestras tbody tr").find("#ret" + idPruebaMuestra);
+                                    chRech.prop("checked", false);
+
+                                    if (recibido === true)
+                                        chRecb.prop("checked", true);
+                                    else
+                                        chRecb.prop("checked", false);
+                                }
+                            }
+                        });
+                    }
+                    else {
+                        AbrirModal(idPruebaMuestra, chkRecibido);
+                    }
+                }
+                else {
+                    enviarActualizacionEstado(idPruebaMuestra, recibido, rechazado, false, "");
+
+                }
+
+            });
 
         // Escuchar el evento clic del botón "Guardar" en el modal
         $('#guardarComentarioBtn').on('click', function () {
@@ -329,13 +336,11 @@
 
             $('#comentarioModal').modal('hide');
 
-            if (esPrueba === "false")
-            {
+            if (esPrueba === "false") {
                 enviarActualizacionEstado(idPruebaMuestra, false, true, false, comentario);
             }
-            else
-            {
-                enviarActualizacionPrueba(idPrueba,idPruebaMuestra,esPrueba,comentario,true);
+            else {
+                enviarActualizacionPrueba(idPrueba, idPruebaMuestra, esPrueba, comentario, true);
             }
 
         });
@@ -348,7 +353,7 @@
         var codigoBarrasInput = document.getElementById("codigoBarrasInput");
         var hab = document.getElementById("habilitado").value;
         document.addEventListener("keydown", function (e) {
-            
+
             // Verificar si el evento proviene de la tecla Enter (código ASCII 13)
             if (e.keyCode === 13) {
 
@@ -366,7 +371,7 @@
         });
 
         function buscarEnTabla(codigoBarra) {
-            
+
             $("#muestras tbody tr").each(function () {
                 var codigoMuestra = $(this).find("td:eq(1)").text().trim();
                 if (codigoMuestra === codigoBarra) {
@@ -390,12 +395,11 @@
         var estadoMuestra = $("#est" + idMuestra).text();
         var recibido = $('#ret' + idMuestra).prop('checked');
 
-        if (idMuestra != muestSelec || actualiza === true)
-        {
+        if (idMuestra != muestSelec || actualiza === true) {
             $.ajax({
                 url: '@Url.Action("ConsultaPruebasLaboratorista", "Laboratorista")',
                 method: 'GET',
-                data: {idMuestra: idMuestra},
+                data: { idMuestra: idMuestra },
                 success: function (data) {
 
                     var detallesBody = document.getElementById("detPruebas");
@@ -431,8 +435,8 @@
                             else
                                 checkbox.disabled = true;
                         }
-                        else {                            
-                            checkbox.disabled = true;                            
+                        else {
+                            checkbox.disabled = true;
                         }
 
                         checkbox.onchange = function () {
@@ -480,13 +484,12 @@
         var esPrueba = $('#h_esPrueba').val();
         var recibido = $('#chk_recibido').val();
 
-        if (esPrueba === "false")
-        {
+        if (esPrueba === "false") {
             var chRech = $("#muestras tbody tr").find("#rech" + idMuestra);
-            var chRecb= $("#muestras tbody tr").find("#ret" + idMuestra);
+            var chRecb = $("#muestras tbody tr").find("#ret" + idMuestra);
 
             if (chRech.length > 0) {
-                
+
                 chRech.prop("checked", false);
                 if (recibido === "true")
                     chRecb.prop("checked", true);
@@ -494,8 +497,7 @@
                     chRecb.prop("checked", false);
             }
         }
-        else
-        {
+        else {
             var chRechp = $("#pruebas tbody tr").find("#rech" + idPrueba);
             if (chRechp.length > 0) {
                 chRechp.prop("checked", false);
@@ -513,44 +515,42 @@
             success: function (response) {
 
                 var respuesta = JSON.parse(response);
-                
+
                 var elementoEstadoMuestra = document.getElementById("est" + idPruebaMuestra);
                 if (elementoEstadoMuestra) {
                     elementoEstadoMuestra.textContent = respuesta.estadoMuestra;
                     EstiloEstadoMuestra("#est" + idPruebaMuestra, respuesta.estadoMuestra);
                 }
                 $("#obs" + idPruebaMuestra).text(respuesta.observacion);
-                @* if (elementoEstadoMuestra) {
+    @* if (elementoEstadoMuestra) {
                     elementoEstadoMuestra.textContent = respuesta.EstadoMuestra;
                     EstiloEstadoMuestra("#est" + idPruebaMuestra, respuesta.EstadoMuestra);
-                }
-                $("#obs" + idPruebaMuestra).text(respuesta.Observacion); *@
+                    }
+                    $("#obs" + idPruebaMuestra).text(respuesta.Observacion); *@
 
-                if(rechazar)
-                {
-                    $("#rech" + idPruebaMuestra).prop("checked",true);
+                    if (rechazar) {
+                    $("#rech" + idPruebaMuestra).prop("checked", true);
                     $("#ret" + idPruebaMuestra).prop("checked", false);
                 }
-                else
-                {
+                else {
                     $("#rech" + idPruebaMuestra).prop("checked", false);
                 }
                 cargarDetalles(idPruebaMuestra, true);
-                
+
                 //valida si se rechazan todas las muestras
-                    if (ValidaMuestrasRechazadas(false)) {
-                        //alert("Se debe bloquear");
-                        $("#muestras input[type='checkbox']").prop("disabled", rechazar);
-                    }
+                if (ValidaMuestrasRechazadas(false)) {
+                    //alert("Se debe bloquear");
+                    $("#muestras input[type='checkbox']").prop("disabled", rechazar);
+                }
             },
             error: function (error) {
-                MensajeAlerta1("@Notificaciones.TituloDanger", "@Notificaciones.DangerActualizaEstadoM");                
+                MensajeAlerta1("@Notificaciones.TituloDanger", "@Notificaciones.DangerActualizaEstadoM");
             }
         });
     }
 
     function enviarActualizacionPrueba(idPrueba, idMuestra, rechaza, obs, esPruebaMuestra) {
-        
+
         $.ajax({
             type: 'POST',
             url: '@Url.Action("CambiaEstadoPrueba", "Laboratorista")',
@@ -563,8 +563,7 @@
                 $("#obsPr" + idPrueba).text(obs);
 
                 if (esPruebaMuestra) {
-                    if(respuesta.RechazaMuestra)
-                    {
+                    if (respuesta.RechazaMuestra) {
                         if (ValidaMuestrasRechazadas(true)) {
                             bootbox.confirm({
                                 title: '@Notificaciones.TituloRechazaMuestra',
@@ -587,7 +586,7 @@
 
                                     }
                                     else {
-                                        
+
                                         enviarActualizacionPrueba(idPrueba, idMuestra, false, "", false);
                                         var chRechp = $("#pruebas tbody tr").find("#rech" + idPrueba);
                                         if (chRechp.length > 0) {
@@ -632,14 +631,14 @@
                 return false;
             }
             if (checkboxRecibido === false && checkboxRechazado === true) {
-                
+
                 cont = cont + 1;
 
             }
         });
-        if(cont === numFilas)
+        if (cont === numFilas)
             checksVacios = true;
-        
+
         if (checksVacios === true) {
 
             MensajeAlerta1("@Notificaciones.TituloDanger", "@Notificaciones.DangerValidacionEnviaLis");
@@ -685,9 +684,9 @@
                             }
                         });
 
-                        $('#btnValidarEnvio').prop("disabled",true);
+                        $('#btnValidarEnvio').prop("disabled", true);
                         $('#muestras tbody .checkbox').prop("disabled", true);
-                        
+
                         filas.each(function () {
                             $(this).find('input[value^="recb"]').prop("disabled", true);
                             $(this).find('input[value^="rech"]').prop("disabled", true);
@@ -695,7 +694,7 @@
 
                         $("#detPruebas input[type='checkbox']").prop("disabled", true);
 
-                        //impresion etiquetas                                                
+                        //impresion etiquetas
                         var tituEtiqueta = "HUMALAB";
                         var footEtiqueta = "HUMALAB";
                         var footDosEtiqueta = "HUMALAB S.A";
@@ -705,13 +704,13 @@
                         var fechOrden = response.fechaOrden;
 
                         var muestra = "";
-                        var codBarra = "";                        
+                        var codBarra = "";
 
                         var arrayOrden = response.muestraOrden;
 
-                        var selected_device;                        
+                        var selected_device;
 
-                        for(var i = 0; i < arrayOrden.length; i++){
+                        for (var i = 0; i < arrayOrden.length; i++) {
                             codBarra = numCodBarra + "-" + arrayOrden[i].codigoMuestra;
                             muestra = arrayOrden[i].nombreRecipiente;
 
@@ -754,13 +753,12 @@
         $(idControl).removeClass().addClass(clase);
     }
 
-    function ValidaMuestrasRechazadas(validaAntes)
-    {
+    function ValidaMuestrasRechazadas(validaAntes) {
         var filas = $('#muestras tbody tr');
         var numFilas = filas.length;
         var cont = 0;
         var muestrasRechazadas = false;
-        
+
         filas.each(function () {
             var checkboxRecibido = $(this).find('input[value^="recb"]').prop('checked');
             var checkboxRechazado = $(this).find('input[value^="rech"]').prop('checked');
@@ -770,7 +768,7 @@
                 cont = cont + 1;
             }
         });
-        if(validaAntes)
+        if (validaAntes)
             cont = cont + 1;
         if (cont === numFilas)
             muestrasRechazadas = true;
@@ -779,10 +777,10 @@
 
     function AbrirModal(idMuestra, chkRecibido) {
 
-        @* console.log("id" + idMuestra);
-        console.log("check" + chkRecibido); *@
+    @* console.log("id" + idMuestra);
+            console.log("check" + chkRecibido); *@
 
-        $('#h_idMuestra').val(idMuestra);
+            $('#h_idMuestra').val(idMuestra);
         $('#chk_recibido').val(chkRecibido);
         $('#h_esPrueba').val(false);
         $('#comentarioInput').val("");
@@ -791,4 +789,4 @@
     }
 
 </script>
-    
+

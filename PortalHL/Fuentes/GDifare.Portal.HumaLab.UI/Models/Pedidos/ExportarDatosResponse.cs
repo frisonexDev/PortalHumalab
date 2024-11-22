@@ -25,4 +25,5 @@ public class ListaMuestras
     public string OrdenEstado { get; set; } = string.Empty;
     public string FechaCreacion { get; set; } = string.Empty;
     public string codLis { get; set; } = string.Empty;
+    public string estadoPrueba = string.Empty;
 }

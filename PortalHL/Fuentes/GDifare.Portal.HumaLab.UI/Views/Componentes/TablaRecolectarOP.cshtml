@@ -2,6 +2,24 @@
 @model IEnumerable<GDifare.Portal.Humalab.Servicio.Modelos.PedidosOpLogistico.VerDetallePedidoOperadorDet>
 @using GDifare.Portal.Humalab.Servicio.Utils;
 
+<style>
+    @@media (max-width: 768px) {
+        .table th,
+        .table td {
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+            /* Oculta ciertas columnas en pantallas pequeñas */
+            .table th:nth-child(3),
+            .table td:nth-child(3),
+            .table th:nth-child(4),
+            .table td:nth-child(4) {
+                display: none;
+            }
+    }
+</style>
+
+
 <div class="container-fluid bg-white rounded-3 p-3 mt-3 mb-3">
     @{
         //bool recolectado = (ViewBag.DatoConsulta != null)? (((BuscarPedidosOpLogistico)(ViewBag.DatoConsulta)).Estado == "RCTL") ? true : false : false;
@@ -14,78 +32,92 @@
     <input type="hidden" id="recolectado" value="@recolectado" />
     <input id="codigoBarrasInput" class="form-control" type="text" hidden />
 
-    <table id="example" class="table table-responsive dataTable mt-2" style="width:100%;" aria-describedby="example_info">
-        <thead class="bg-primary">
-            <tr>
-                <th class="fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 20.613px; color:#F4F4F2;">N°</th>
-                <th class="sorting fw-bold text-center" tabindex="1" aria-controls="example" rowspan="1" colspan="1" style="width: 50.2125px;color:#F4F4F2;">N° ORDEN - T.MUESTRA</th>
-                <th class="sorting fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 130.688px;color:#F4F4F2;">TIPO DE MUESTRA</th>
-                <th class="sorting fw-bold text-center" tabindex="3" aria-controls="example" rowspan="1" colspan="1" style="width: 20.325px;color:#F4F4F2;">IDENTIFICACIÓN</th>
-                <th class="sorting fw-bold text-center" tabindex="4" aria-controls="example" rowspan="1" colspan="1" style="width: 20.325px;color:#F4F4F2;">NOMBRE PACIENTE</th>
-                <th class="sorting fw-bold text-center" tabindex="5" aria-controls="example" rowspan="1" colspan="1" style="width: 20.325px;color:#F4F4F2;">CODIGO LABORATORIO</th>
-                <th class="sorting fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 20.2125px;color:#F4F4F2;">RETIRADO</th>
-                <th class="sorting fw-bold text-center" tabindex="7" aria-controls="example" rowspan="1" colspan="1" style="width: 20.8375px;color:#F4F4F2;">RECHAZADO</th>
-                <th class="sorting fw-bold text-center" tabindex="8" aria-controls="example" rowspan="1" colspan="1" style="width: 150.325px;color:#F4F4F2;">COMENTARIO</th>
-                <th class="sorting fw-bold text-center" tabindex="9" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">ESTADO</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="table-responsive">
+        <table id="example" class="table dataTable mt-2" style="width:100%;" aria-describedby="example_info">
+            <thead class="bg-primary">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Numero)
-                    </td>
-                    <td>    
-                        @Html.DisplayFor(modelItem => item.CodigoBarra)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TipoMuestra)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Identificacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Paciente)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CodLaboratorio)
-                    </td>
-                    <td>
-                        <input type="checkbox" id="@String.Concat("ret",item.IdPruebaMuestra)" name="@item.Numero" data-id="@item.IdPruebaMuestra" value="Retirado" @(item.Retirado ? "checked" : "") />
-                    </td>
-                    <td>
-                        <input type="checkbox" id="@String.Concat("rech",item.IdPruebaMuestra)" name="@item.Numero" data-id="@item.IdPruebaMuestra" value="Rechazado" @(item.Rechazado ? "checked" : "") />
-                    </td>
-                    <td>
-                        <label id="@String.Concat("obs",item.IdPruebaMuestra)">@item.ObservacionOperador</label>
-                    </td>
-                    <td>
-                        @*<label id="@String.Concat("est",item.IdPruebaMuestra)">@item.EstadoMuestra</label>*@
-                        @{
-                            string clase = string.Empty;
-                            string estado = item.EstadoMuestra;
-
-                            if (estado == Estados.MuestraRechazadaLab || estado == Estados.MuestraRechazadaOp)
-                                clase = "bg-danger";
-                            else if (estado == Estados.MuestraRecibida)
-                                clase = "bg-success";
-                            else if (estado == Estados.MuestraRecolectada)
-                                clase = "bg-success";
-                            else if (estado == Estados.MuestraPorRecolectar)
-                                clase = "bg-secondary";
-                            else
-                                clase = "bg-primary";
-                        }
-                        <span class="badge @clase" style="font-size:0.75rem;" id="@String.Concat("est",item.IdPruebaMuestra)">@estado</span>
-
-                    </td>
+                    <th class="fw-bold text-center" tabindex="0" rowspan="1" colspan="1" style="width: 20.613px; color:#F4F4F2;">N°</th>
+                    <th class="sorting fw-bold text-center" tabindex="1" aria-controls="example" rowspan="1" colspan="1" style="width: 50.2125px;color:#F4F4F2;">N° ORDEN - T.MUESTRA</th>
+                    <th class="sorting fw-bold text-center" tabindex="2" aria-controls="example" rowspan="1" colspan="1" style="width: 130.688px;color:#F4F4F2;">TIPO DE MUESTRA</th>
+                    <th class="sorting fw-bold text-center" tabindex="3" aria-controls="example" rowspan="1" colspan="1" style="width: 20.325px;color:#F4F4F2;">IDENTIFICACIÓN</th>
+                    <th class="sorting fw-bold text-center" tabindex="4" aria-controls="example" rowspan="1" colspan="1" style="width: 20.325px;color:#F4F4F2;">NOMBRE PACIENTE</th>
+                    <th class="sorting fw-bold text-center" tabindex="5" aria-controls="example" rowspan="1" colspan="1" style="width: 20.325px;color:#F4F4F2;">CODIGO LABORATORIO</th>
+                    <th class="sorting fw-bold text-center" tabindex="6" aria-controls="example" rowspan="1" colspan="1" style="width: 20.2125px;color:#F4F4F2;">RETIRADO</th>
+                    <th class="sorting fw-bold text-center" tabindex="7" aria-controls="example" rowspan="1" colspan="1" style="width: 20.8375px;color:#F4F4F2;">RECHAZADO</th>
+                    <th class="sorting fw-bold text-center" tabindex="8" aria-controls="example" rowspan="1" colspan="1" style="width: 150.325px;color:#F4F4F2;">COMENTARIO</th>
+                    <th class="sorting fw-bold text-center" tabindex="9" aria-controls="example" rowspan="1" colspan="1" style="width: 40.325px;color:#F4F4F2;">ESTADO</th>
                 </tr>
-            }
-        </tbody>
+            </thead>
 
-    </table>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Numero)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CodigoBarra)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TipoMuestra)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Identificacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Paciente)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CodLaboratorio)
+                        </td>
+                        <td>
+                            @{
+                                string estadoMuestraRet = @item.EstadoMuestra;                                
+                                if (estadoMuestraRet != Estados.MuestraCancelada)
+                                {
+                                    <input type="checkbox" id="@String.Concat("ret",item.IdPruebaMuestra)" name="@item.Numero" data-id="@item.IdPruebaMuestra" value="Retirado" @(item.Retirado ? "checked" : "") />
+                                }
+                            }                                                        
+                        </td>
+                        <td>
+                            @{
+                                string estadoMuestraRech = @item.EstadoMuestra;
+                                if (estadoMuestraRech != Estados.MuestraCancelada)
+                                {
+                                    <input type="checkbox" id="@String.Concat("rech",item.IdPruebaMuestra)" name="@item.Numero" data-id="@item.IdPruebaMuestra" value="Rechazado" @(item.Rechazado ? "checked" : "") />
+                                }
+                            }                            
+                        </td>
+                        <td>
+                            <label id="@String.Concat("obs",item.IdPruebaMuestra)">@item.ObservacionOperador</label>
+                        </td>
+                        <td>
+                            @*<label id="@String.Concat("est",item.IdPruebaMuestra)">@item.EstadoMuestra</label>*@
+                            @{
+                                string clase = string.Empty;
+                                string estado = item.EstadoMuestra;
+
+                                if (estado == Estados.MuestraRechazadaLab || estado == Estados.MuestraRechazadaOp)
+                                    clase = "bg-danger";
+                                else if (estado == Estados.MuestraRecibida)
+                                    clase = "bg-success";
+                                else if (estado == Estados.MuestraRecolectada)
+                                    clase = "bg-success";
+                                else if (estado == Estados.MuestraPorRecolectar)
+                                    clase = "bg-secondary";
+                                else
+                                    clase = "bg-primary";
+                            }
+                            <span class="badge @clase" style="font-size:0.75rem;" id="@String.Concat("est",item.IdPruebaMuestra)">@estado</span>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
 
     @* <div class="mt-4">
 

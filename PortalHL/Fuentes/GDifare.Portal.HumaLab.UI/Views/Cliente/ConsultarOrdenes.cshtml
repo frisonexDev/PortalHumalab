@@ -75,7 +75,7 @@
 
 
         CambioFecha=false;
-        UsuarioGalileo = @infousuario.UsuarioID;
+        UsuarioGalileo = @infousuario!.UsuarioID;
 
         ConsultaOrdenes = {
             OpcionBusqueda: @Numeros.Cero,
@@ -1087,7 +1087,7 @@
         }
         
         var textoBuscar = document.getElementById("txtBuscarOrden").value;
-        var opcionBusqueda = document.getElementById("cmbOrden").value;
+        // var opcionBusqueda = document.getElementById("cmbOrden").value;
         var opcionEstado = document.getElementById("cmbEstadobOrden").value;
         var FechaDesde= document.getElementById("dtpInicio").value;
         var FechaHasta = document.getElementById("dtpFin").value;
@@ -1108,8 +1108,8 @@
         // console.log("Estado Fecha Cambio");
         // console.log(CambioFecha);
 
-        if (textoBuscar.trim().length === 0 && CambioFecha === false && 
-            opcionEstado === '@Numeros.Cero') {            
+        //Busqueda de ordenes solo GENERADAS
+        if (textoBuscar.trim().length === 0 && CambioFecha === false && opcionEstado === '@Numeros.Cero') {            
             ConsultaOrdenes = {
                 OpcionBusqueda: @Numeros.Cero,
                 IdUsuarioGalileo: @infousuario.UsuarioID,
@@ -1118,9 +1118,8 @@
             }
         }
 
-        //Busqueda de todas las ordenes por fechas
-        if (textoBuscar.trim().length === 0 && CambioFecha === false &&
-            opcionBusqueda === '@Numeros.Uno' && opcionEstado === '@Numeros.Cero') {
+        //Busqueda de todas las ordenes solo por fechas
+        if (textoBuscar.trim().length === 0 && CambioFecha === false && opcionEstado === '@Numeros.Cero') {
             ConsultaOrdenes = {
                 OpcionBusqueda: @Numeros.Trece,
                 IdUsuarioGalileo: @infousuario.UsuarioID,
@@ -1129,8 +1128,7 @@
                 FechaFin: FechaHasta,
             }
         }
-        else if (textoBuscar.trim().length === 0 && CambioFecha === true &&
-            opcionBusqueda === '@Numeros.Uno' && opcionEstado === '@Numeros.Cero') {
+        else if (textoBuscar.trim().length === 0 && CambioFecha === true && opcionEstado === '@Numeros.Cero') {
             ConsultaOrdenes = {
                 OpcionBusqueda: @Numeros.Trece,
                 IdUsuarioGalileo: @infousuario.UsuarioID,
@@ -1140,84 +1138,86 @@
             }
         }
 
-        //Busqueda de ordenes por numero de orden
-        if (textoBuscar.trim().length != 0 && CambioFecha === false &&
-            opcionBusqueda === '@Numeros.Uno') {            
+        //Busqueda de ordenes por cedula, nombres o apellidos
+        if (textoBuscar.trim().length != 0 && CambioFecha === false) {            
+            textoBuscar = textoBuscar.replace(" ", "%")
+                .replace(" ", "%");
+
             ConsultaOrdenes = {
                 IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Uno,
-                CodigoBarra: textoBuscar,
+                OpcionBusqueda: @Numeros.Dos,
+                // CodigoBarra: textoBuscar,
+                DatoBusqueda: textoBuscar,
                 FechaInicio: FechaDesde,
                 FechaFin: FechaHasta,
                 opcionEstado: opcionEstado
-            }
+            }            
         }
-        else if (textoBuscar.trim().length != 0 && CambioFecha === true &&
-            opcionBusqueda === '@Numeros.Uno') {
+        else if (textoBuscar.trim().length != 0 && CambioFecha === true) {            
+            textoBuscar = textoBuscar.replace(" ", "%")
+                .replace(" ", "%");
+
             ConsultaOrdenes = {
                 IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Uno,
-                CodigoBarra: textoBuscar,
+                OpcionBusqueda: @Numeros.Dos,
+                // CodigoBarra: textoBuscar,
+                DatoBusqueda: textoBuscar,
                 FechaInicio: FechaDesde,
                 FechaFin: FechaHasta,
                 opcionEstado: opcionEstado
-            }
+            }            
         }
 
         //Busqueda de ordenes por nombre
-        if (textoBuscar.trim().length != 0 && CambioFecha === false &&
-            opcionBusqueda === '@Numeros.Dos' /* && opcionEstado === '@Numeros.Cero' */) {            
-            textoBuscar = textoBuscar.replace(" ", "%")
-                .replace(" ", "%");
+        // if (textoBuscar.trim().length != 0 && CambioFecha === false /* && opcionEstado === '@Numeros.Cero' */) {            
+        //     textoBuscar = textoBuscar.replace(" ", "%")
+        //         .replace(" ", "%");
 
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Dos,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta,
-                opcionEstado: opcionEstado
-            }
-        }
-        else if (textoBuscar.trim().length != 0 && CambioFecha === true &&
-            opcionBusqueda === '@Numeros.Dos' /* && opcionEstado === '@Numeros.Cero' */) {            
-            textoBuscar = textoBuscar.replace(" ", "%")
-                .replace(" ", "%");
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Dos,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta,
+        //         opcionEstado: opcionEstado
+        //     }
+        // }
+        // else if (textoBuscar.trim().length != 0 && CambioFecha === true /* && opcionEstado === '@Numeros.Cero' */) {            
+        //     textoBuscar = textoBuscar.replace(" ", "%")
+        //         .replace(" ", "%");
 
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Dos,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta,
-                opcionEstado: opcionEstado
-            }
-        }        
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Dos,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta,
+        //         opcionEstado: opcionEstado
+        //     }
+        // }        
 
         //Busqueda de ordenes por cédula
-        if (textoBuscar.trim().length != 0 && CambioFecha === false && 
-            opcionBusqueda === '@Numeros.Tres' /* && opcionEstado === '@Numeros.Cero' */) {            
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Tres,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta,
-                opcionEstado: opcionEstado
-            }
+        // if (textoBuscar.trim().length != 0 && CambioFecha === false /* && opcionEstado === '@Numeros.Cero' */) {            
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Tres,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta,
+        //         opcionEstado: opcionEstado
+        //     }
 
-        }
-        else if (textoBuscar.trim().length != 0 && CambioFecha === true &&
-            opcionBusqueda === '@Numeros.Tres' /* && opcionEstado === '@Numeros.Cero' */) {            
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Tres,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta,
-                opcionEstado: opcionEstado
-            }
-        }        
+        // }
+        // else if (textoBuscar.trim().length != 0 && CambioFecha === true /* && opcionEstado === '@Numeros.Cero' */) {            
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Tres,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta,
+        //         opcionEstado: opcionEstado
+        //     }
+        // }        
 
         if (textoBuscar.trim().length === 0 && CambioFecha === false && 
             opcionEstado != '@Numeros.Cero') {            
@@ -1243,8 +1243,7 @@
 
         }        
 
-        if (textoBuscar.trim().length === 0 && CambioFecha === true && 
-            opcionEstado === '@Numeros.Cero' && opcionBusqueda === '@Numeros.Uno') {            
+        if (textoBuscar.trim().length === 0 && CambioFecha === true && opcionEstado === '@Numeros.Cero') {            
             ConsultaOrdenes = {
                 IdUsuarioGalileo: @infousuario.UsuarioID,
                 OpcionBusqueda: @Numeros.Ocho,
@@ -1255,8 +1254,7 @@
         }
 
         //Busqueda por fechas recolectado total/parcial
-        if (textoBuscar.trim().length === 0 && CambioFecha === false && 
-            opcionEstado === '@Numeros.Diez' && opcionBusqueda === '@Numeros.Uno') {            
+        if (textoBuscar.trim().length === 0 && CambioFecha === false && opcionEstado === '@Numeros.Diez') {            
             ConsultaOrdenes = {
                 IdUsuarioGalileo: @infousuario.UsuarioID,
                 OpcionBusqueda: @Numeros.Diez,
@@ -1273,32 +1271,31 @@
         }
 
         //Busqueda por cedula recoletado total/parcial
-        if (textoBuscar.trim().length != 0 && CambioFecha === false &&
-            opcionEstado === '@Numeros.Diez') {
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Diez,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta
-            }
-        }
-        else if (textoBuscar.trim().length != 0 && CambioFecha === true &&
-            opcionEstado === '@Numeros.Diez') {
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Diez,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta
-            }
-        }
+        // if (textoBuscar.trim().length != 0 && CambioFecha === false &&
+        //     opcionEstado === '@Numeros.Diez') {
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Diez,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta
+        //     }
+        // }
+        // else if (textoBuscar.trim().length != 0 && CambioFecha === true &&
+        //     opcionEstado === '@Numeros.Diez') {
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Diez,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta
+        //     }
+        // }
 
         //---------------------------------------------//
 
         //Busqueda por fechas enviado total/parcial
-        if (textoBuscar.trim().length === 0 && CambioFecha === false && 
-            opcionEstado === '@Numeros.Once' && opcionBusqueda === '@Numeros.Uno') {            
+        if (textoBuscar.trim().length === 0 && CambioFecha === false && opcionEstado === '@Numeros.Once') {            
             ConsultaOrdenes = {
                 IdUsuarioGalileo: @infousuario.UsuarioID,
                 OpcionBusqueda: @Numeros.Once,
@@ -1315,32 +1312,31 @@
         }
         
         //Busqueda por cedula enviado total/parcial
-        if (textoBuscar.trim().length != 0 && CambioFecha === false &&
-            opcionEstado === '@Numeros.Once') {
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Once,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta
-            }
-        }
-        else if (textoBuscar.trim().length != 0 && CambioFecha === true &&
-            opcionEstado === '@Numeros.Once') {
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Once,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta
-            }
-        }
+        // if (textoBuscar.trim().length != 0 && CambioFecha === false &&
+        //     opcionEstado === '@Numeros.Once') {
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Once,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta
+        //     }
+        // }
+        // else if (textoBuscar.trim().length != 0 && CambioFecha === true &&
+        //     opcionEstado === '@Numeros.Once') {
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Once,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta
+        //     }
+        // }
 
         //---------------------------------------------//
 
         //Busqueda por fechas recibida/parcial
-        if (textoBuscar.trim().length === 0 && CambioFecha === false &&
-            opcionEstado === '@Numeros.Doce' && opcionBusqueda === '@Numeros.Uno') {            
+        if (textoBuscar.trim().length === 0 && CambioFecha === false && opcionEstado === '@Numeros.Doce') {            
             ConsultaOrdenes = {
                 IdUsuarioGalileo: @infousuario.UsuarioID,
                 OpcionBusqueda: @Numeros.Doce,
@@ -1348,7 +1344,7 @@
                 FechaFin: FechaHasta
             }
         }
-        else if (CambioFecha === true && opcionEstado === '@Numeros.Doce' && opcionBusqueda === '@Numeros.Uno') {            
+        else if (CambioFecha === true && opcionEstado === '@Numeros.Doce') {            
             ConsultaOrdenes = {
                 IdUsuarioGalileo: @infousuario.UsuarioID,
                 OpcionBusqueda: @Numeros.Doce,
@@ -1358,26 +1354,26 @@
         }
 
         //Busqueda por cedula recibida/parcial
-        if (textoBuscar.trim().length != 0 && opcionEstado === '@Numeros.Doce' &&
-            CambioFecha === false) {
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Doce,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta                
-            }
-        }
-        else if (textoBuscar.trim().length != 0 && opcionEstado === '@Numeros.Doce' &&
-            CambioFecha === true) {
-            ConsultaOrdenes = {
-                IdUsuarioGalileo: @infousuario.UsuarioID,
-                OpcionBusqueda: @Numeros.Doce,
-                DatoBusqueda: textoBuscar,
-                FechaInicio: FechaDesde,
-                FechaFin: FechaHasta                
-            }
-        }
+        // if (textoBuscar.trim().length != 0 && opcionEstado === '@Numeros.Doce' &&
+        //     CambioFecha === false) {
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Doce,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta                
+        //     }
+        // }
+        // else if (textoBuscar.trim().length != 0 && opcionEstado === '@Numeros.Doce' &&
+        //     CambioFecha === true) {
+        //     ConsultaOrdenes = {
+        //         IdUsuarioGalileo: @infousuario.UsuarioID,
+        //         OpcionBusqueda: @Numeros.Doce,
+        //         DatoBusqueda: textoBuscar,
+        //         FechaInicio: FechaDesde,
+        //         FechaFin: FechaHasta                
+        //     }
+        // }
 
         ListarOrdenesDefault();
         $('#btnEnviarOrden').prop("disabled", true);

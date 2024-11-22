@@ -241,7 +241,7 @@ public class ClienteOperationNew
         }
         catch (Exception)
         {
-            return "S";
+            return "A";
         }
     }
 

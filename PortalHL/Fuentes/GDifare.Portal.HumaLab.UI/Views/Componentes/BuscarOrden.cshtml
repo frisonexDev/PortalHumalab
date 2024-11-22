@@ -5,14 +5,14 @@
         <div class="d-flex col-auto">
 
             <div class="d-flex col gap-3 align-items-center justify-content-left">
-                <input id="txtBuscarOrden" class="form-control" placeholder="Buscar por N° de Orden" type="text" style="width:200px" />
+                <input id="txtBuscarOrden" class="form-control" placeholder="Buscar" type="text" style="width:200px" />
 
-                <select id="cmbOrden" class="form-select" onchange="buscarOrdenChange()" style="width:200px">
+                @* <select id="cmbOrden" class="form-select" onchange="buscarOrdenChange()" style="width:200px">
                     <option selected value="1">N° de Orden</option>
                     <option value="2">Nombre del Paciente</option>
                     <option value="3">Cédula</option>
 
-                </select>
+                </select> *@
 
             </div>
 
@@ -22,7 +22,7 @@
 
             <div class="d-flex col gap-3 align-items-center justify-content-left">
 
-                <select id="cmbEstadobOrden" class="form-select" onchange="buscarOrdenChange()" style="width:200px">
+                <select id="cmbEstadobOrden" class="form-select" @* onchange="buscarOrdenChange()" *@ style="width:200px">
                    
                     <option selected value="0">Estado Orden</option>
                     <option selected value="10">Recolectado total/parcial</option>
@@ -61,32 +61,32 @@
 
 <script>
 
-    function buscarOrdenChange()
-    {
-        var select = document.getElementById("cmbOrden").value;
+    // function buscarOrdenChange()
+    // {
+    //     var select = document.getElementById("cmbOrden").value;
 
-       switch(select)
-       {
-           case "1":
+    //    switch(select)
+    //    {
+    //        case "1":
 
-               txtPlaceHolder("Buscar por N° de Orden");
+    //            txtPlaceHolder("Buscar por N° de Orden");
 
-           break;
-           case "2":
+    //        break;
+    //        case "2":
 
-                txtPlaceHolder("Buscar por nombre del Paciente");
+    //             txtPlaceHolder("Buscar por nombre del Paciente");
 
-           break;
+    //        break;
             
-           case "3":
+    //        case "3":
 
-                txtPlaceHolder("Buscar por cédula");
+    //             txtPlaceHolder("Buscar por cédula");
 
-           break;
-       }
+    //        break;
+    //    }
 
 
-    }
+    // }
 
     function txtPlaceHolder(texto)
     {

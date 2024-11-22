@@ -320,7 +320,8 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                         CodExamen = muestra.CodigoExamen,
                         OrdenEstado = muestra.EstadoOrden,
                         FechaCreacion = muestra.FechaCreacion,
-                        codLis = muestra.CodLis
+                        codLis = muestra.CodLis,
+                        estadoPrueba = muestra.EstadoPrueba
                     };
 
                     datosResponse.muestras.Add(nuevaMuestra);                    
@@ -370,7 +371,8 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
 						worksheet.Cells[rowStart, 12].Value = "Codigo Laboratorio";
 						worksheet.Cells[rowStart, 13].Value = "Tipo Paciente";
 						worksheet.Cells[rowStart, 14].Value = "Fecha Creación";
-						worksheet.Cells[rowStart, 15].Value = "Orden Lis";						
+						worksheet.Cells[rowStart, 15].Value = "Orden Lis";
+                        worksheet.Cells[rowStart, 16].Value = "Estado Prueba";
 
 						int row = rowStart + 1;
 
@@ -400,6 +402,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                     worksheet.Cells[row, 13].Value = datos.TipoPaciente;
                                     worksheet.Cells[row, 14].Value = muestra.FechaCreacion;
                                     worksheet.Cells[row, 15].Value = muestra.codLis;
+                                    worksheet.Cells[row, 16].Value = muestra.estadoPrueba;
 
                                     row++;
                                 }
@@ -421,6 +424,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
 								worksheet.Cells[row, 13].Value = string.Empty;
 								worksheet.Cells[row, 14].Value = string.Empty;
 								worksheet.Cells[row, 15].Value = string.Empty;
+                                worksheet.Cells[row, 16].Value = string.Empty;
 
 								row++;
                             }

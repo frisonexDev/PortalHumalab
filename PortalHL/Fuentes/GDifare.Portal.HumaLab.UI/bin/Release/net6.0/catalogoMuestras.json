@@ -26622,11 +26622,11 @@
                                    "DeltaMax":0.0,
                                    "ComentarioFijo":null,
                                    "ComentarioImpresion":null,
-                                   "Activo":false,
+                                   "Activo":true,
                                    "DescripcionAnalito":null,
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
-                                   "CostoPrueba":115.00,
+                                   "CostoPrueba":135.00,
                                     "ExamenPerfil":[
                                ],
                                 "ValorReferencia":[
@@ -30203,6 +30203,14 @@
                              "NombreMuestra":"Suero / Tubo Amarillo",
                              "CodigoExamen":"BIO059",
                              "AbreviaturaExamen":"HAP"
+                          }
+                    ,{
+                             "IdExamen":1005,
+                             "NombreExamen":"FIBROTEST",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"BIO156",
+                             "AbreviaturaExamen":"FIBROT"
                           }
                     
                                ],
@@ -34429,6 +34437,116 @@
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
                                    "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":531,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":11,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"INM098",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"TRIPLE TEST - TAMIZAJE PRENATAL",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":4,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":531,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":532,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":12,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"INF076",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"HEPATITIS B, ANTI CORE TOTALES",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":3,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":532,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":12.00,
                                     "ExamenPerfil":[
                                ],
                                 "ValorReferencia":[
