@@ -112,6 +112,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                     Cliente = model.Cliente,
                     Estado = model.EstadoPedido,
                     IdPedido = model.IdPedido,
+                    IdAsesor = model.IdAsesor,
                 });
                 PedidosLaboratorista pedidosLab = new PedidosLaboratorista();
                 pedidosLab.BuscarPedidosLab = model;

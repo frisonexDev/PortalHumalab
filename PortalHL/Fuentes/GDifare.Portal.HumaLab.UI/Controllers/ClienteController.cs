@@ -265,7 +265,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             Task<string> ?menuJson = null;
             TimeSpan diferencia = TimeSpan.FromHours(0);
             TimeSpan ts = TimeSpan.FromHours(variables.DescargaCatalogo);
-            string path = "catalogoMuestras.json";
+            string path = "catalogoMuestrasFinal.json";
             string sCurrentDirectory = Directory.GetCurrentDirectory();
 
 			if (System.IO.File.Exists(Path.Combine(sCurrentDirectory,path)))
@@ -275,12 +275,15 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                 diferencia = localDate - infoFile;             
             }
 
-            System.IO.File.Delete(path);
-            catalogo = catalogoOperacion.ListaPruebas();
-            if (catalogo.Result != "01")
-            {
-                Task asyncTask = WriteFileAsync("", path, catalogo.Result);
-            }
+            menuJson = System.IO.File.ReadAllTextAsync(path, Encoding.UTF8);            
+            catalogo = menuJson;
+
+            //System.IO.File.Delete(path);
+            //catalogo = catalogoOperacion.ListaPruebas();
+            //if (catalogo.Result != "01")
+            //{                
+            //    Task asyncTask = WriteFileAsync("", path, catalogo.Result);                
+            //}
 
             //if (diferencia >= ts || diferencia == TimeSpan.FromHours(0))
             //{
@@ -296,6 +299,25 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             //    menuJson = System.IO.File.ReadAllTextAsync(path, Encoding.UTF8);
             //    catalogo = menuJson;
             //}
+
+            return catalogo;
+        }
+
+        public Task<string> CatalogoPruebasAvalab()
+        {
+            Task<string>? catalogo = null;
+            Task<string>? menuJson = null;
+            TimeSpan diferencia = TimeSpan.FromHours(0);
+            TimeSpan ts = TimeSpan.FromHours(variables.DescargaCatalogo);
+            string path = "catalogoMuestras.json";
+            string sCurrentDirectory = Directory.GetCurrentDirectory();
+
+            System.IO.File.Delete(path);
+            catalogo = catalogoOperacion.ListaPruebas();
+            if (catalogo.Result != "01")
+            {
+                Task asyncTask = WriteFileAsync("", path, catalogo.Result);
+            }
 
             return catalogo;
         }

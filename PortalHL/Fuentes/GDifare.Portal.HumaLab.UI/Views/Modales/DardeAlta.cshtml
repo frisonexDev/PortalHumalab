@@ -319,7 +319,7 @@
 						}, 3000);
 					}
 					else {
-
+						
 						for (var i = 0; i < response.length; i++) {
 							email = response[i].email;
 							identificacion = response[i].ruc;
@@ -436,7 +436,8 @@
 	}
 	
 	//Llenar codigos clientes
-	function codigosClientes(response) {
+	function codigosClientes(response) {		
+
 		var codClientes = document.getElementById('codCliente');		
 		var nomCliente = "";		
 
@@ -450,12 +451,14 @@
 			opcionesCod.setAttribute('data-info1', response[i].codAsesor);
 			opcionesCod.setAttribute('data-info2', response[i].usuario);
 
-			codClientes.add(opcionesCod);
+			codClientes.add(opcionesCod);			
 
 			document.getElementById("nomCliente").value = response[0].nombre;
 
-			var idOperador = response[0].codAsesor;
-			var usuarioOperador = response[0].usuario;
+			// var idOperador = response[0].codAsesor;
+			// var usuarioOperador = response[0].usuario;
+			var idOperador = response[i].codAsesor;
+			var usuarioOperador = response[i].usuario;
 
 			var cmbOperadorFlex = document.getElementById("comboOperador");
 

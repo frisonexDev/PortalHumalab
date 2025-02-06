@@ -124,6 +124,8 @@
     $(document).ready(function () {
 
         var table;
+        var datAvalabEnd;
+
         $.ajax({
             url: '@Url.Action("CatalogoPruebas","Cliente")',
             type: 'GET',
@@ -137,27 +139,67 @@
                     // response = response.replace(/:O\b/g, ':"O"'); // Si `O` debería ser una cadena.
                     // response = response.replace(/:O\b/g, ':0');    // Si `O` debería ser un número.
                     const resp = JSON.parse(response)
-                    const lista = resp.examen[0].details
-                    datosPruebas = lista;
-
-                    const filterNulls = lista.map((x) => {
-                        return removeNullsJson(x);
-                    })
 
                     $.ajax({
-                        url: '@Url.Action("CatalogoPruebasExcel","Cliente")',
+                        url: '@Url.Action("CatalogoPruebasAvalab","Cliente")',
                         type: 'GET',
-                        beforeSend: function () {
+                        beforeSend: function () { 
                             loadingShow();
                         },
-                        success: function (response) {
-                            var dataExcel = JSON.parse(response)
-                            //console.log(dataExcel);
-                            fillTable(filterNulls, dataExcel);
+                        success: function (response) { 
+                            var respAvalab = JSON.parse(response);
+                            var listaAvalab = respAvalab.examen[0].details;
+
+                            const filterNullsAvalab = listaAvalab.map((x) => {
+                                return removeNullsJson(x);
+                            })
+
+                            datAvalabEnd = filterNullsAvalab;
+
+                            $.ajax({
+                                url: '@Url.Action("CatalogoPruebasExcel","Cliente")',
+                                type: 'GET',
+                                beforeSend: function () {
+                                    loadingShow();
+                                },
+                                success: function (response) {
+                                    var dataExcel = JSON.parse(response)
+                                    //console.log(dataExcel);
+                                    //fillTable(filterNulls, dataExcel);
+                                    fillTable(resp, dataExcel, datAvalabEnd);
+
+                                    loadingHide();
+                                }
+                            });
 
                             loadingHide();
                         }
                     });
+                    
+                    //console.log(resp);
+
+                    // const lista = resp.examen[0].details
+                    // datosPruebas = lista;
+
+                    // const filterNulls = lista.map((x) => {
+                    //     return removeNullsJson(x);
+                    // })
+
+                    // $.ajax({
+                    //     url: '@Url.Action("CatalogoPruebasExcel","Cliente")',
+                    //     type: 'GET',
+                    //     beforeSend: function () {
+                    //         loadingShow();
+                    //     },
+                    //     success: function (response) {
+                    //         var dataExcel = JSON.parse(response)
+                    //         //console.log(dataExcel);
+                    //         //fillTable(filterNulls, dataExcel);
+                    //         fillTable(resp, dataExcel, datAvalabEnd);
+
+                    //         loadingHide();
+                    //     }
+                    // });
 
                     loadingHide();
                 }
@@ -170,35 +212,48 @@
 
     });
 
-    function fillTable(dataEjemplo, dataExcel) {
+    function fillTable(dataEjemplo, dataExcel, dataAvalab) {
 
-        var pruebasFinal = [];                
+        var pruebasFinal = [];   
+        
+        // console.log("Json con estados");
+        // console.log(dataEjemplo);
+
+        // console.log("Json avalab normal");
+        // console.log(dataAvalab);
 
         dataExcel.forEach(examen => {            
             for (var i = 0; i < dataEjemplo.length; i++) {
                 
-                if (examen["CÓDIGO"] === dataEjemplo[i].CodigoExamen) {                    
-                    var pruebas = {
-                        AbreviaturaExamen: dataEjemplo[i].CodigoExamen,
-                        Activo: dataEjemplo[i].Activo,
-                        AplicaFormula: dataEjemplo[i].AplicaFormula,
-                        AplicaSLA: dataEjemplo[i].AplicaSLA,
-                        Autovalidacion: dataEjemplo[i].Autovalidacion,
-                        CodigoExamen: dataEjemplo[i].CodigoExamen,
-                        ComentarioFijo: dataEjemplo[i].ComentarioFijo,
-                        ComentarioImpresion: dataEjemplo[i].ComentarioImpresion,
-                        NombreMetodo: examen["METODOLOGÍA"],
-                        NombreMuestra: examen["MUESTRA PRINCIPAL"],
-                        CostoPrueba: dataEjemplo[i].CostoPrueba,
-                        EntregaResultado: examen["TIEMPO DE ENTREGA (Horas depués de recibir la muestra en el laboratorio central)"],
-                        DescripcionAnalito: examen["FICHA Y UTILIDAD CLÍNICA"],
-                        DiasProceso: examen["DÍAS DE PROCESAMIENTO"],
-                        NombreExamen: dataEjemplo[i].NombreExamen,
-                        MuestraAdicional: examen["MUESTRA ALTERNA"],
-                        Estabilidad: examen["ESTABILIDAD DE LA MUESTRA"]
-                    };
+                for (var j = 0; j < dataAvalab.length; j++) {
 
-                    pruebasFinal.push(pruebas);
+                    if (examen["CÓDIGO"] === dataEjemplo[i].CodigoExamen && examen["CÓDIGO"] === dataAvalab[j].CodigoExamen) {
+
+                        if (dataEjemplo[i].Estado === 'Activo') {
+                            
+                            var pruebas = {
+                                AbreviaturaExamen: dataEjemplo[i].CodigoExamen,
+                                Activo: dataAvalab[j].Activo,
+                                AplicaFormula: dataAvalab[j].AplicaFormula,
+                                AplicaSLA: dataAvalab[j].AplicaSLA,
+                                Autovalidacion: dataAvalab[j].Autovalidacion,
+                                CodigoExamen: dataEjemplo[i].CodigoExamen,
+                                ComentarioFijo: dataAvalab[j].ComentarioFijo,
+                                ComentarioImpresion: dataAvalab[j].ComentarioImpresion,
+                                NombreMetodo: examen["METODOLOGÍA"],
+                                NombreMuestra: examen["MUESTRA PRINCIPAL"],
+                                CostoPrueba: dataEjemplo[i].Precio,
+                                EntregaResultado: examen["TIEMPO DE ENTREGA (Horas depués de recibir la muestra en el laboratorio central)"],
+                                DescripcionAnalito: examen["FICHA Y UTILIDAD CLÍNICA"],
+                                DiasProceso: examen["DÍAS DE PROCESAMIENTO"],
+                                NombreExamen: dataAvalab[j].NombreExamen,
+                                MuestraAdicional: examen["MUESTRA ALTERNA"],
+                                Estabilidad: examen["ESTABILIDAD DE LA MUESTRA"]
+                            };
+
+                            pruebasFinal.push(pruebas);
+                        }
+                    }
                 }
             }
         });
@@ -310,7 +365,7 @@
             '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
             '  <div class="card-header"><h5 class="card-title">Precio</h5></div>' +
             '  <div class="card-body">   ' +
-            '    <p class="card-text etiquetaLabel"><span class="badge ' + (data.CostoPrueba < 0 ? 'bg-danger' : 'bg-primary') + '" style="font-size:2rem;"> $ ' + data.CostoPrueba + '</span></p>' +
+            '    <p class="card-text etiquetaLabel"><span class="badge ' + (data.CostoPrueba < 0 ? 'bg-danger' : 'bg-primary') + '" style="font-size:1.3rem;"> $ ' + data.CostoPrueba + '</span></p>' +
             '  </div>' +
             '</div>' +
             '<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">' +
@@ -328,7 +383,7 @@
             '<div class="card text-dark bg-light mb-3" style = "max-width: 18rem;" > ' +
             '  <div class="card-header"><h5 class="card-title">Días de procesamiento</h5></div>' +
             '  <div class="card-body">    ' +
-            '    <p class="card-text etiquetaLabel"><span class="badge text-bg-primary" style="font-size:1.5rem;">' + data.DiasProceso + '</span></p>' +
+            '    <p class="card-text etiquetaLabel"><span class="badge text-bg-primary" style="font-size:1.0rem;">' + data.DiasProceso + '</span></p>' +
             '  </div>' +
             '</div>' +
 

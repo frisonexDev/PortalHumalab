@@ -3,12 +3,18 @@ using GDifare.Portal.Humalab.Seguridad.Modelos;
 using GDifare.Portal.Humalab.Seguridad.Modelos.Perfil;
 using GDifare.Portal.Humalab.Seguridad.Operation;
 using GDifare.Portal.Humalab.Servicio.CarteraCliente;
+using GDifare.Portal.Humalab.Servicio.CatalogoPrueba;
+using GDifare.Portal.Humalab.Servicio.Cliente;
 using GDifare.Portal.Humalab.Servicio.ClienteOperacion;
 using GDifare.Portal.Humalab.Servicio.Facturas;
 using GDifare.Portal.Humalab.Servicio.GestionCliente;
 using GDifare.Portal.Humalab.Servicio.Modelos;
+using GDifare.Portal.Humalab.Servicio.Modelos.CatalogoPruebas;
+using GDifare.Portal.Humalab.Servicio.Modelos.Cliente;
 using GDifare.Portal.Humalab.Servicio.Modelos.Facturas;
 using GDifare.Portal.Humalab.Servicio.Modelos.GestionCliente;
+using GDifare.Portal.Humalab.Servicio.Modelos.Orden;
+using GDifare.Portal.Humalab.Servicio.Utils;
 using GDifare.Portal.HumaLab.UI.Models;
 using GDifare.Portal.HumaLab.UI.Utils;
 using GDifare.Portales.HumaLab.Models;
@@ -92,6 +98,18 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
         public IActionResult PruebasAdmin()
         {
             return View();
+        }
+
+        public IActionResult AdminOrdenes()
+        {
+            return View();
+        }
+
+        public IActionResult EditarOrdAdmin(int IdOrden)
+        {
+            Orden ordenresponse = new Orden();
+            ordenresponse = clienteOperationNew.ConsultarOrdenAdmin(IdOrden);
+            return View(ordenresponse);
         }
 
         public IActionResult Logout()
@@ -285,11 +303,11 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             return ordenesFactura;
         }
 
-        public List<ClienteResponse> informacionCliente(ClienteRequest cliente)
-        {
-            List<ClienteResponse> clientesHuma = facturasOperacion.informacionCliente(cliente);
-            return clientesHuma;
-        }
+        //public List<ClienteResponseFact> informacionCliente(ClienteRequest cliente)
+        //{
+        //    List<ClienteResponseFact> clientesHuma = facturasOperacion.informacionCliente(cliente);
+        //    return clientesHuma;
+        //}
 
         public Portal.Humalab.Servicio.Modelos.Facturas.FacturaBase64 pdfFactura(DatosFactura facturas)
         {
@@ -378,6 +396,178 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(dir, file)))
             {
                 await outputFile.WriteAsync(content);
+            }
+        }
+
+        //administracion de pruebas 
+        //***************************//
+
+        //Estados de las ordenes
+        public string ListarEstadosOrdAdmin(string NombreEstadoAdmin)
+        {
+            List<CatalogoDetalle> lista = clienteOperationNew.ListarEstadosAdmin(NombreEstadoAdmin);
+            string result = System.Text.Json.JsonSerializer.Serialize(lista);
+
+            return result;
+        }
+
+        //Listar ordenes
+        public string ListarOrdenesAdmin(ConsultarOrden Valor)
+        {
+            List<ListarOrden> lista = clienteOperationNew.ListarOrden(Valor);
+            string result = System.Text.Json.JsonSerializer.Serialize(lista);
+
+            return result;
+        }
+
+        //Eliminar orden
+        public int EliminarOrdenAdmin(Orden orden)
+        {
+            int result = Transaccion.Error;
+            try
+            {
+                result = clienteOperationNew.EliminarOrdenAdmin(orden);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result;
+            }
+        }
+
+        //Administracion editar ordenes
+        public Task<string> CatalogoPruebasNewAdmin()
+        {
+            string path = "catalogoMuestrasFinal.json";
+            Task<string>? catalogo = null;
+            Task<string>? menuJson = null;
+
+            if (System.IO.File.Exists(Path.Combine(path)))
+            {
+                menuJson = System.IO.File.ReadAllTextAsync(path, Encoding.UTF8);
+                catalogo = menuJson;
+            }
+            else
+            {
+                catalogo = CatalogoPruebasAdminNew();
+            }
+
+            return catalogo;
+        }
+
+        public Task<string> CatalogoPruebasAdminNew()
+        {
+            Task<string>? catalogo = null;
+            Task<string>? menuJson = null;
+            TimeSpan diferencia = TimeSpan.FromHours(0);
+            TimeSpan ts = TimeSpan.FromHours(1);
+            string path = "catalogoMuestrasFinal.json";
+            string sCurrentDirectory = Directory.GetCurrentDirectory();
+
+            if (System.IO.File.Exists(Path.Combine(sCurrentDirectory, path)))
+            {
+                DateTime infoFile = System.IO.File.GetLastWriteTime(path);
+                DateTime localDate = DateTime.Now;
+                diferencia = localDate - infoFile;
+            }
+
+            menuJson = System.IO.File.ReadAllTextAsync(path, Encoding.UTF8);
+            catalogo = menuJson;
+
+            return catalogo;
+        }
+
+        public string ListarPruebasAdmin(int IdOrden, int IdUsuario)
+        {
+            string lista = clienteOperationNew.ListarPruebasAdmin(IdOrden, IdUsuario);
+            return lista;
+        }
+
+        public string NombreEstadoOrdenAdmin(int IdOrdenEstado)
+        {
+            string nombreEstado = "";
+
+            try
+            {
+                nombreEstado = clienteOperationNew.NombreEstadoOrdenAdmin(IdOrdenEstado);
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+            return nombreEstado;
+        }
+
+        public List<CataTiposClienteResponse> TiposClientesHumalabAdmin()
+        {
+            var tipos = new List<CataTiposClienteResponse>();
+            try
+            {
+                tipos = clienteOperationNew.TiposClientesHumAdmin();
+            }
+            catch
+            {
+                return tipos;
+            }
+
+            return tipos;
+        }
+
+        public int ActualizarOrdenAdmin(Orden orden)
+        {
+            int result = Transaccion.Error;
+            try
+            {
+                result = clienteOperationNew.ActualizarOrden(orden);
+                return result;
+            }
+            catch (Exception)
+            {
+                return result;
+            }
+        }
+
+        public string ObtenerPDFAdmin(int IdOrden)
+        {
+            PdfHumalab pdfHumalab = new PdfHumalab();
+
+            List<Muestras> lista = clienteOperationNew.ListarMuestrasAdmin(IdOrden);
+
+            List<CodigoBarrasPdf> codigoBarras = new List<CodigoBarrasPdf>();
+            codigoBarras = clienteOperationNew.MuestrasEtiquetasAdmin(lista);
+            string etiquetas = pdfHumalab.GenerarDocumEti(codigoBarras);
+
+            //string etiquetas = gestionarPDF.MuestrasEtiquetas(lista);
+
+            return etiquetas;
+        }
+
+        public int EliminarPruebasAdmin(Pruebas prueba)
+        {
+            int result = Transaccion.Error;
+
+            try
+            {
+                result = clienteOperationNew.EliminarPruebaAdmin(prueba);
+                return result;
+            }
+            catch(Exception ex)
+            {
+                return result;
+            }
+        }
+
+        public string PDFResultadosNuevoAdmin(string CodigoBarra)
+        {
+            string pdf = clienteOperationNew.ResultadosNuevoPdfAdmin(CodigoBarra);
+
+            if (pdf != "" || pdf != null)
+            {
+                return pdf;
+            }
+            else
+            {
+                return "01";
             }
         }
 

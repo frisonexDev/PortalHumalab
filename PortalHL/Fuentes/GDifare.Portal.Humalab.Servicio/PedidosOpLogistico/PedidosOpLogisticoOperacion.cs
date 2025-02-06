@@ -1,5 +1,6 @@
 ﻿using GDifare.Portal.Humalab.Servicio.Modelos;
 using GDifare.Portal.Humalab.Servicio.Modelos.Facturas;
+using GDifare.Portal.Humalab.Servicio.Modelos.Flexline;
 using GDifare.Portal.Humalab.Servicio.Modelos.GestionCliente;
 using GDifare.Portal.Humalab.Servicio.Modelos.Orden;
 using GDifare.Portal.Humalab.Servicio.Modelos.PedidosOpLogistico;
@@ -406,6 +407,27 @@ namespace GDifare.Portal.Humalab.Servicio.PedidosOpLogistico
 
             //actualizado = CommunicatorGestionPedidos.InvokeOperation<string>(metodo, TipoOperacion.GET);
             return actualizado;
+        }
+
+        public async Task<List<AsesorFlexlineResponse>> BuscarAsesoresFlexline()
+        {
+            var metodo = "asesores";
+
+            using (var clienteF = new HttpClient())
+            {
+                clienteF.DefaultRequestHeaders.Add("Authorization", $"Bearer {microsExterno.TokenFlexline}");
+
+                var resultado = await clienteF.GetAsync("http://" + microsExterno.ServerFlexLine + ":" +
+                    microsExterno.PortFlexLine + microsExterno.PathServicesAsesorFlexline + "/" + metodo);
+
+                if (!resultado.IsSuccessStatusCode)
+                    throw new ArgumentException("Problemas con el servicio de Flexline.");
+
+                var resultadoJson = await resultado.Content.ReadAsStringAsync();
+                var respuesta = JsonConvert.DeserializeObject<List<AsesorFlexlineResponse>>(resultadoJson);
+
+                return respuesta!;
+            }
         }
     }
 }

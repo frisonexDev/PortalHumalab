@@ -1363,7 +1363,7 @@
                                    "IdMetodo":4,
                                    "NombreMetodo":"ELISA Automatizado",
                                    "CodigoExamen":"INF069",
-                                   "AbreviaturaExamen":"",
+                                   "AbreviaturaExamen":"AMHYSIGG",
                                    "NombreExamen":"ENTAMOEBA HISTOLYTICA (SEROAMEBA), ANTICUERPOS IGG",
                                    "Genero":"A",
                                    "EdadMinima":0,
@@ -1372,7 +1372,7 @@
                                    "Formula":null,
                                    "AplicaFormula":false,
                                    "Autovalidacion":"Manual",
-                                   "DiasProceso":0,
+                                   "DiasProceso":3,
                                    "MinMinResultadoEmergencia":0,
                                    "MinMinResultadoRutina":60,
                                    "TipoResultado":"N",
@@ -1866,6 +1866,833 @@
                              "NombreMuestra":"Varias / SR",
                              "CodigoExamen":"SO008",
                              "AbreviaturaExamen":"RX"
+                          }
+                    
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":545,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":109,
+                                   "NombreMuestra":"Suero/TT Azul Rey Especial",
+                                   "IdArea":4,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"BIO174",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"SELENIO EN SUERO",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":16,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":545,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":546,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":15,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"INM099",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"VITAMINA A (RETINOL)",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":16,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":546,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":547,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":7,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"DYF021",
+                                   "AbreviaturaExamen":"ETOH",
+                                   "NombreExamen":"ALCOHOL ETILICO EN SANGRE",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":1,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":547,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":550,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":1,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"AUT049",
+                                   "AbreviaturaExamen":"ATTIGA",
+                                   "NombreExamen":"ANTI-TRANSGLUTAMINASA TISULAR, ANTICUERPOS IGA",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":5,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":550,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":551,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":1,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"AUT050",
+                                   "AbreviaturaExamen":"ENDA",
+                                   "NombreExamen":"ANTIENDOMISIO, ANTICUERPOS IGA",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":5,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":551,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":552,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":1,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"AUT051",
+                                   "AbreviaturaExamen":"ENDG",
+                                   "NombreExamen":"ANTIENDOMISIO, ANTICUERPOS IGG",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":9,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":552,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":553,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":47,
+                                   "NombreMuestra":"Varias microbiología / Varias microbiología",
+                                   "IdArea":16,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"MIC017",
+                                   "AbreviaturaExamen":"FUNG",
+                                   "NombreExamen":"FUNGIGRAMA",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":4,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":553,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":554,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":47,
+                                   "NombreMuestra":"Varias microbiología / Varias microbiología",
+                                   "IdArea":16,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"MIC060",
+                                   "AbreviaturaExamen":"CHONFUN",
+                                   "NombreExamen":"CULTIVO PARA CÁNDIDAS + FUNGIGRAMA",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":4,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":554,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[{
+                             "IdExamen":743,
+                             "NombreExamen":"CULTIVO NICKERSON (CULTIVO DE CANDIDA spp.)",
+                             "IdMuestra":48,
+                             "NombreMuestra":"Varios especimenes cultivo / Frasco estéril",
+                             "CodigoExamen":"MIC023",
+                             "AbreviaturaExamen":"CNICK"
+                          }
+                    ,{
+                             "IdExamen":1031,
+                             "NombreExamen":"FUNGIGRAMA",
+                             "IdMuestra":47,
+                             "NombreMuestra":"Varias microbiología / Varias microbiología",
+                             "CodigoExamen":"MIC017",
+                             "AbreviaturaExamen":"FUNG"
+                          }
+                    
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":555,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":12,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"INF077",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"BORDETELLA PERTUSSIS, ANTICUERPOS IGG ",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":10,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":555,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":556,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":12,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"INF078",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"BORDETELLA PERTUSSIS, ANTICUERPOS IGM",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":10,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":556,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":558,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":30,
+                                   "NombreMuestra":"Sangre entera con EDTA / Tubo tapa lila",
+                                   "IdArea":20,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"GEN002",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"HIPERCOLESTEROLEMIA FAMILIAR",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":31,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":558,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":559,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":21,
+                                   "NombreMuestra":"Orina de 24 horas / Frasco para orina",
+                                   "IdArea":5,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"4",
+                                   "AbreviaturaExamen":"",
+                                   "NombreExamen":"POMA CON PRESERVANTE",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":0,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":559,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":4.12,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":560,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":22,
+                                   "NombreMuestra":"Orina espontánea / Frasco para orina",
+                                   "IdArea":7,
+                                   "IdMetodo":45,
+                                   "NombreMetodo":"Inmunocromatografía",
+                                   "CodigoExamen":"DYF019",
+                                   "AbreviaturaExamen":"P12D",
+                                   "NombreExamen":"PANEL DE 12 DROGAS EN  ORINA",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":0,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":560,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":21.00,
+                                    "ExamenPerfil":[{
+                             "IdExamen":301,
+                             "NombreExamen":"COCAINA (COC) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF005",
+                             "AbreviaturaExamen":"COCU"
+                          }
+                    ,{
+                             "IdExamen":306,
+                             "NombreExamen":"ANFETAMINAS (AMP) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF011",
+                             "AbreviaturaExamen":"AMPU"
+                          }
+                    ,{
+                             "IdExamen":303,
+                             "NombreExamen":"METANFETAMINAS (MET) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF007",
+                             "AbreviaturaExamen":"METU"
+                          }
+                    ,{
+                             "IdExamen":302,
+                             "NombreExamen":"MARIHUANA (THC-TETRAHIDROCANBINOL) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF006",
+                             "AbreviaturaExamen":"THCU"
+                          }
+                    ,{
+                             "IdExamen":309,
+                             "NombreExamen":"METADONA (MTD) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF014",
+                             "AbreviaturaExamen":"MTDU"
+                          }
+                    ,{
+                             "IdExamen":304,
+                             "NombreExamen":"EXTASIS (MDMA-METILDIOXOMETANFETAMINA) EN ORINA ",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF008",
+                             "AbreviaturaExamen":"MDMAU"
+                          }
+                    ,{
+                             "IdExamen":305,
+                             "NombreExamen":"MORFINA (MOP) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF009",
+                             "AbreviaturaExamen":"MOP"
+                          }
+                    ,{
+                             "IdExamen":1042,
+                             "NombreExamen":"OPIACEOS (OPI) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF019",
+                             "AbreviaturaExamen":"OPIU"
+                          }
+                    ,{
+                             "IdExamen":310,
+                             "NombreExamen":"FENCICLIDINA (PCP) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF015",
+                             "AbreviaturaExamen":"FEND"
+                          }
+                    ,{
+                             "IdExamen":307,
+                             "NombreExamen":"BARBITURICOS (BARB) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF012",
+                             "AbreviaturaExamen":"BARU"
+                          }
+                    ,{
+                             "IdExamen":308,
+                             "NombreExamen":"BENZODIAZEPINAS (BZO) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF013",
+                             "AbreviaturaExamen":"BZO"
+                          }
+                    ,{
+                             "IdExamen":311,
+                             "NombreExamen":"ANTIDEPRESIVOS TRICICLICOS (TCA) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF016",
+                             "AbreviaturaExamen":"TCA"
                           }
                     
                                ],
@@ -9633,6 +10460,30 @@
                              "CodigoExamen":"INM036",
                              "AbreviaturaExamen":"PPC"
                           }
+                    ,{
+                             "IdExamen":817,
+                             "NombreExamen":"TALLA",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"",
+                             "AbreviaturaExamen":"TALLA"
+                          }
+                    ,{
+                             "IdExamen":818,
+                             "NombreExamen":"PESO",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"",
+                             "AbreviaturaExamen":"PESO"
+                          }
+                    ,{
+                             "IdExamen":819,
+                             "NombreExamen":"SUPERFICIE CORPORAL",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"",
+                             "AbreviaturaExamen":"SC"
+                          }
                     
                                ],
                                 "ValorReferencia":[
@@ -13352,51 +14203,51 @@
                                    "CostoPrueba":13.75,
                                     "ExamenPerfil":[{
                              "IdExamen":301,
-                             "NombreExamen":"COCAINA EN ORINA",
+                             "NombreExamen":"COCAINA (COC) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF005",
-                             "AbreviaturaExamen":"COCO"
+                             "AbreviaturaExamen":"COCU"
                           }
                     ,{
                              "IdExamen":302,
-                             "NombreExamen":"MARIHUANA (TETRAHIDROCANBINOL) EN ORINA",
+                             "NombreExamen":"MARIHUANA (THC-TETRAHIDROCANBINOL) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF006",
-                             "AbreviaturaExamen":"MRHO"
+                             "AbreviaturaExamen":"THCU"
                           }
                     ,{
                              "IdExamen":303,
-                             "NombreExamen":"METANFETAMINAS EN ORINA",
+                             "NombreExamen":"METANFETAMINAS (MET) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF007",
-                             "AbreviaturaExamen":"METO"
+                             "AbreviaturaExamen":"METU"
                           }
                     ,{
                              "IdExamen":305,
-                             "NombreExamen":"MORFINA (OPIACEOS) EN ORINA",
+                             "NombreExamen":"MORFINA (MOP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF009",
-                             "AbreviaturaExamen":"MORO"
+                             "AbreviaturaExamen":"MOP"
                           }
                     ,{
                              "IdExamen":306,
-                             "NombreExamen":"ANFETAMINAS EN ORINA",
+                             "NombreExamen":"ANFETAMINAS (AMP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF011",
-                             "AbreviaturaExamen":"ANFD"
+                             "AbreviaturaExamen":"AMPU"
                           }
                     ,{
                              "IdExamen":308,
-                             "NombreExamen":"BENZODIAZEPINAS EN ORINA",
+                             "NombreExamen":"BENZODIAZEPINAS (BZO) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF013",
-                             "AbreviaturaExamen":"BEND"
+                             "AbreviaturaExamen":"BZO"
                           }
                     
                                ],
@@ -13455,79 +14306,79 @@
                                    "CostoPrueba":17.75,
                                     "ExamenPerfil":[{
                              "IdExamen":301,
-                             "NombreExamen":"COCAINA EN ORINA",
+                             "NombreExamen":"COCAINA (COC) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF005",
-                             "AbreviaturaExamen":"COCO"
+                             "AbreviaturaExamen":"COCU"
                           }
                     ,{
                              "IdExamen":302,
-                             "NombreExamen":"MARIHUANA (TETRAHIDROCANBINOL) EN ORINA",
+                             "NombreExamen":"MARIHUANA (THC-TETRAHIDROCANBINOL) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF006",
-                             "AbreviaturaExamen":"MRHO"
+                             "AbreviaturaExamen":"THCU"
                           }
                     ,{
                              "IdExamen":303,
-                             "NombreExamen":"METANFETAMINAS EN ORINA",
+                             "NombreExamen":"METANFETAMINAS (MET) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF007",
-                             "AbreviaturaExamen":"METO"
+                             "AbreviaturaExamen":"METU"
                           }
                     ,{
                              "IdExamen":304,
-                             "NombreExamen":"EXTASIS (METILDIOXOMETANFETAMINA) EN ORINA ",
+                             "NombreExamen":"EXTASIS (MDMA-METILDIOXOMETANFETAMINA) EN ORINA ",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF008",
-                             "AbreviaturaExamen":"EXTO"
+                             "AbreviaturaExamen":"MDMAU"
                           }
                     ,{
                              "IdExamen":305,
-                             "NombreExamen":"MORFINA (OPIACEOS) EN ORINA",
+                             "NombreExamen":"MORFINA (MOP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF009",
-                             "AbreviaturaExamen":"MORO"
+                             "AbreviaturaExamen":"MOP"
                           }
                     ,{
                              "IdExamen":306,
-                             "NombreExamen":"ANFETAMINAS EN ORINA",
+                             "NombreExamen":"ANFETAMINAS (AMP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF011",
-                             "AbreviaturaExamen":"ANFD"
+                             "AbreviaturaExamen":"AMPU"
                           }
                     ,{
                              "IdExamen":307,
-                             "NombreExamen":"BARBITURICOS EN ORINA",
+                             "NombreExamen":"BARBITURICOS (BARB) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF012",
-                             "AbreviaturaExamen":"BARD"
+                             "AbreviaturaExamen":"BARU"
                           }
                     ,{
                              "IdExamen":308,
-                             "NombreExamen":"BENZODIAZEPINAS EN ORINA",
+                             "NombreExamen":"BENZODIAZEPINAS (BZO) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF013",
-                             "AbreviaturaExamen":"BEND"
+                             "AbreviaturaExamen":"BZO"
                           }
                     ,{
                              "IdExamen":309,
-                             "NombreExamen":"METADONA EN ORINA",
+                             "NombreExamen":"METADONA (MTD) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF014",
-                             "AbreviaturaExamen":"METD"
+                             "AbreviaturaExamen":"MTDU"
                           }
                     ,{
                              "IdExamen":310,
-                             "NombreExamen":"FENCICLIDINA EN ORINA",
+                             "NombreExamen":"FENCICLIDINA (PCP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF015",
@@ -18815,7 +19666,7 @@
                                    "Formula":null,
                                    "AplicaFormula":false,
                                    "Autovalidacion":"Manual",
-                                   "DiasProceso":1,
+                                   "DiasProceso":2,
                                    "MinMinResultadoEmergencia":0,
                                    "MinMinResultadoRutina":60,
                                    "TipoResultado":"N",
@@ -22541,7 +23392,7 @@
                                    "Formula":null,
                                    "AplicaFormula":false,
                                    "Autovalidacion":"Manual",
-                                   "DiasProceso":2,
+                                   "DiasProceso":7,
                                    "MinMinResultadoEmergencia":0,
                                    "MinMinResultadoRutina":60,
                                    "TipoResultado":"N",
@@ -22596,7 +23447,7 @@
                                    "Formula":null,
                                    "AplicaFormula":false,
                                    "Autovalidacion":"Manual",
-                                   "DiasProceso":2,
+                                   "DiasProceso":5,
                                    "MinMinResultadoEmergencia":0,
                                    "MinMinResultadoRutina":60,
                                    "TipoResultado":"N",
@@ -22651,7 +23502,7 @@
                                    "Formula":null,
                                    "AplicaFormula":false,
                                    "Autovalidacion":"Manual",
-                                   "DiasProceso":2,
+                                   "DiasProceso":5,
                                    "MinMinResultadoEmergencia":0,
                                    "MinMinResultadoRutina":60,
                                    "TipoResultado":"N",
@@ -26439,8 +27290,16 @@
                                    "MuestraAdicional":null,
                                    "CostoPrueba":90.00,
                                     "ExamenPerfil":[{
+                             "IdExamen":1012,
+                             "NombreExamen":"CITOMEGALOVIRUS DETECCIÓN DE ADN POR PCR",
+                             "IdMuestra":25,
+                             "NombreMuestra":"Plasma con EDTA / Tubo tapa lila",
+                             "CodigoExamen":"MOL008",
+                             "AbreviaturaExamen":""
+                          }
+                    ,{
                              "IdExamen":921,
-                             "NombreExamen":"CITOMEGALOVIRUS, DNA CARGA VIRAL ",
+                             "NombreExamen":"CITOMEGALOVIRUS, DNA CARGA VIRAL (UI/mL)",
                              "IdMuestra":25,
                              "NombreMuestra":"Plasma con EDTA / Tubo tapa lila",
                              "CodigoExamen":"MOL008",
@@ -26448,7 +27307,7 @@
                           }
                     ,{
                              "IdExamen":921,
-                             "NombreExamen":"CITOMEGALOVIRUS, DNA CARGA VIRAL ",
+                             "NombreExamen":"CITOMEGALOVIRUS, DNA CARGA VIRAL (UI/mL)",
                              "IdMuestra":25,
                              "NombreMuestra":"Plasma con EDTA / Tubo tapa lila",
                              "CodigoExamen":"MOL008",
@@ -26538,11 +27397,11 @@
                                    "IdExamen":392,
                                    "IdUnidad":0,
                                    "IdLaboratorio":0,
-                                   "IdMuestra":35,
-                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdMuestra":25,
+                                   "NombreMuestra":"Plasma con EDTA / Tubo tapa lila",
                                    "IdArea":2,
-                                   "IdMetodo":3,
-                                   "NombreMetodo":"ELISA",
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"MOL010",
                                    "AbreviaturaExamen":"EBCM",
                                    "NombreExamen":"EPSTEIN BARR VIRUS, DNA DETECTOR",
@@ -26567,7 +27426,7 @@
                                    "DeltaMax":0.0,
                                    "ComentarioFijo":null,
                                    "ComentarioImpresion":null,
-                                   "Activo":false,
+                                   "Activo":true,
                                    "DescripcionAnalito":null,
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
@@ -26596,8 +27455,8 @@
                                    "IdMuestra":35,
                                    "NombreMuestra":"Suero / Tubo Amarillo",
                                    "IdArea":2,
-                                   "IdMetodo":3,
-                                   "NombreMetodo":"ELISA",
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"MOL011",
                                    "AbreviaturaExamen":"HBVC",
                                    "NombreExamen":"HEPATITIS B, DNA CARGA VIRAL",
@@ -26627,7 +27486,31 @@
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
                                    "CostoPrueba":135.00,
-                                    "ExamenPerfil":[
+                                    "ExamenPerfil":[{
+                             "IdExamen":1008,
+                             "NombreExamen":"HEPATITIS B DETECCIÓN DE ADN POR PCR",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL011",
+                             "AbreviaturaExamen":"HBDPCR"
+                          }
+                    ,{
+                             "IdExamen":1009,
+                             "NombreExamen":"HEPATITIS B, DNA CARGA VIRAL",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL011",
+                             "AbreviaturaExamen":"HBCVPCR"
+                          }
+                    ,{
+                             "IdExamen":1010,
+                             "NombreExamen":"HEPATITIS B, CARGA VIRAL UI/mL",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL011",
+                             "AbreviaturaExamen":"HBCVPCR1"
+                          }
+                    
                                ],
                                 "ValorReferencia":[
                                   {
@@ -26706,8 +27589,8 @@
                                    "IdMuestra":35,
                                    "NombreMuestra":"Suero / Tubo Amarillo",
                                    "IdArea":2,
-                                   "IdMetodo":3,
-                                   "NombreMetodo":"ELISA",
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"MOL013",
                                    "AbreviaturaExamen":"HVCC",
                                    "NombreExamen":"HEPATITIS C, RNA CARGA VIRAL",
@@ -26732,12 +27615,36 @@
                                    "DeltaMax":0.0,
                                    "ComentarioFijo":null,
                                    "ComentarioImpresion":null,
-                                   "Activo":false,
+                                   "Activo":true,
                                    "DescripcionAnalito":null,
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
-                                   "CostoPrueba":125.00,
-                                    "ExamenPerfil":[
+                                   "CostoPrueba":172.50,
+                                    "ExamenPerfil":[{
+                             "IdExamen":1043,
+                             "NombreExamen":"HEPATITIS C, Detección de RNA viral",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL013",
+                             "AbreviaturaExamen":"HCVCV"
+                          }
+                    ,{
+                             "IdExamen":1044,
+                             "NombreExamen":"Carga Viral Hepatitis C (HCV RT-PCR)",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL013",
+                             "AbreviaturaExamen":""
+                          }
+                    ,{
+                             "IdExamen":1045,
+                             "NombreExamen":"LOG(10) ",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL013",
+                             "AbreviaturaExamen":""
+                          }
+                    
                                ],
                                 "ValorReferencia":[
                                   {
@@ -28182,14 +29089,14 @@
                                    "IdExamen":420,
                                    "IdUnidad":0,
                                    "IdLaboratorio":0,
-                                   "IdMuestra":35,
-                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdMuestra":30,
+                                   "NombreMuestra":"Sangre entera con EDTA / Tubo tapa lila",
                                    "IdArea":2,
-                                   "IdMetodo":3,
-                                   "NombreMetodo":"ELISA",
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"MOL040",
                                    "AbreviaturaExamen":"HIVC",
-                                   "NombreExamen":"VIH 1 EN PLASMA, RNA CARGA VIRAL",
+                                   "NombreExamen":"VIH 1 CARGA VIRAL Y DETECCION (RNA PCR)",
                                    "Genero":"A",
                                    "EdadMinima":0,
                                    "EdadMaxima":0,
@@ -28211,7 +29118,7 @@
                                    "DeltaMax":0.0,
                                    "ComentarioFijo":null,
                                    "ComentarioImpresion":null,
-                                   "Activo":false,
+                                   "Activo":true,
                                    "DescripcionAnalito":null,
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
@@ -30128,7 +31035,7 @@
                                    "IdMetodo":1,
                                    "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"BIO156",
-                                   "AbreviaturaExamen":"",
+                                   "AbreviaturaExamen":"FIBROT",
                                    "NombreExamen":"FIBROTEST",
                                    "Genero":"A",
                                    "EdadMinima":0,
@@ -30163,6 +31070,14 @@
                              "NombreMuestra":"Suero / Tubo Amarillo",
                              "CodigoExamen":"BIO156",
                              "AbreviaturaExamen":"FIBT"
+                          }
+                    ,{
+                             "IdExamen":51,
+                             "NombreExamen":"ALANINA AMINO TRANSFERASA (ALT / TGP)",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"BIO015",
+                             "AbreviaturaExamen":"ALT"
                           }
                     ,{
                              "IdExamen":76,
@@ -30406,7 +31321,7 @@
                                    "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"MIC023",
                                    "AbreviaturaExamen":"NICK",
-                                   "NombreExamen":"CULTIVO NICKERSON (CULTIVO DE CANDIDAD spp.)",
+                                   "NombreExamen":"CULTIVO NICKERSON (CULTIVO DE CANDIDAS spp.)",
                                    "Genero":"A",
                                    "EdadMinima":0,
                                    "EdadMaxima":0,
@@ -30823,7 +31738,7 @@
                                    "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"COA017",
                                    "AbreviaturaExamen":"ALUP",
-                                   "NombreExamen":"ANTICOAGULANTE LÚPICO",
+                                   "NombreExamen":"ANTICOAGULANTE LUPICO",
                                    "Genero":"A",
                                    "EdadMinima":0,
                                    "EdadMaxima":0,
@@ -31863,7 +32778,7 @@
                                    "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"AUT034",
                                    "AbreviaturaExamen":"TGLUTG",
-                                   "NombreExamen":"ANTI-TRANSGLUTAMINASA TISULAR IGG",
+                                   "NombreExamen":"ANTI-TRANSGLUTAMINASA TISULAR, ANTICUERPOS IGG",
                                    "Genero":"A",
                                    "EdadMinima":0,
                                    "EdadMaxima":0,
@@ -31871,7 +32786,7 @@
                                    "Formula":null,
                                    "AplicaFormula":false,
                                    "Autovalidacion":"Manual",
-                                   "DiasProceso":0,
+                                   "DiasProceso":5,
                                    "MinMinResultadoEmergencia":0,
                                    "MinMinResultadoRutina":60,
                                    "TipoResultado":"N",
@@ -31885,7 +32800,7 @@
                                    "DeltaMax":0.0,
                                    "ComentarioFijo":null,
                                    "ComentarioImpresion":null,
-                                   "Activo":false,
+                                   "Activo":true,
                                    "DescripcionAnalito":null,
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
@@ -34519,7 +35434,7 @@
                                    "IdMetodo":1,
                                    "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"INF076",
-                                   "AbreviaturaExamen":"",
+                                   "AbreviaturaExamen":"HBCT",
                                    "NombreExamen":"HEPATITIS B, ANTI CORE TOTALES",
                                    "Genero":"A",
                                    "EdadMinima":0,
@@ -34547,6 +35462,391 @@
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
                                    "CostoPrueba":12.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":534,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":64,
+                                   "NombreMuestra":"Hemocultivo M1 AEROBIO/Botella Hemc",
+                                   "IdArea":16,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"MIC049",
+                                   "AbreviaturaExamen":"HEMOC1HON",
+                                   "NombreExamen":"HEMOCULTIVOS PARA HONGOS MUESTRA 1",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":21,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":534,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":535,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":30,
+                                   "NombreMuestra":"Sangre entera con EDTA / Tubo tapa lila",
+                                   "IdArea":20,
+                                   "IdMetodo":79,
+                                   "NombreMetodo":"Genética",
+                                   "CodigoExamen":"GEN001",
+                                   "AbreviaturaExamen":"AMIGEN11",
+                                   "NombreExamen":"AMILOIDOSIS PANEL 11 TARGETS",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":31,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":535,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":536,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":1,
+                                   "IdMetodo":3,
+                                   "NombreMetodo":"ELISA",
+                                   "CodigoExamen":"AUT042",
+                                   "AbreviaturaExamen":"PARIE",
+                                   "NombreExamen":"ANTICUERPOS TOTALES ANTI CELULAS PARIETALES",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":9,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":536,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":537,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":1,
+                                   "IdMetodo":3,
+                                   "NombreMetodo":"ELISA",
+                                   "CodigoExamen":"AUT043",
+                                   "AbreviaturaExamen":"ASCAA",
+                                   "NombreExamen":"ASCA, ANTICUERPOS IGA",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":9,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":537,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":538,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":35,
+                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdArea":1,
+                                   "IdMetodo":3,
+                                   "NombreMetodo":"ELISA",
+                                   "CodigoExamen":"AUT044",
+                                   "AbreviaturaExamen":"ASCAG",
+                                   "NombreExamen":"ASCA, ANTICUERPOS IGG",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":9,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":538,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":503,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":22,
+                                   "NombreMuestra":"Orina espontánea / Frasco para orina",
+                                   "IdArea":7,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"DYF020",
+                                   "AbreviaturaExamen":"NICO",
+                                   "NombreExamen":"COTININA (METABOLITO DE LA NICOTINA)",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":0,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":503,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":8.50,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":561,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":30,
+                                   "NombreMuestra":"Sangre entera con EDTA / Tubo tapa lila",
+                                   "IdArea":21,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"CT001",
+                                   "AbreviaturaExamen":"CD348",
+                                   "NombreExamen":"LINFOCITOS T (CD3,CD4,CD8)",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":3,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":561,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
                                     "ExamenPerfil":[
                                ],
                                 "ValorReferencia":[

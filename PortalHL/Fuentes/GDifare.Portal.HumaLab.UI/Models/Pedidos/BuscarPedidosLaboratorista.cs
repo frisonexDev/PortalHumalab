@@ -27,6 +27,7 @@ namespace GDifare.Portal.HumaLab.UI.Models.Pedidos
         public int? IdPedido { get; set; }
 
         public int? IdOrden { get; set; }
+        public int? IdAsesor {  get; set; }
 
     }
 }

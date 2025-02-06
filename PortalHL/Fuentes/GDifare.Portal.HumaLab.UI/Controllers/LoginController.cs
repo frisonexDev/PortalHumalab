@@ -27,7 +27,8 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
         public LoginController(AppSettings settings)
         {
             //Microservicio Difare de seguridad
-            usuarioOperations = new UsuarioOperation(settings.ServerSeguridad, settings.PortSeguridad, settings.Token, settings.UserAvalab, settings.PassAvalab);           
+            usuarioOperations = new UsuarioOperation(settings.ServerSeguridad, settings.PortSeguridad, settings.Token, settings.UserAvalab, settings.PassAvalab);
+            seguridadOperations = new SeguridadOperations(settings.ServerHUMALAB, settings.PortHUMALAB, settings.TokenHUMALAB);
         }
 
 
@@ -50,17 +51,24 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                     userInfo.Usuario = usrdes;
                     userInfo.Clave = usrpas;
 
+                    //Valida usuario en Avalab
                     bool valido = usuarioOperations.Autenticar(userInfo);
 
-                    if (valido)
+                    //Obtiene el rol del usuario en Avalab
+                    int rol = usuarioOperations.RolUsuario(userInfo);
+
+                    //Perfiles administrador, operadores y laboratoristas
+                    if(rol == 1 || rol == 4 || rol == 7)
                     {
-                        List<ObjUsuario> usuario = usuarioOperations.ObtenerUsuario(userInfo.Usuario);
-                        
-                        foreach(var usuarios in usuario)
-                        {     
-                            if(userInfo.Clave == usuarios.Identificacion)
+                        if (valido == true)
+                        {
+                            List<ObjUsuario> usuario = usuarioOperations.ObtenerUsuario(userInfo.Usuario);
+
+                            foreach (var usuarios in usuario)
                             {
-                                var claims = new List<Claim>
+                                if (userInfo.Clave == usuarios.Identificacion)
+                                {
+                                    var claims = new List<Claim>
                                 {
                                     new Claim(ClaimTypes.Sid, usuarios.UsuarioID.ToString()),
                                     new Claim(ClaimTypes.UserData, usuarios.Identificacion),
@@ -69,54 +77,82 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
                                     new Claim(ClaimTypes.Email, usuarios.Correo)
                                 };
 
-                                var claimsIdentity = new ClaimsIdentity(claims, "Identity.Application");
+                                    var claimsIdentity = new ClaimsIdentity(claims, "Identity.Application");
 
-                                var authProperties = new AuthenticationProperties
+                                    var authProperties = new AuthenticationProperties
+                                    {
+                                        AllowRefresh = true,
+                                        IsPersistent = true
+                                    };
+
+                                    HttpContext.SignInAsync(
+                                        "Identity.Application",
+                                        new ClaimsPrincipal(claimsIdentity),
+                                        authProperties
+                                    );
+                                }
+                                else
                                 {
-                                    AllowRefresh = true,
-                                    IsPersistent = true
-                                };
-
-                                HttpContext.SignInAsync(
-                                    "Identity.Application",
-                                    new ClaimsPrincipal(claimsIdentity),
-                                    authProperties
-                                );
+                                    return 404;
+                                }
                             }
-                            else
-                            {
-                                return 404;
-                            }
-							//var claims = new List<Claim>
-							//{
-							//	new Claim(ClaimTypes.Sid, usuarios.UsuarioID.ToString()),
-							//	new Claim(ClaimTypes.UserData, usuarios.Identificacion),
-							//	new Claim(ClaimTypes.Name, usuarios.NombreCompleto),
-							//	new Claim(ClaimTypes.Role, usuarios.RolID.ToString()),
-							//	new Claim(ClaimTypes.Email, usuarios.Correo)
-							//};
 
-							//var claimsIdentity = new ClaimsIdentity(claims, "Identity.Application");
-
-							//var authProperties = new AuthenticationProperties
-							//{
-							//	AllowRefresh = true,
-							//	IsPersistent = true
-							//};
-
-							//HttpContext.SignInAsync(
-							//	"Identity.Application",
-							//	new ClaimsPrincipal(claimsIdentity),
-							//	authProperties
-							//);
-						}
-
-                        return 200;
+                            return 200;
+                        }
+                        else
+                        {
+                            return 404;
+                        }
                     }
                     else
                     {
-                       return 404;
-                    }
+                        //Validar usuario en Humalab cliente
+                        bool validoHL = seguridadOperations.ConsultaCliente(userInfo.Usuario);
+
+                        if (valido == true && validoHL == true)
+                        {
+                            List<ObjUsuario> usuario = usuarioOperations.ObtenerUsuario(userInfo.Usuario);
+
+                            foreach (var usuarios in usuario)
+                            {
+                                if (userInfo.Clave == usuarios.Identificacion)
+                                {
+                                    var claims = new List<Claim>
+                                {
+                                    new Claim(ClaimTypes.Sid, usuarios.UsuarioID.ToString()),
+                                    new Claim(ClaimTypes.UserData, usuarios.Identificacion),
+                                    new Claim(ClaimTypes.Name, usuarios.NombreCompleto),
+                                    new Claim(ClaimTypes.Role, usuarios.RolID.ToString()),
+                                    new Claim(ClaimTypes.Email, usuarios.Correo)
+                                };
+
+                                    var claimsIdentity = new ClaimsIdentity(claims, "Identity.Application");
+
+                                    var authProperties = new AuthenticationProperties
+                                    {
+                                        AllowRefresh = true,
+                                        IsPersistent = true
+                                    };
+
+                                    HttpContext.SignInAsync(
+                                        "Identity.Application",
+                                        new ClaimsPrincipal(claimsIdentity),
+                                        authProperties
+                                    );
+                                }
+                                else
+                                {
+                                    return 404;
+                                }
+                            }
+
+                            return 200;
+                        }
+                        else
+                        {
+                            return 404;
+                        }
+                    }                   
                 }
 
                 return 404;

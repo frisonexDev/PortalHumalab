@@ -101,8 +101,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
 
             ViewBag.Estado = "";
             ViewBag.CargaDatos = true;
-            return View("Index", m);
-
+            return View("Index", m);            
         }
 
 
@@ -302,6 +301,26 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             string actualizado = gestionPedidosOperations.VerificarActPed(idPedido);
 
             return actualizado;
+        }
+
+        public async Task<object> OperadoresHl()
+        {
+            try
+            {
+                var buscarAsesor = await gestionPedidosOperations.BuscarAsesoresFlexline();
+                if (buscarAsesor.Count > 0)
+                {
+                    return buscarAsesor;
+                }
+                else
+                {
+                    return "01";
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error";
+            }
         }
     }
 }

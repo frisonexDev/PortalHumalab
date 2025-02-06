@@ -16,7 +16,7 @@ namespace GDifare.Portal.Humalab.Servicio.Modelos.Orden
         public float Precio { get; set; }
         public string Estado { get; set; }
         public string Observacion { get; set; }
-        public string CodigoGalileo { get; set; } = string.Empty;
-
+        public string CodigoGalileo { get; set; } = string.Empty;        
+        public string NombreCliente { get; set; } = string.Empty;
     }
 }

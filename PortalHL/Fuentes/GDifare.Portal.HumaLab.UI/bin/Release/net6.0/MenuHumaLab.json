@@ -85,6 +85,14 @@
         "Action": "ConsultarResultadosMedico",
         "Icon": "fa-sharp fa-solid fa-file-arrow-up fa-2xl",
         "IdRolGrupo": "159"
+      },
+      {
+        "OpcionID": 182,
+        "Descripcion": "Administración Órdenes",
+        "Modulo": "Administrativo",
+        "Action": "AdminOrdenes",
+        "Icon": "fa-solid fa-list-check fa-2xl",
+        "IdRolGrupo": "1"
       }
       //},
       //{

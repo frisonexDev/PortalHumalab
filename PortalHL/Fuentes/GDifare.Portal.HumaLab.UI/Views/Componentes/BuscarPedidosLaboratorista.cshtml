@@ -19,8 +19,10 @@
 
                 <div class="form-group d-flex">
                     <label asp-for="UsuarioOperador" class="control-label fw-bold d-inline" style="margin-left: 5px; margin-right: 10px">Operador</label>
-                    <input asp-for="UsuarioOperador" id="UsuarioOperador" class="form-control" placeholder="Operador" value="@Model.UsuarioOperador" name="UsuarioOperador" />
-
+                    @* <input asp-for="UsuarioOperador" id="UsuarioOperador" class="form-control" placeholder="Operador" value="@Model.UsuarioOperador" name="UsuarioOperador" /> *@
+                    <select id="UsuarioOperadorFlex" asp-for="IdAsesor" class="form-select" value="@Model.IdAsesor">
+                        <option value="">                           </option>
+                    </select>
                 </div>
             </div>
             <div class="col mt-3">
@@ -86,13 +88,14 @@
         $("#BuscarPorRuc").click(function () {
             // Actualizar el valor del checkbox a true al hacer clic
             $(this).val(this.checked);
-        });
+        });        
     });
 
     $(document).ready(function () {
         var valorSeleccionado = '@Model.EstadoPedido';
 
         CargarEstadosOrden(valorSeleccionado);
+        GetOperadoresHL();
 
         function CargarEstadosOrden(valorSeleccionado) {
             var nombreMaestro = "@Estados.Orden";
@@ -184,6 +187,27 @@
                     MensajeAlerta1("@Notificaciones.TituloDanger", "@Notificaciones.DangerConsultaCatalogo");
                 }
 
+            });
+        }
+
+        function GetOperadoresHL()
+        {
+            $.ajax({
+                url: '@Url.Action("OperadoresHl","OpLogistico")',
+                type: 'GET',
+                success: function (response) { 
+                    //console.log(response);
+                    var cmbAsesores = document.getElementById('UsuarioOperadorFlex');
+
+                    for (var i = 0; i < response.length; i++) {
+                        var opciones = document.createElement('option');
+                        opciones.text = response[i].descripcion;
+                        opciones.value = response[i].codigo;
+
+                        //asigna valores al combo
+                        cmbAsesores.add(opciones);
+                    }
+                }
             });
         }
     })

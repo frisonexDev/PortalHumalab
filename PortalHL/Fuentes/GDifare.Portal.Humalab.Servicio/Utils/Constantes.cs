@@ -187,7 +187,11 @@ namespace GDifare.Portal.Humalab.Servicio.Utils
         public const string EliminarPedido = "EliminarPedido";
         public const string EliminarOrden = "EliminarConsultaOrden";
 		public const string EliminarPrueba = "EliminarPruebaOrden";
-	}
+
+		//Administrador ordenes
+		public const string EliminarOrdenAdmin = "EliminarConsultaOrdenAdmin";
+        public const string EliminarPruebaOrdAdmin = "EliminarPrbOrdenAdmin";
+    }
 	
 	public struct Estandar
 	{

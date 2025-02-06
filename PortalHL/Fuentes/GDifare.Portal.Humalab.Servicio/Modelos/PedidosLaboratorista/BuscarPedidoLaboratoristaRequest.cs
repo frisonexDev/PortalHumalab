@@ -34,5 +34,8 @@ namespace GDifare.Portal.Humalab.Servicio.Modelos.PedidosLaboratorista
         [JsonProperty("IdOrden")]
         public int? IdOrden { get; set; }
 
+        [JsonProperty("IdAsesor")]
+        public int? IdAsesor { get; set; }
+
     }
 }

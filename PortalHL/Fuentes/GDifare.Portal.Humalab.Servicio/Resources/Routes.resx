@@ -139,7 +139,7 @@
     <value>/gdifare/api/analiticaexamen/examen/v1/listarCatalogo?IdLaboratorio=18</value>
   </data>
   <data name="PathServicioCliente" xml:space="preserve">
-    <value>/gdifare/api/seguridad/EstadoCliente/v1/</value>
+    <value>api/seguridad/EstadoCliente/</value>
   </data>
   <data name="PathServicioDiagnostico" xml:space="preserve">
     <value>/gdifare/api/configuracionesdiagnostico/diagnostico/v1/consultar</value>

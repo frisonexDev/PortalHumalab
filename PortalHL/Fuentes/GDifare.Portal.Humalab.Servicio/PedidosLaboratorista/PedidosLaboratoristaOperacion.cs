@@ -78,6 +78,7 @@ namespace GDifare.Portal.Humalab.Servicio.PedidosOpLogistico
                 AppendParam(stringBuilder, nameof(request.Cliente), request.Cliente!);
                 AppendParam(stringBuilder, nameof(request.Estado), request.Estado!);
                 AppendParam(stringBuilder, nameof(request.IdPedido), request.IdPedido == null ? null : request.IdPedido.ToString());
+                AppendParam(stringBuilder, nameof(request.IdAsesor), request.IdAsesor == null ? null : request.IdAsesor.ToString());
                 var queryString = stringBuilder.ToString();
 
                 var url = SeverPedidosLab + ":" + PortPedidosLab + "/" + RoutePedidosLab + queryString;

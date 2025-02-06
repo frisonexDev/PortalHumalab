@@ -5,6 +5,8 @@ using GDifare.Portales.Comunicaciones;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Web;
 
 namespace GDifare.Portal.Humalab.Seguridad.Operation
@@ -28,8 +30,7 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
             portAvabalab = port;
             UserAvalab = user;
             PassAvalab = pass;
-        }
-        
+        }                
 
         public bool Autenticar(CredencialesRequest request)
         {
@@ -71,6 +72,84 @@ namespace GDifare.Portal.Humalab.Seguridad.Operation
             }
 
            //return CommunicatorUsuario.InvokeOperation<bool, CredencialesRequest>(metodo, TipoOperacion.POST, request);
+            return login;
+        }
+
+        public int RolUsuario(CredencialesRequest request)
+        {            
+            var metodo = "";
+            int login = 0;
+
+            //Servicios Avalab
+            metodo += string.Format("?nombreUsuario={0}", HttpUtility.UrlEncode(request.Usuario));
+
+            var url = ServerAvalab + ":" + portAvabalab + "/" + Routes.PathServicesSeguridadUsuario + metodo;
+            var requestNew = (HttpWebRequest)WebRequest.Create(url);
+            requestNew.Method = "PUT";
+            requestNew.ContentType = "application/json";
+
+            string username = UserAvalab;
+            string password = PassAvalab;
+            string credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(username + ":" + password));
+            requestNew.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+
+            using (var response = (HttpWebResponse)requestNew.GetResponse())
+            {
+                using (var reader = new StreamReader(response.GetResponseStream()))
+                {
+                    var responseText = reader.ReadToEnd();
+
+                    if (string.IsNullOrEmpty(responseText) || responseText.Trim() == "{}")
+                    {
+                        login = 0;
+                    }
+                    else
+                    {                        
+                        var jsonElement = JsonDocument.Parse(responseText).RootElement;
+
+                        if (jsonElement.ValueKind == JsonValueKind.Object)
+                        {
+                            // Caso: JSON raíz es un objeto
+                            if (jsonElement.TryGetProperty("rolID", out var rolIdElement))
+                            {
+                                if (rolIdElement.ValueKind == JsonValueKind.Number)
+                                {
+                                    login = rolIdElement.GetInt32();
+                                }
+                                else if (rolIdElement.ValueKind == JsonValueKind.Array && rolIdElement.GetArrayLength() > 0)
+                                {
+                                    login = rolIdElement[0].GetInt32(); // Tomar el primer elemento del arreglo
+                                }
+                            }
+                        }
+                        else if (jsonElement.ValueKind == JsonValueKind.Array)
+                        {
+                            // Caso: JSON raíz es un arreglo
+                            foreach (var item in jsonElement.EnumerateArray())
+                            {
+                                if (item.TryGetProperty("rolID", out var rolIdElement))
+                                {
+                                    if (rolIdElement.ValueKind == JsonValueKind.Number)
+                                    {
+                                        login = rolIdElement.GetInt32();
+                                    }
+                                    else if (rolIdElement.ValueKind == JsonValueKind.Array && rolIdElement.GetArrayLength() > 0)
+                                    {
+                                        login = rolIdElement[0].GetInt32();
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            login = 0; // Caso inesperado: no es ni objeto ni arreglo
+                        }                                          
+                    }
+                }
+            }
+
+            //return CommunicatorUsuario.InvokeOperation<bool, CredencialesRequest>(metodo, TipoOperacion.POST, request);
             return login;
         }
 
