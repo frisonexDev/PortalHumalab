@@ -21,6 +21,8 @@
 *						   asesor.                                      *
 * 2024/11/08 José Guarnizo Se modifica para que salga el estado de la   *
 *						   prueba.										*
+* 2024/12/17 José Guarnizo Se modifica para que tambien busque por		*
+*						   operador.									*
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_ordeneslaboratorista')	
 	EXEC('Create Procedure dbo.pr_humalab_ordeneslaboratorista As')
@@ -37,6 +39,7 @@ ALTER PROCEDURE [dbo].[pr_humalab_ordeneslaboratorista](
 	,@i_pedido INT
 	,@i_orden INT
 	,@i_codExterniLis varchar(100) = null
+	,@i_idAsesor int = null
 )
 
 as
@@ -168,6 +171,7 @@ BEGIN
 			inner join Paciente pa on o.Identificacion = pa.Identificacion			
 			where o.Estado = @estado
 			and c.IdCliente = p.IdCliente
+			and (@i_idAsesor IS NULL OR p.IdOperador like @i_idAsesor)
 			ORDER BY o.IdOrden, o.FechaCreacion desc
 			
 		end
@@ -221,6 +225,7 @@ BEGIN
 				@cliente IS NULL
 				OR c.NombreCliente LIKE @cliente
 				)
+			and (@i_idAsesor IS NULL OR p.IdOperador like @i_idAsesor)
 			group by o.IdOrden
 				,o.IdPedido, o.Resultados
 				,CodigoBarra, o.FechaCreacion
@@ -277,6 +282,7 @@ BEGIN
 				@cliente IS NULL
 				OR c.NombreCliente LIKE @cliente
 				)
+			and (@i_idAsesor IS NULL OR p.IdOperador like @i_idAsesor)
 			group by o.IdOrden
 				,o.IdPedido, o.Resultados
 				,CodigoBarra, o.FechaCreacion
@@ -333,6 +339,7 @@ BEGIN
 				@cliente IS NULL
 				OR c.NombreCliente LIKE @cliente
 				)
+			and (@i_idAsesor IS NULL OR p.IdOperador like @i_idAsesor)
 			group by o.IdOrden
 				,o.IdPedido, o.Resultados
 				,CodigoBarra, o.FechaCreacion
@@ -389,6 +396,7 @@ BEGIN
 				@cliente IS NULL
 				OR c.NombreCliente LIKE @cliente
 				)
+			and (@i_idAsesor IS NULL OR p.IdOperador like @i_idAsesor)
 			group by o.IdOrden
 				,o.IdPedido, o.Resultados
 				,CodigoBarra, o.FechaCreacion
@@ -452,6 +460,7 @@ BEGIN
 			@cliente IS NULL
 			OR c.NombreCliente LIKE @cliente
 			)
+		and (@i_idAsesor IS NULL OR p.IdOperador like @i_idAsesor)
 		group by o.IdOrden
 			,o.IdPedido, o.Resultados
 			,CodigoBarra, o.FechaCreacion

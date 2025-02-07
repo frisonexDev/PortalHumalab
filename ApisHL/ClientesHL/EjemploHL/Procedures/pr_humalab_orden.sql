@@ -9,7 +9,9 @@
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
 *	FECHA AUTOR RAZON													*
-*						                                                *
+*	29/01/2025 Jose Guarnizo Se modifica para ver si existe una orden   *
+*						     que se elimino atada a un pedido se debe   *
+*							 anular el pedido tambien.					*
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_humalab_orden')	
 	EXEC('Create Procedure dbo.pr_humalab_orden As')
@@ -51,7 +53,10 @@ DECLARE @contar AS INT,
 		@resultadosNew varchar(100),
 		@usuarioCreacionNew INT,
 		@fechaCreacionNew DATETIME,
-		@empresaIdNew int
+		@empresaIdNew int,
+		@idPedidoOrden int,
+		@idPedidoAnulado int,
+		@idCatalogoMaestroPedido int
 
 select @identi = Identificacion
 from Usuario
@@ -68,6 +73,16 @@ select @resultadosNew = @resultados
 select @usuarioCreacionNew = @usuarioCreacion
 select @fechaCreacionNew = @fechaCreacion
 select @empresaIdNew = @empresaId
+
+select @idCatalogoMaestroPedido = IdCatalogoMaestro
+from CatalogoMaestro
+where Nombre = 'EstadoPedido'
+
+--estado pedido anulado
+select @idPedidoAnulado = IdCatalogoDetalle
+from CatalogoDetalle
+where IdCatalogoMaestro = @idCatalogoMaestroPedido
+and Valor = 'ANUL'
 
 BEGIN
 
@@ -161,6 +176,17 @@ BEGIN
 				UsuarioEliminacion=@usuarioCreacion, 
 				FechaEliminacion=GETDATE()
 			WHERE IdOrden=@idOrden
+
+			select @idPedidoOrden = IdPedido
+			from Orden
+			where IdOrden = @idOrden
+
+			if @idPedidoOrden != null
+			begin
+				UPDATE Pedido
+				SET EstadoPedido = @idPedidoAnulado 
+				where IdPedido = @idPedidoOrden
+			end
 
 		END
 

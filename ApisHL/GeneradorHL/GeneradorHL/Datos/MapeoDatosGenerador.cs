@@ -6,7 +6,7 @@ using System.Data;
 namespace GeneradorHL.Datos;
 public interface IMapeoDatosGenerador
 {
-	ClienteEtiquetas ObtenerNombre(int id, string codBarra);
+	ClienteEtiquetas ObtenerNombre(int id, string codBarra, int IdMuestra);
 }
 
 public class MapeoDatosGenerador: IMapeoDatosGenerador
@@ -34,15 +34,15 @@ public class MapeoDatosGenerador: IMapeoDatosGenerador
 
 	#region interfaces comunicacion
 
-	ClienteEtiquetas IMapeoDatosGenerador.ObtenerNombre(int id, string codBarra)
+	ClienteEtiquetas IMapeoDatosGenerador.ObtenerNombre(int id, string codBarra, int IdMuestra)
 	{
-		return ObtenerNombreCliente(id, codBarra);
+		return ObtenerNombreCliente(id, codBarra, IdMuestra);
 	}
 
 	#endregion
 
 	#region Métodos de consulta de la clase
-	private ClienteEtiquetas ObtenerNombreCliente(int id, string codBarra)
+	private ClienteEtiquetas ObtenerNombreCliente(int id, string codBarra, int IdMuestra)
 	{		
 		ClienteEtiquetas clienteEtiquetas = new();
 
@@ -61,7 +61,10 @@ public class MapeoDatosGenerador: IMapeoDatosGenerador
 				command.Parameters.Add("@i_codbarra", SqlDbType.VarChar);
 				command.Parameters["@i_codbarra"].Value = codBarra;
 
-				connection.Open();
+				command.Parameters.Add("@id_muestra", SqlDbType.Int);
+                command.Parameters["@id_muestra"].Value = IdMuestra;
+
+                connection.Open();
 
 				using (SqlDataAdapter adapter = new SqlDataAdapter(command))
 				{

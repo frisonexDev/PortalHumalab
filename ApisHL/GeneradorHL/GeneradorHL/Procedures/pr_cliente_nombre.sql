@@ -11,7 +11,8 @@
  *--------------------------------------------------------------------------*
  *						BITACORA DE MODIFICACIONES							*
  *	FECHA		AUTOR				RAZON									*
- *	DD/MM/YYYY	[Desarrollador]		Versión inicial							* 
+ *	03/12/2024	Jose Guarnizo      Se modifica para que busque por id de    *
+ *								   muestra									*
  *--------------------------------------------------------------------------*/
  IF NOT EXISTS (SELECT * FROM sys.procedures WHERE name = 'pr_cliente_nombre')	
 	EXEC('Create Procedure dbo.pr_cliente_nombre As')
@@ -20,7 +21,8 @@ GO
 ALTER PROCEDURE [dbo].[pr_cliente_nombre] (
 	@i_accion char(1),
 	@i_id int,
-	@i_codbarra varchar(100)
+	@i_codbarra varchar(100),
+	@id_muestra int = null
 )
 AS
 
@@ -50,6 +52,8 @@ BEGIN
 			   @i_idOrden = IdOrden
 		from Muestra
 		where CodigoBarra = @i_codbarra
+		and IdMuestra = @id_muestra
+		and Eliminado != 1
 
 		select pc.Nombres + ' ' + pc.Apellidos as Nombres, pc.Identificacion, mt.Nombre
 		from Paciente pc

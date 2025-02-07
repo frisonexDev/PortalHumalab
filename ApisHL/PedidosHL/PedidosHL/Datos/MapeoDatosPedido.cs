@@ -562,6 +562,9 @@ public class MapeoDatosPedido: IMapeoDatosPedido
 				command.Parameters.Add("@i_orden", SqlDbType.Int);
 				command.Parameters["@i_orden"].Value = (object)request.IdOrden! ?? DBNull.Value;
 
+				command.Parameters.Add("@i_idAsesor", SqlDbType.Int);
+				command.Parameters["@i_idAsesor"].Value = (object)request.IdAsesor! ?? DBNull.Value;
+
 				await connection.OpenAsync();
 
 				using (SqlDataAdapter adapter = new SqlDataAdapter(command))
@@ -1048,10 +1051,11 @@ public class MapeoDatosPedido: IMapeoDatosPedido
 			}
 			else
 			{
-				//apeMedico = string.Join(" ", nomApe, 0, Math.Max(1, nomApe.Length - 1));
-				apeMedico = string.Join(" ", nomApe, 0, 2);
-				//nomMedico = nomApe[nomApe.Length - 1];
-				if (nomApe.Length > 2)
+                //apeMedico = string.Join(" ", nomApe, 0, Math.Max(1, nomApe.Length - 1));
+                //apeMedico = string.Join(" ", nomApe, 0, 2);
+                apeMedico = string.Join(" ", nomApe.Take(2));
+                //nomMedico = nomApe[nomApe.Length - 1];
+                if (nomApe.Length > 2)
 				{
                     nomMedico = string.Join(" ", nomApe, 2, nomApe.Length - 3);
                 }

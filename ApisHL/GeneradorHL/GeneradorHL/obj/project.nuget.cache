@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t73NjJwH94PhbNFEzu9bt/5jPWvKuMaxEl8nU9PreAN/UMYORpE+rNHIGs4Yhkr9AiiKVomU+puULG4wb74O1w==",
+  "dgSpecHash": "ylL4hG3dgaHpw+UPbtMkrP5A2oJypw3ilUjilexrG+kYlqj4p2B1uWVf58uZMGoPgjT/lIZkJZd0M5kCDlAecg==",
   "success": true,
-  "projectFilePath": "C:\\MicrosHL_New\\GeneradorHL\\GeneradorHL\\GeneradorHL.csproj",
+  "projectFilePath": "C:\\HumalabGit\\ApisHL\\GeneradorHL\\GeneradorHL\\GeneradorHL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

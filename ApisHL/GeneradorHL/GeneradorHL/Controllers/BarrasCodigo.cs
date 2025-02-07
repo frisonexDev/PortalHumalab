@@ -42,13 +42,13 @@ namespace GeneradorHL.Controllers
 				{					
 					await Task.Factory.StartNew(() =>
 					{
-						clienteEtiquetas = mapeoDatosGenerador.ObtenerNombre(muestras.UsuarioCreacion.Value, muestras.CodigoBarra);
+						clienteEtiquetas = mapeoDatosGenerador.ObtenerNombre(muestras.UsuarioCreacion!.Value, muestras.CodigoBarra!, muestras.IdMuestra!.Value);
 					});
 
 					BarrasCodigo.Add(new CodigoBarrasPdf
 					{
 						Nombre = clienteEtiquetas.cliente,
-						Codigo = muestras.CodigoBarra,
+						Codigo = muestras.CodigoBarra!,
 						IdentiPaciente = clienteEtiquetas.identiPaciente,
 						NombrePaciente = clienteEtiquetas.nombrePaciente,
 						muestraGalileo = clienteEtiquetas.muestra

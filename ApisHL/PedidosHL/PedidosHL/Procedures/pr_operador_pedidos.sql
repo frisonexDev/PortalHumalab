@@ -16,6 +16,8 @@
 *   2024/09/24 José Guarnizo Cambios para agregar el nombre de lab      *
 *	2024/10/16 José Guarnizo Cambios para que valide en base al id del  *
 *							 cliente con el id del cliente tabla pedido *
+*   2025/01/20 José Guarnizo Se camvia a que siempre se actualice a ENV *
+*                            (esto aun por verificar y dar un seguimiento)*
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_operador_pedidos')	
 	EXEC('Create Procedure dbo.pr_operador_pedidos As')
@@ -205,7 +207,8 @@ UPDATE o
 SET Estado = CASE 	
 	WHEN Recolectadas = TotalMuestras THEN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoOrden AND Valor = 'ENV')	
 	WHEN Recolectadas > 0 AND Recolectadas < TotalMuestras THEN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoOrden AND Valor = 'ENVP')
-	ELSE (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoOrden AND Valor = 'PREC')
+	--ELSE (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoOrden AND Valor = 'PREC')
+	ELSE (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoOrden AND Valor = 'ENV') --actualiza si o si la orden a enviado
 END
 FROM Orden o INNER JOIN #TEMP1 t ON o.IdOrden = t.IdOrden AND Estado <> (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoOrden AND Valor = 'RCHZ' )
 

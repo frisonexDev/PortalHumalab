@@ -29,4 +29,7 @@ public class BuscarOrdenLaboratoristaRequest
 
 	[JsonProperty("IdOrden")]
 	public int? IdOrden { get; set; }
+
+    [JsonProperty("IdAsesor")]
+    public int? IdAsesor { get; set; }
 }

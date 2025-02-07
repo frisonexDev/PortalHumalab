@@ -2826,11 +2826,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MicrosHL_New\\GeneradorHL\\GeneradorHL\\GeneradorHL.csproj",
+      "projectUniqueName": "C:\\HumalabGit\\ApisHL\\GeneradorHL\\GeneradorHL\\GeneradorHL.csproj",
       "projectName": "GeneradorHL",
-      "projectPath": "C:\\MicrosHL_New\\GeneradorHL\\GeneradorHL\\GeneradorHL.csproj",
+      "projectPath": "C:\\HumalabGit\\ApisHL\\GeneradorHL\\GeneradorHL\\GeneradorHL.csproj",
       "packagesPath": "C:\\Users\\Brenda Jimenez\\.nuget\\packages\\",
-      "outputPath": "C:\\MicrosHL_New\\GeneradorHL\\GeneradorHL\\obj\\",
+      "outputPath": "C:\\HumalabGit\\ApisHL\\GeneradorHL\\GeneradorHL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

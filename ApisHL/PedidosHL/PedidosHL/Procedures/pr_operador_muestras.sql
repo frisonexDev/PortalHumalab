@@ -9,7 +9,8 @@
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
 *	FECHA AUTOR RAZON													*
-*						                                                *
+*	29/01/2025 José Guarnizo Se comenta para que no se actualice el     *
+*							 precio de la prueba a 0.00. 			    *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_operador_muestras')	
 	EXEC('Create Procedure dbo.pr_operador_muestras As')
@@ -150,7 +151,7 @@ BEGIN
 	IF(@i_es_operador = 1)
 	BEGIN
 		UPDATE p
-		SET Estado = CASE WHEN (@id_estado_muestra = 'RCHO' OR @id_estado_muestra = 'RCHL') THEN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPrue AND Valor = 'RCHZ')
+		SET Estado = CASE WHEN (@id_estado_muestra = 'RCHO' OR @id_estado_muestra = 'RCHL') THEN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPrue AND Valor = 'RCHZ')		
 		WHEN (@id_estado_muestra = 'PREC') THEN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPrue AND Valor = 'GENE')
 		WHEN (@id_estado_muestra = 'RECB') THEN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPrue AND Valor = 'PPRC')
 		WHEN (@id_estado_muestra = 'RECT') THEN (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPrue AND Valor = 'RECT')
@@ -160,6 +161,12 @@ BEGIN
 		,p.FechaModificacion = @fecha_actual
 		FROM dbo.Prueba p INNER JOIN dbo.PruebaMuestra pm ON p.IdPrueba = pm.IdPrueba
 		WHERE pm.IdMuestra = @i_id_prueba_muestra
+
+		--UPDATE p
+		--SET Precio = 0.00
+		--FROM dbo.Prueba p 
+		--INNER JOIN dbo.PruebaMuestra pm ON p.IdPrueba = pm.IdPrueba
+		--WHERE pm.IdMuestra = @i_id_prueba_muestra	
 	END
 	ELSE
 	BEGIN
@@ -193,7 +200,8 @@ BEGIN
 				,[FechaModificacion] = @fecha_actual
 				,Eliminado = 0
 			WHERE IdMuestra = @i_id_prueba_muestra
-				AND UsuarioCreacion = @i_usuario_operador AND COALESCE(Eliminado,0) = 0
+				AND UsuarioCreacion = @i_usuario_operador AND COALESCE(Eliminado,0) = 0								
+
 		END
 		ELSE
 		BEGIN

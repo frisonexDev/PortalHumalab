@@ -9,8 +9,9 @@
 *	                                                                    *
 *----------------------------------------------------------------------	*
 *					BITACORA DE MODIFICACIONES							*
-*	FECHA AUTOR RAZON													*
-*						                                                *
+* FECHA AUTOR RAZON													    *
+* 2024/12/10 José Guarnizo Se modifica para que no se actualice 	    *
+*						   el pediddo cuando ya haya sido enviado o no  *
 *----------------------------------------------------------------------	*/
 IF NOT EXISTS (SELECT * FROM  sys.procedures WHERE NAME = 'pr_operador_pedidosActu')	
 	EXEC('Create Procedure dbo.pr_operador_pedidosActu As')
@@ -81,6 +82,17 @@ and Valor = 'PREC'
 select @idDniCliente = Identificacion
 from Cliente
 where IdOperadorLogistico = @i_operador_logistico
+
+--pedido enviado total o parcial
+select @idEnvTotal = IdCatalogoDetalle
+from CatalogoDetalle
+where IdCatalogoMaestro = @i_idEstadoPedi
+and Valor = 'ENV'
+
+select @idEnvParcial = IdCatalogoDetalle
+from CatalogoDetalle
+where IdCatalogoMaestro = @i_idEstadoPedi
+and Valor = 'ENVP'
 
 
 IF @i_accion = 'M'
@@ -199,16 +211,25 @@ begin
 		IF @muestras_totales != 0 AND @muestras_aceptadas = 0
 		BEGIN			
 			SET @estado_pedido = (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi AND Valor = 'PREC')
-				
-			--actualiza el pedido a por recolectar
-			update Pedido
-			set EstadoPedido = @estado_pedido,
-				UsuarioModificacion = @i_operador_logistico,
-				FechaModificacion = GETDATE()
+			
+			--seleciona el estado actual del pedido
+			select @idPedidoFinal = EstadoPedido
+			from Pedido
 			where IdPedido = @i_idPedido
-			and Eliminado != 1
+			AND IdOperador = @i_operador_logistico
 
-			SELECT '00' as Resultado
+			if @idEnvTotal != @idPedidoFinal and @idEnvParcial != @idPedidoFinal
+			begin
+				--actualiza el pedido a por recolectar
+				update Pedido
+				set EstadoPedido = @estado_pedido,
+					UsuarioModificacion = @i_operador_logistico,
+					FechaModificacion = GETDATE()
+				where IdPedido = @i_idPedido
+				and Eliminado != 1
+
+				SELECT '00' as Resultado
+			end
 
 		END		
 		else
@@ -218,29 +239,53 @@ begin
 			BEGIN
 				SET @estado_pedido = (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi AND Valor = 'RCTL')
 
-				--Actualiza el pedido a recolectado o recolectado parcial
-				update Pedido
-				set EstadoPedido = @estado_pedido,
-					UsuarioModificacion = @i_operador_logistico,
-					FechaModificacion = GETDATE()
+				--seleciona el estado actual del pedido
+				select @idPedidoFinal = EstadoPedido
+				from Pedido
 				where IdPedido = @i_idPedido
-				and Eliminado != 1
+				AND IdOperador = @i_operador_logistico
 
-				SELECT '00' as Resultado
+				--veririfica si el pedido esta enviado sea total o parcial
+				--y direfente del estado del pedido actualiza
+				--caso contrario no actualiza el pedido porque ya fue enviado
+
+				if @idEnvTotal != @idPedidoFinal and @idEnvParcial != @idPedidoFinal
+				begin
+					--Actualiza el pedido a recolectado o recolectado parcial
+					update Pedido
+					set EstadoPedido = @estado_pedido,
+						UsuarioModificacion = @i_operador_logistico,
+						FechaModificacion = GETDATE()
+					where IdPedido = @i_idPedido
+					and Eliminado != 1
+
+					SELECT '00' as Resultado
+				end
+
 			END
 			ELSE
 			BEGIN
 				SET @estado_pedido = (SELECT IdCatalogoDetalle FROM CatalogoDetalle WHERE IdCatalogoMaestro = @i_idEstadoPedi AND Valor = 'RCPC')
 
-				--Actualiza el pedido a recolectado o recolectado parcial
-				update Pedido
-				set EstadoPedido = @estado_pedido,
-					UsuarioModificacion = @i_operador_logistico,
-					FechaModificacion = GETDATE()
+				--seleciona el estado actual del pedido
+				select @idPedidoFinal = EstadoPedido
+				from Pedido
 				where IdPedido = @i_idPedido
-				and Eliminado != 1
+				AND IdOperador = @i_operador_logistico
 
-				SELECT '00' as Resultado
+				if @idEnvTotal != @idPedidoFinal and @idEnvParcial != @idPedidoFinal
+				begin
+					--Actualiza el pedido a recolectado o recolectado parcial
+					update Pedido
+					set EstadoPedido = @estado_pedido,
+						UsuarioModificacion = @i_operador_logistico,
+						FechaModificacion = GETDATE()
+					where IdPedido = @i_idPedido
+					and Eliminado != 1
+
+					SELECT '00' as Resultado
+				end
+				
 			END						
 		end
 	end

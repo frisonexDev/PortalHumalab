@@ -24,4 +24,7 @@ public class CodigoBarrasResquest
 
 	[JsonProperty("FechaCreacion")]
 	public DateTime FechaCreacion { get; set; } = DateTime.Now;
+
+    [JsonProperty("IdMuestra")]
+    public int? IdMuestra { get; set; }
 }

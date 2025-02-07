@@ -255,6 +255,7 @@ BEGIN
 		select @base64 = ResultadoFinal
 		from Orden
 		where CodigoBarra = @codigoBarraHuma
+		and Eliminado != 1
 
 		select @base64 as resultado
 
