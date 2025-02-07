@@ -2004,7 +2004,7 @@
                                    "IdMetodo":1,
                                    "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"DYF021",
-                                   "AbreviaturaExamen":"",
+                                   "AbreviaturaExamen":"ETOH",
                                    "NombreExamen":"ALCOHOL ETILICO EN SANGRE",
                                    "Genero":"A",
                                    "EdadMinima":0,
@@ -2544,6 +2544,157 @@
                                    "MuestraAdicional":null,
                                    "CostoPrueba":4.12,
                                     "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":560,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":22,
+                                   "NombreMuestra":"Orina espontánea / Frasco para orina",
+                                   "IdArea":7,
+                                   "IdMetodo":45,
+                                   "NombreMetodo":"Inmunocromatografía",
+                                   "CodigoExamen":"DYF019",
+                                   "AbreviaturaExamen":"P12D",
+                                   "NombreExamen":"PANEL DE 12 DROGAS EN  ORINA",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":0,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":560,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":21.00,
+                                    "ExamenPerfil":[{
+                             "IdExamen":301,
+                             "NombreExamen":"COCAINA (COC) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF005",
+                             "AbreviaturaExamen":"COCU"
+                          }
+                    ,{
+                             "IdExamen":306,
+                             "NombreExamen":"ANFETAMINAS (AMP) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF011",
+                             "AbreviaturaExamen":"AMPU"
+                          }
+                    ,{
+                             "IdExamen":303,
+                             "NombreExamen":"METANFETAMINAS (MET) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF007",
+                             "AbreviaturaExamen":"METU"
+                          }
+                    ,{
+                             "IdExamen":302,
+                             "NombreExamen":"MARIHUANA (THC-TETRAHIDROCANBINOL) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF006",
+                             "AbreviaturaExamen":"THCU"
+                          }
+                    ,{
+                             "IdExamen":309,
+                             "NombreExamen":"METADONA (MTD) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF014",
+                             "AbreviaturaExamen":"MTDU"
+                          }
+                    ,{
+                             "IdExamen":304,
+                             "NombreExamen":"EXTASIS (MDMA-METILDIOXOMETANFETAMINA) EN ORINA ",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF008",
+                             "AbreviaturaExamen":"MDMAU"
+                          }
+                    ,{
+                             "IdExamen":305,
+                             "NombreExamen":"MORFINA (MOP) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF009",
+                             "AbreviaturaExamen":"MOP"
+                          }
+                    ,{
+                             "IdExamen":1042,
+                             "NombreExamen":"OPIACEOS (OPI) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF019",
+                             "AbreviaturaExamen":"OPIU"
+                          }
+                    ,{
+                             "IdExamen":310,
+                             "NombreExamen":"FENCICLIDINA (PCP) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF015",
+                             "AbreviaturaExamen":"FEND"
+                          }
+                    ,{
+                             "IdExamen":307,
+                             "NombreExamen":"BARBITURICOS (BARB) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF012",
+                             "AbreviaturaExamen":"BARU"
+                          }
+                    ,{
+                             "IdExamen":308,
+                             "NombreExamen":"BENZODIAZEPINAS (BZO) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF013",
+                             "AbreviaturaExamen":"BZO"
+                          }
+                    ,{
+                             "IdExamen":311,
+                             "NombreExamen":"ANTIDEPRESIVOS TRICICLICOS (TCA) EN ORINA",
+                             "IdMuestra":22,
+                             "NombreMuestra":"Orina espontánea / Frasco para orina",
+                             "CodigoExamen":"DYF016",
+                             "AbreviaturaExamen":"TCA"
+                          }
+                    
                                ],
                                 "ValorReferencia":[
                                   {
@@ -14052,51 +14203,51 @@
                                    "CostoPrueba":13.75,
                                     "ExamenPerfil":[{
                              "IdExamen":301,
-                             "NombreExamen":"COCAINA EN ORINA",
+                             "NombreExamen":"COCAINA (COC) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF005",
-                             "AbreviaturaExamen":"COCO"
+                             "AbreviaturaExamen":"COCU"
                           }
                     ,{
                              "IdExamen":302,
-                             "NombreExamen":"MARIHUANA (TETRAHIDROCANBINOL) EN ORINA",
+                             "NombreExamen":"MARIHUANA (THC-TETRAHIDROCANBINOL) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF006",
-                             "AbreviaturaExamen":"MRHO"
+                             "AbreviaturaExamen":"THCU"
                           }
                     ,{
                              "IdExamen":303,
-                             "NombreExamen":"METANFETAMINAS EN ORINA",
+                             "NombreExamen":"METANFETAMINAS (MET) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF007",
-                             "AbreviaturaExamen":"METO"
+                             "AbreviaturaExamen":"METU"
                           }
                     ,{
                              "IdExamen":305,
-                             "NombreExamen":"MORFINA (OPIACEOS) EN ORINA",
+                             "NombreExamen":"MORFINA (MOP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF009",
-                             "AbreviaturaExamen":"MORO"
+                             "AbreviaturaExamen":"MOP"
                           }
                     ,{
                              "IdExamen":306,
-                             "NombreExamen":"ANFETAMINAS EN ORINA",
+                             "NombreExamen":"ANFETAMINAS (AMP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF011",
-                             "AbreviaturaExamen":"ANFD"
+                             "AbreviaturaExamen":"AMPU"
                           }
                     ,{
                              "IdExamen":308,
-                             "NombreExamen":"BENZODIAZEPINAS EN ORINA",
+                             "NombreExamen":"BENZODIAZEPINAS (BZO) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF013",
-                             "AbreviaturaExamen":"BEND"
+                             "AbreviaturaExamen":"BZO"
                           }
                     
                                ],
@@ -14155,79 +14306,79 @@
                                    "CostoPrueba":17.75,
                                     "ExamenPerfil":[{
                              "IdExamen":301,
-                             "NombreExamen":"COCAINA EN ORINA",
+                             "NombreExamen":"COCAINA (COC) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF005",
-                             "AbreviaturaExamen":"COCO"
+                             "AbreviaturaExamen":"COCU"
                           }
                     ,{
                              "IdExamen":302,
-                             "NombreExamen":"MARIHUANA (TETRAHIDROCANBINOL) EN ORINA",
+                             "NombreExamen":"MARIHUANA (THC-TETRAHIDROCANBINOL) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF006",
-                             "AbreviaturaExamen":"MRHO"
+                             "AbreviaturaExamen":"THCU"
                           }
                     ,{
                              "IdExamen":303,
-                             "NombreExamen":"METANFETAMINAS EN ORINA",
+                             "NombreExamen":"METANFETAMINAS (MET) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF007",
-                             "AbreviaturaExamen":"METO"
+                             "AbreviaturaExamen":"METU"
                           }
                     ,{
                              "IdExamen":304,
-                             "NombreExamen":"EXTASIS (METILDIOXOMETANFETAMINA) EN ORINA ",
+                             "NombreExamen":"EXTASIS (MDMA-METILDIOXOMETANFETAMINA) EN ORINA ",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF008",
-                             "AbreviaturaExamen":"EXTO"
+                             "AbreviaturaExamen":"MDMAU"
                           }
                     ,{
                              "IdExamen":305,
-                             "NombreExamen":"MORFINA (OPIACEOS) EN ORINA",
+                             "NombreExamen":"MORFINA (MOP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF009",
-                             "AbreviaturaExamen":"MORO"
+                             "AbreviaturaExamen":"MOP"
                           }
                     ,{
                              "IdExamen":306,
-                             "NombreExamen":"ANFETAMINAS EN ORINA",
+                             "NombreExamen":"ANFETAMINAS (AMP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF011",
-                             "AbreviaturaExamen":"ANFD"
+                             "AbreviaturaExamen":"AMPU"
                           }
                     ,{
                              "IdExamen":307,
-                             "NombreExamen":"BARBITURICOS EN ORINA",
+                             "NombreExamen":"BARBITURICOS (BARB) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF012",
-                             "AbreviaturaExamen":"BARD"
+                             "AbreviaturaExamen":"BARU"
                           }
                     ,{
                              "IdExamen":308,
-                             "NombreExamen":"BENZODIAZEPINAS EN ORINA",
+                             "NombreExamen":"BENZODIAZEPINAS (BZO) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF013",
-                             "AbreviaturaExamen":"BEND"
+                             "AbreviaturaExamen":"BZO"
                           }
                     ,{
                              "IdExamen":309,
-                             "NombreExamen":"METADONA EN ORINA",
+                             "NombreExamen":"METADONA (MTD) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF014",
-                             "AbreviaturaExamen":"METD"
+                             "AbreviaturaExamen":"MTDU"
                           }
                     ,{
                              "IdExamen":310,
-                             "NombreExamen":"FENCICLIDINA EN ORINA",
+                             "NombreExamen":"FENCICLIDINA (PCP) EN ORINA",
                              "IdMuestra":22,
                              "NombreMuestra":"Orina espontánea / Frasco para orina",
                              "CodigoExamen":"DYF015",
@@ -27438,8 +27589,8 @@
                                    "IdMuestra":35,
                                    "NombreMuestra":"Suero / Tubo Amarillo",
                                    "IdArea":2,
-                                   "IdMetodo":3,
-                                   "NombreMetodo":"ELISA",
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"MOL013",
                                    "AbreviaturaExamen":"HVCC",
                                    "NombreExamen":"HEPATITIS C, RNA CARGA VIRAL",
@@ -27464,12 +27615,36 @@
                                    "DeltaMax":0.0,
                                    "ComentarioFijo":null,
                                    "ComentarioImpresion":null,
-                                   "Activo":false,
+                                   "Activo":true,
                                    "DescripcionAnalito":null,
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
-                                   "CostoPrueba":125.00,
-                                    "ExamenPerfil":[
+                                   "CostoPrueba":172.50,
+                                    "ExamenPerfil":[{
+                             "IdExamen":1043,
+                             "NombreExamen":"HEPATITIS C, Detección de RNA viral",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL013",
+                             "AbreviaturaExamen":"HCVCV"
+                          }
+                    ,{
+                             "IdExamen":1044,
+                             "NombreExamen":"Carga Viral Hepatitis C (HCV RT-PCR)",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL013",
+                             "AbreviaturaExamen":""
+                          }
+                    ,{
+                             "IdExamen":1045,
+                             "NombreExamen":"LOG(10) ",
+                             "IdMuestra":35,
+                             "NombreMuestra":"Suero / Tubo Amarillo",
+                             "CodigoExamen":"MOL013",
+                             "AbreviaturaExamen":""
+                          }
+                    
                                ],
                                 "ValorReferencia":[
                                   {
@@ -28914,14 +29089,14 @@
                                    "IdExamen":420,
                                    "IdUnidad":0,
                                    "IdLaboratorio":0,
-                                   "IdMuestra":35,
-                                   "NombreMuestra":"Suero / Tubo Amarillo",
+                                   "IdMuestra":30,
+                                   "NombreMuestra":"Sangre entera con EDTA / Tubo tapa lila",
                                    "IdArea":2,
-                                   "IdMetodo":3,
-                                   "NombreMetodo":"ELISA",
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
                                    "CodigoExamen":"MOL040",
                                    "AbreviaturaExamen":"HIVC",
-                                   "NombreExamen":"VIH 1 EN PLASMA, RNA CARGA VIRAL",
+                                   "NombreExamen":"VIH 1 CARGA VIRAL Y DETECCION (RNA PCR)",
                                    "Genero":"A",
                                    "EdadMinima":0,
                                    "EdadMaxima":0,
@@ -28943,7 +29118,7 @@
                                    "DeltaMax":0.0,
                                    "ComentarioFijo":null,
                                    "ComentarioImpresion":null,
-                                   "Activo":false,
+                                   "Activo":true,
                                    "DescripcionAnalito":null,
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
@@ -35617,6 +35792,61 @@
                                    "EntregaResultado":null,
                                    "MuestraAdicional":null,
                                    "CostoPrueba":8.50,
+                                    "ExamenPerfil":[
+                               ],
+                                "ValorReferencia":[
+                                  {
+                                     "TiempoMin":0,
+                                     "TiempoMax":0,
+                                     "UnidadTiempo":null,
+                                     "Genero":null,
+                                     "RefMaxima":0.00,
+                                     "RefMinima":0.0,
+                                     "PanMinima":0.00,
+                                     "PanMaxima":0.00,
+                                     "Observaciones":null
+                                  }
+                               ],
+                               "Correlacionados":[
+                               ]
+                            },{
+                                   "IdExamen":561,
+                                   "IdUnidad":0,
+                                   "IdLaboratorio":0,
+                                   "IdMuestra":30,
+                                   "NombreMuestra":"Sangre entera con EDTA / Tubo tapa lila",
+                                   "IdArea":21,
+                                   "IdMetodo":1,
+                                   "NombreMetodo":"Método Standar",
+                                   "CodigoExamen":"CT001",
+                                   "AbreviaturaExamen":"CD348",
+                                   "NombreExamen":"LINFOCITOS T (CD3,CD4,CD8)",
+                                   "Genero":"A",
+                                   "EdadMinima":0,
+                                   "EdadMaxima":0,
+                                   "NumeroDecimales":2,
+                                   "Formula":null,
+                                   "AplicaFormula":false,
+                                   "Autovalidacion":"Manual",
+                                   "DiasProceso":3,
+                                   "MinMinResultadoEmergencia":0,
+                                   "MinMinResultadoRutina":60,
+                                   "TipoResultado":"N",
+                                   "AplicaSLA":false,
+                                   "EsMicrobiologia":false,
+                                   "EsPerfil":false,
+                                   "EsConfidencial":false,
+                                   "Orden":561,
+                                   "DeltaDias":0,
+                                   "DeltaMin":0.0,
+                                   "DeltaMax":0.0,
+                                   "ComentarioFijo":null,
+                                   "ComentarioImpresion":null,
+                                   "Activo":true,
+                                   "DescripcionAnalito":null,
+                                   "EntregaResultado":null,
+                                   "MuestraAdicional":null,
+                                   "CostoPrueba":0.00,
                                     "ExamenPerfil":[
                                ],
                                 "ValorReferencia":[

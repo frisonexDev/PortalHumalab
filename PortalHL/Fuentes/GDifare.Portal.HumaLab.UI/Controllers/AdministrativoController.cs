@@ -525,6 +525,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             {
                 return result;
             }
+
         }
 
         public string ObtenerPDFAdmin(int IdOrden)
@@ -540,6 +541,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             //string etiquetas = gestionarPDF.MuestrasEtiquetas(lista);
 
             return etiquetas;
+
         }
 
         public int EliminarPruebasAdmin(Pruebas prueba)
@@ -555,6 +557,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             {
                 return result;
             }
+
         }
 
         public string PDFResultadosNuevoAdmin(string CodigoBarra)
@@ -569,6 +572,7 @@ namespace GDifare.Portales.HumaLab.UI.Controllers
             {
                 return "01";
             }
+
         }
 
     }
